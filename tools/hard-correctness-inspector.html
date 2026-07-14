@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hard Correctness Inspector - Zero1Matrix</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Hard Correctness</div>
+    <div class="subtitle">Zero1Matrix 卦象硬正確檢查</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html" class="active">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h1>Hard Correctness Report</h1>
+      <button id="run">Run Check</button>
+      <pre id="report"></pre>
+    </section>
+  </main>
+
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/dictionaryQualityRules.data.js"></script>
+
+  <script>
+    const bottomUpTrigramMap = {
+      "000": "坤",
+      "001": "艮",
+      "010": "坎",
+      "011": "巽",
+      "100": "震",
+      "101": "離",
+      "110": "兌",
+      "111": "乾"
+    };
+
+    function trigram(lines3) {
+      return bottomUpTrigramMap[lines3.join("")];
+    }
+
+    function runCheck() {
+      const H = window.Zero1MatrixData.hexagrams || [];
+      const seen = new Map();
+      const duplicates = [];
+      const upperLowerMismatches = [];
+      const missing = [];
+
+      for (const h of H) {
+        if (!Array.isArray(h.lines) || h.lines.length !== 6) {
+          missing.push({ id: h.id, name: h.name, problem: "lines missing or not length 6" });
+          continue;
+        }
+
+        const pattern = h.lines.join("");
+        if (seen.has(pattern)) {
+          duplicates.push({
+            pattern,
+            first: seen.get(pattern),
+            second: { id: h.id, name: h.name }
+          });
+        } else {
+          seen.set(pattern, { id: h.id, name: h.name });
+        }
+
+        const lower = trigram(h.lines.slice(0, 3));
+        const upper = trigram(h.lines.slice(3, 6));
+
+        if (h.lower && h.lower !== lower) {
+          upperLowerMismatches.push({ id: h.id, name: h.name, field: "lower", expected: lower, actual: h.lower, lines: h.lines });
+        }
+        if (h.upper && h.upper !== upper) {
+          upperLowerMismatches.push({ id: h.id, name: h.name, field: "upper", expected: upper, actual: h.upper, lines: h.lines });
+        }
+      }
+
+      const report = {
+        hexagrams: `${H.length}/64`,
+        uniqueLinePatterns: `${seen.size}/64`,
+        duplicates,
+        upperLowerMismatches,
+        missing,
+        bottomUpTrigramMap,
+        status: (H.length === 64 && seen.size === 64 && duplicates.length === 0 && upperLowerMismatches.length === 0 && missing.length === 0) ? "PASS" : "FAIL"
+      };
+
+      return report;
+    }
+
+    document.getElementById("run").addEventListener("click", () => {
+      document.getElementById("report").textContent = JSON.stringify(runCheck(), null, 2);
+    });
+  </script>
+</body>
+</html>

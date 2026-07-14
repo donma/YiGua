@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Data Inspector - 易卦</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    .coverage-bar { height: 20px; border-radius: 10px; background: var(--line); overflow: hidden; margin: 4px 0 8px; }
+    .coverage-fill { height: 100%; border-radius: 10px; transition: width .4s; }
+    .coverage-fill.good { background: #4a8; }
+    .coverage-fill.warn { background: #ca8; }
+    .coverage-fill.bad { background: var(--red); }
+    .issue { padding: 8px 12px; margin: 4px 0; border-radius: 8px; background: var(--panel2); border-left: 4px solid var(--red); font-size: 14px; }
+    .issue.warn { border-left-color: #ca8; }
+    .issue.ok { border-left-color: #4a8; }
+    .stat { display: inline-block; padding: 4px 12px; margin: 4px; border-radius: 8px; background: var(--panel2); font-size: 14px; }
+    .stat .num { color: var(--gold); font-weight: 600; font-size: 18px; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Data Inspector</div>
+    <div class="subtitle">易卦 本機驗證工具 — 詞庫完整度檢查</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/hexagram-tester.html">Hexagram Tester</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html" class="active">Data Inspector</a>
+      <a href="../tools/score-tester.html">Score Tester</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Data Inspector</h1>
+      <p>檢查詞庫完整度：缺漏欄位、重複 id、未填 basis、coverage 與 needsExpansion 狀態。</p>
+      <div class="controls" style="margin-top:12px">
+        <button id="inspectAll">完整檢查</button>
+        <button id="inspectCoverage" class="secondary">Coverage 總覽</button>
+        <button id="inspectFields" class="secondary">欄位檢查</button>
+        <button id="inspectDuplicates" class="secondary">重複檢查</button>
+      </div>
+    </section>
+
+    <div class="tabs" style="margin-top:16px">
+      <div class="tab active" data-tab="tab-coverage">Coverage 總覽</div>
+      <div class="tab" data-tab="tab-hexagrams">64 卦</div>
+      <div class="tab" data-tab="tab-lines">384 爻</div>
+      <div class="tab" data-tab="tab-categories">64×12 分類</div>
+      <div class="tab" data-tab="tab-pairs">4096 配對</div>
+    </div>
+
+    <div id="tab-coverage" class="tab-content active">
+      <section class="card" id="coverageSummary"><span class="muted">執行檢查後顯示</span></section>
+    </div>
+    <div id="tab-hexagrams" class="tab-content">
+      <section class="card" id="hexIssues"><span class="muted">執行檢查後顯示</span></section>
+    </div>
+    <div id="tab-lines" class="tab-content">
+      <section class="card" id="lineIssues"><span class="muted">執行檢查後顯示</span></section>
+    </div>
+    <div id="tab-categories" class="tab-content">
+      <section class="card" id="catIssues"><span class="muted">執行檢查後顯示</span></section>
+    </div>
+    <div id="tab-pairs" class="tab-content">
+      <section class="card" id="pairIssues"><span class="muted">執行檢查後顯示</span></section>
+    </div>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/data/templates.data.js"></script>
+  <script src="../src/data/reflectionQuestions.data.js"></script>
+  <script src="../src/data/actionSuggestions.data.js"></script>
+  <script src="../src/data/riskWarnings.data.js"></script>
+  <script src="../src/data/dictionaryQualityRules.data.js"></script>
+  <script>
+    const D = window.Zero1MatrixData;
+
+    function coverageBar(current, target) {
+      const pct = Math.min(100, Math.round(current / target * 100));
+      const cls = pct >= 100 ? "good" : pct >= 80 ? "warn" : "bad";
+      return `<div class="coverage-bar"><div class="coverage-fill ${cls}" style="width:${pct}%"></div></div>
+        <span class="text-sm muted">${current}/${target} (${pct}%)</span>`;
+    }
+
+    function checkDuplicates(data, idFn, label) {
+      const seen = {};
+      const dups = [];
+      data.forEach((item, idx) => {
+        const id = idFn(item);
+        if (seen[id] !== undefined) dups.push({ id, idx1: seen[id], idx2: idx });
+        seen[id] = id;
+      });
+      if (dups.length === 0) {
+        return `<div class="issue ok">✓ ${label}：無重複 id</div>`;
+      }
+      return dups.map(d => `<div class="issue">✗ ${label}：重複 id "${d.id}" 在索引 ${d.idx1} 和 ${d.idx2}</div>`).join("");
+    }
+
+    function checkMissingFields(data, requiredFields, label) {
+      const issues = [];
+      data.forEach((item, idx) => {
+        requiredFields.forEach(f => {
+          if (item[f] === undefined || item[f] === null || item[f] === "") {
+            issues.push({ idx, field: f, id: item.id || `idx-${idx}` });
+          }
+        });
+      });
+      if (issues.length === 0) {
+        return `<div class="issue ok">✓ ${label}：所有必填欄位完整</div>`;
+      }
+      return issues.slice(0, 20).map(i => `<div class="issue">✗ ${label} #${i.id} 缺少欄位 "${i.field}"</div>`).join("")
+        + (issues.length > 20 ? `<div class="issue warn">...還有 ${issues.length - 20} 筆缺漏</div>` : "");
+    }
+
+    function checkNeedsExpansion(data, label) {
+      const needs = data.filter(d => d.needsExpansion === true);
+      if (needs.length === 0) {
+        return `<div class="issue ok">✓ ${label}：無待擴寫標記</div>`;
+      }
+      return `<div class="issue ${needs.length > data.length * 0.5 ? '' : 'warn'}">${needs.length}/${data.length} 筆標記 needsExpansion: true</div>`;
+    }
+
+    function checkBasis(data, label) {
+      const missing = data.filter(d => !d.basis || (Array.isArray(d.basis) && d.basis.length === 0));
+      if (missing.length === 0) {
+        return `<div class="issue ok">✓ ${label}：所有資料都有 basis</div>`;
+      }
+      return `<div class="issue">${missing.length}/${data.length} 筆缺少 basis 欄位</div>`;
+    }
+
+    function inspectAll() {
+      inspectCoverage();
+      inspectFields();
+      inspectDuplicates();
+    }
+
+    function inspectCoverage() {
+      const hexCount = D.hexagrams ? D.hexagrams.length : 0;
+      const lineCount = D.lines ? D.lines.length : 0;
+      const catCount = D.categoryInterpretations ? D.categoryInterpretations.length : 0;
+      const lineCatCount = D.lineCategoryInterpretations ? D.lineCategoryInterpretations.length : 0;
+      const pairCount = D.pairInterpretations ? D.pairInterpretations.length : 0;
+      const actionCount = D.actionSuggestions ? D.actionSuggestions.length : 0;
+      const riskCount = D.riskWarnings ? D.riskWarnings.length : 0;
+      const refCount = D.reflectionQuestions ? D.reflectionQuestions.length : 0;
+      const tplCount = D.templates ? D.templates.length : 0;
+
+      const lineNeeds = D.lines ? D.lines.filter(l => l.needsExpansion).length : 0;
+      const lineCatNeeds = D.lineCategoryInterpretations ? D.lineCategoryInterpretations.filter(l => l.needsExpansion).length : 0;
+      const catNeeds = D.categoryInterpretations ? D.categoryInterpretations.filter(c => c.needsHumanReview).length : 0;
+      const pairNeeds = D.pairInterpretations ? D.pairInterpretations.filter(p => p.needsExpansion).length : 0;
+
+      document.getElementById("coverageSummary").innerHTML = `
+        <h3>資料總覽</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+          <div class="stat"><span class="num">${hexCount}</span> / 64 <span class="muted">hexagrams</span>${coverageBar(hexCount, 64)}</div>
+          <div class="stat"><span class="num">${lineCount}</span> / 384 <span class="muted">lines</span>${coverageBar(lineCount, 384)}</div>
+          <div class="stat"><span class="num">${catCount}</span> / 768 <span class="muted">categoryInterpretations</span>${coverageBar(catCount, 768)}</div>
+          <div class="stat"><span class="num">${lineCatCount}</span> / 4608 <span class="muted">lineCategoryInterp</span>${coverageBar(lineCatCount, 4608)}</div>
+          <div class="stat"><span class="num">${pairCount}</span> / 4096 <span class="muted">pairInterpretations</span>${coverageBar(pairCount, 4096)}</div>
+          <div class="stat"><span class="num">${actionCount}</span> / 800 <span class="muted">actionSuggestions</span>${coverageBar(actionCount, 800)}</div>
+          <div class="stat"><span class="num">${riskCount}</span> / 500 <span class="muted">riskWarnings</span>${coverageBar(riskCount, 500)}</div>
+          <div class="stat"><span class="num">${refCount}</span> / 1500 <span class="muted">reflectionQuestions</span>${coverageBar(refCount, 1500)}</div>
+          <div class="stat"><span class="num">${tplCount}</span> / 1200 <span class="muted">templates</span>${coverageBar(tplCount, 1200)}</div>
+        </div>
+        <hr class="separator">
+        <h3>待擴寫資料</h3>
+        <div class="stat">${lineNeeds}/${lineCount} <span class="muted">爻辭 needsExpansion</span></div>
+        <div class="stat">${catNeeds}/${catCount} <span class="muted">分類解讀 needsHumanReview</span></div>
+        <div class="stat">${pairNeeds}/${pairCount} <span class="muted">變卦配對 needsExpansion</span></div>
+        <div class="stat">${lineCatNeeds}/${lineCatCount} <span class="muted">爻·分類解讀 needsExpansion</span></div>
+        <hr class="separator">
+        <h3>64 卦 × 12 類 Coverage</h3>
+        ${checkCategoryCoverage()}
+        <hr class="separator">
+        <h3>384 爻 × 12 類 Coverage</h3>
+        ${checkLineCategoryCoverage()}
+        <h3>4096 本卦變卦 Coverage</h3>
+        ${checkPairCoverage()}
+      `;
+    }
+
+    function checkLineCategoryCoverage() {
+      if (!D.lineCategoryInterpretations || !D.lineCategoryInterpretations.length) {
+        return '<p class="muted">尚無爻 × 分類解讀資料集</p>';
+      }
+      const count = D.lineCategoryInterpretations.length;
+      if (count >= 4608) {
+        return `<div class="issue ok">✓ 所有 384×12=4608 爻·分類組合都已覆蓋</div>`;
+      }
+      return `<div class="issue warn">${count}/4608 爻·分類組合已覆蓋</div>`;
+    }
+
+    function checkCategoryCoverage() {
+      const hexIds = new Set(D.hexagrams.map(h => h.id));
+      const catIds = new Set(D.categories.map(c => c.id));
+      const existing = {};
+      D.categoryInterpretations.forEach(ci => {
+        const key = `${ci.hexagramId}-${ci.category}`;
+        existing[key] = true;
+      });
+
+      const missing = [];
+      hexIds.forEach(hid => {
+        catIds.forEach(cid => {
+          if (!existing[`${hid}-${cid}`]) missing.push(`${hid}-${cid}`);
+        });
+      });
+
+      if (missing.length === 0) {
+        return `<div class="issue ok">✓ 所有 64×12=768 組合都已覆蓋</div>`;
+      }
+      return `<div class="issue ${missing.length > 100 ? '' : 'warn'}">✗ ${missing.length} 個 hex×category 組合缺漏</div>`;
+    }
+
+    function checkPairCoverage() {
+      const hexIds = D.hexagrams.map(h => h.id);
+      const existing = {};
+      D.pairInterpretations.forEach(p => {
+        existing[`${p.from}-${p.to}`] = true;
+      });
+
+      let missing = 0;
+      hexIds.forEach(from => {
+        hexIds.forEach(to => {
+          if (!existing[`${from}-${to}`]) missing++;
+        });
+      });
+
+      if (missing === 0) {
+        return `<div class="issue ok">✓ 所有 64×64=4096 配對組合都已覆蓋</div>`;
+      }
+      return `<div class="issue ${missing > 2000 ? '' : 'warn'}">✗ ${missing} 個 pair 組合缺漏</div>`;
+    }
+
+    function inspectFields() {
+      let html = "<h3>欄位完整性檢查</h3>";
+      html += checkMissingFields(D.hexagrams, ["id","key","name","fullName","lines","judgement","image","scores"], "hexagrams");
+      html += checkMissingFields(D.lines, ["id","hexagramId","line","position","text"], "lines");
+      html += checkMissingFields(D.categoryInterpretations, ["id","hexagramId","category","meaning","advice"], "categoryInterpretations");
+      html += checkMissingFields(D.lineCategoryInterpretations || [], ["id","hexagramId","line","category","meaning"], "lineCategoryInterpretations");
+      html += checkMissingFields(D.pairInterpretations, ["id","from","to","type","summary"], "pairInterpretations");
+      html += checkBasis(D.hexagrams, "hexagrams basis");
+      html += checkBasis(D.lines, "lines basis");
+      html += checkBasis(D.categoryInterpretations, "categoryInterpretations basis");
+      html += checkBasis(D.pairInterpretations, "pairInterpretations basis");
+      document.getElementById("hexIssues").innerHTML = html;
+    }
+
+    function inspectDuplicates() {
+      let html = "<h3>重複 id 檢查</h3>";
+      html += checkDuplicates(D.hexagrams, h => h.id, "hexagrams.id");
+      html += checkDuplicates(D.lines, l => l.id, "lines.id");
+      html += checkDuplicates(D.categoryInterpretations, c => c.id, "categoryInterpretations.id");
+      html += checkDuplicates(D.lineCategoryInterpretations || [], c => c.id, "lineCategoryInterpretations.id");
+      html += checkDuplicates(D.pairInterpretations, p => p.id, "pairInterpretations.id");
+      html += checkDuplicates(D.actionSuggestions || [], a => a.id, "actionSuggestions.id");
+      html += checkDuplicates(D.riskWarnings || [], r => r.id, "riskWarnings.id");
+      document.getElementById("hexIssues").innerHTML = html;
+
+      let lineHtml = "<h3>384 爻 needsExpansion 檢查</h3>";
+      lineHtml += checkNeedsExpansion(D.lines, "lines");
+      const expanded = D.lines.filter(l => !l.needsExpansion);
+      lineHtml += `<div class="issue ok">${expanded.length}/${D.lines.length} 筆爻辭已擴寫（needsExpansion: false）</div>`;
+      document.getElementById("lineIssues").innerHTML = lineHtml;
+
+      let catHtml = "<h3>64×12 分類 needsHumanReview 檢查</h3>";
+      catHtml += `<div class="issue warn">${D.categoryInterpretations.filter(c => c.needsHumanReview).length}/${D.categoryInterpretations.length} 筆標記 needsHumanReview</div>`;
+      const lcData = D.lineCategoryInterpretations || [];
+      catHtml += `<h3 style="margin-top:12px">384×12 爻分類 needsExpansion 檢查</h3>`;
+      catHtml += checkNeedsExpansion(lcData, "lineCategoryInterpretations");
+      document.getElementById("catIssues").innerHTML = catHtml;
+
+      let pairHtml = "<h3>4096 配對 needsExpansion 檢查</h3>";
+      pairHtml += checkNeedsExpansion(D.pairInterpretations, "pairInterpretations");
+      document.getElementById("pairIssues").innerHTML = pairHtml;
+
+      runForbiddenCheck();
+      runQualityCheck();
+    }
+
+    const rules = D.dictionaryQualityRules || {};
+    const forbiddenPhrases = rules.forbiddenTerms || [
+      "一定會", "必定", "必有災", "血光之災", "馬上辭職",
+      "必須分手", "保證成功", "保證失敗", "不用就醫",
+      "不用諮詢專業人士"
+    ];
+
+    const warningPhrases = rules.warningTerms || [];
+
+    function findForbiddenPhrases(records, label) {
+      if (!records || !records.length) return "";
+      const hits = [];
+      records.forEach(record => {
+        const text = JSON.stringify(record);
+        forbiddenPhrases.forEach(p => {
+          if (text.includes(p)) {
+            hits.push({ id: record.id || "?", phrase: p, label });
+          }
+        });
+      });
+      if (hits.length === 0) return "";
+      return hits.slice(0, 20).map(h => `<div class="issue">⚠ ${h.label} #${h.id} 含禁用詞「${h.phrase}」</div>`).join("")
+        + (hits.length > 20 ? `<div class="issue warn">...還有 ${hits.length - 20} 處禁用詞</div>` : "");
+    }
+
+    function findMissingBasis(records, label) {
+      if (!records || !records.length) return "";
+      const missing = records.filter(x => !x.basis || !x.basis.length);
+      if (missing.length === 0) return `<div class="issue ok">✓ ${label}：全部有 basis</div>`;
+      return `<div class="issue">✗ ${label}：${missing.length}/${records.length} 筆缺 basis</div>`;
+    }
+
+    function findShortFields(records, label) {
+      if (!records || !records.length) return "";
+      const short = records.filter(x => {
+        const m = x.meaning && x.meaning.length < 30;
+        const a = x.advice && x.advice.length < 20;
+        const w = x.warning && x.warning.length < 20;
+        return m || a || w;
+      });
+      if (short.length === 0) return `<div class="issue ok">✓ ${label}：內容長度達標</div>`;
+      return `<div class="issue">✗ ${label}：${short.length}/${records.length} 筆內容過短（meaning<30 或 advice<20 或 warning<20）</div>`;
+    }
+
+    function findRepeatedText(records, label) {
+      if (!records || !records.length) return "";
+      const textCount = {};
+      records.forEach(r => {
+        const t = (r.meaning || "") + (r.advice || "") + (r.summary || "");
+        if (t) textCount[t] = (textCount[t] || 0) + 1;
+      });
+      const repeated = Object.entries(textCount).filter(([,c]) => c > 20);
+      if (repeated.length === 0) return `<div class="issue ok">✓ ${label}：無過度重複文案</div>`;
+      return repeated.map(([txt, cnt]) => `<div class="issue">✗ ${label}：重複 ${cnt} 次：「${txt.substring(0, 60)}...」</div>`).join("");
+    }
+
+    function runForbiddenCheck() {
+      const allData = [
+        ...(D.hexagrams || []),
+        ...(D.lines || []),
+        ...(D.categoryInterpretations || []),
+        ...(D.lineCategoryInterpretations || []),
+        ...(D.pairInterpretations || []),
+        ...(D.templates || []),
+        ...(D.reflectionQuestions || []),
+        ...(D.actionSuggestions || []),
+        ...(D.riskWarnings || [])
+      ];
+      let html = "<h3>禁用詞檢查</h3>";
+      html += findForbiddenPhrases(allData, "全資料");
+      if (!html.includes("⚠")) html += `<div class="issue ok">✓ 全資料庫無禁用詞</div>`;
+      html += "<hr class='separator'><h3>缺 basis 檢查</h3>";
+      html += findMissingBasis(D.categoryInterpretations, "categoryInterpretations");
+      html += findMissingBasis(D.lineCategoryInterpretations || [], "lineCategoryInterpretations");
+      html += findMissingBasis(D.pairInterpretations, "pairInterpretations");
+      html += findMissingBasis(D.lines, "lines");
+      html += "<hr class='separator'><h3>內容長度檢查</h3>";
+      html += findShortFields(D.categoryInterpretations, "categoryInterpretations");
+      html += findShortFields(D.lineCategoryInterpretations || [], "lineCategoryInterpretations");
+      html += findShortFields(D.pairInterpretations, "pairInterpretations");
+      document.getElementById("pairIssues").innerHTML += `<div style="margin-top:16px">${html}</div>`;
+    }
+
+    function runQualityCheck() {
+      const rules = D.dictionaryQualityRules || {};
+      let html = "<h3>詞庫品質檢查 (dictionaryQualityRules)</h3>";
+      
+      const lcData = D.lineCategoryInterpretations || [];
+      const ciData = D.categoryInterpretations || [];
+      const piData = D.pairInterpretations || [];
+      
+      let status = "PASS";
+      let issues = [];
+      
+      if ((D.lines || []).length < 384) { status = "FAIL"; issues.push(`lines 數量: ${(D.lines||[]).length}/384`); }
+      if ((D.hexagrams || []).length < 64) { status = "FAIL"; issues.push(`hexagrams 數量: ${(D.hexagrams||[]).length}/64`); }
+      if (lcData.length < 4608) { issues.push(`lineCategoryInterpretations: ${lcData.length}/4608`); if (status === "PASS") status = "WARN"; }
+      if (piData.length < 4096) { issues.push(`pairInterpretations: ${piData.length}/4096`); if (status === "PASS") status = "WARN"; }
+      
+      const allCount = lcData.length + ciData.length + piData.length;
+      const needsExpCount =
+        lcData.filter(l => l.needsExpansion).length +
+        piData.filter(p => p.needsExpansion).length +
+        ciData.filter(c => c.needsHumanReview).length;
+      
+      if (needsExpCount > 0 && status === "PASS") status = "WARN";
+      issues.push(`待擴寫/人工審查: ${needsExpCount}/${allCount}`);
+      
+      const statusCls = status === "PASS" ? "ok" : status === "WARN" ? "warn" : "";
+      html += `<div class="issue ${statusCls}"><b>Status: ${status}</b></div>`;
+      html += issues.map(i => `<div class="stat">${i}</div>`).join("");
+      
+      html += "<hr class='separator'>";
+      html += findRepeatedText(ciData, "categoryInterpretations");
+      html += findRepeatedText(piData, "pairInterpretations");
+      document.getElementById("catIssues").innerHTML += `<div style="margin-top:16px">${html}</div>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("inspectAll").addEventListener("click", inspectAll);
+      document.getElementById("inspectCoverage").addEventListener("click", inspectCoverage);
+      document.getElementById("inspectFields").addEventListener("click", inspectFields);
+      document.getElementById("inspectDuplicates").addEventListener("click", inspectDuplicates);
+
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+          document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+          document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

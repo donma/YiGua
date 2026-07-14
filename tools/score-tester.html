@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Score Tester - 易卦</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    .score-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+    .score-detail { padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel2); }
+    .score-detail .label { color: var(--muted); font-size: 13px; }
+    .score-detail .val { color: var(--gold); font-size: 22px; font-family: var(--font-mono); }
+    .score-detail .breakdown { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .trace-item { padding: 4px 8px; margin: 2px 0; border-radius: 6px; background: var(--panel2); font-size: 13px; }
+    .trace-item .src { color: var(--gold); font-family: var(--font-mono); font-size: 12px; }
+    .band-display { display: inline-block; padding: 2px 10px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+    .band-low { background: rgba(74,136,74,.25); color: #5a5; }
+    .band-mid { background: rgba(201,164,92,.25); color: var(--gold); }
+    .band-high { background: rgba(201,164,92,.35); color: var(--goldBright); }
+    .band-crit { background: rgba(159,47,36,.25); color: var(--red); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Score Tester</div>
+    <div class="subtitle">易卦 本機驗證工具 — 多維度分數計算驗證 + scoreTrace</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/hexagram-tester.html">Hexagram Tester</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/score-tester.html" class="active">Score Tester</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Score Tester</h1>
+      <p>檢查多維度卦象分數、scoreTrace 來源、clamp 前後值與前台文字標籤。</p>
+      <div class="controls" style="margin-top:12px">
+        <select id="scoreHexSelect" style="min-width:200px"></select>
+        <select id="scoreCatSelect"></select>
+        <button id="scoreRun">計算分數（靜卦）</button>
+        <button id="scoreTraceRun" class="secondary">完整 scoreTrace</button>
+        <button id="scoreAll64" class="secondary">64 卦基礎分</button>
+      </div>
+    </section>
+
+    <section class="card" id="scoreResult">
+      <span class="muted">選擇卦象與分類後點擊計算</span>
+    </section>
+
+    <section class="card" id="traceResult" style="display:none">
+    </section>
+
+    <section class="card" id="all64Result" style="display:none">
+      <h3>全部 64 卦基礎分數</h3>
+      <div id="all64Grid"></div>
+    </section>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/js/core.js"></script>
+  <script>
+    const Z = window.Zero1Matrix;
+    const D = window.Zero1MatrixData;
+
+    function getBand(k, v) {
+      if (k === "risk") return v <= 25 ? "風險低" : v <= 50 ? "需留意" : v <= 75 ? "風險偏高" : "高壓局勢";
+      if (k === "action") return v <= 25 ? "不宜動" : v <= 50 ? "宜準備" : v <= 75 ? "可小步推進" : "可主動推進";
+      if (k === "change") return v <= 25 ? "局勢穩定" : v <= 50 ? "有小變化" : v <= 75 ? "變化明顯" : "大幅轉動";
+      return "";
+    }
+
+    function getBandClass(v) {
+      return v <= 25 ? "band-low" : v <= 50 ? "band-mid" : v <= 75 ? "band-high" : "band-crit";
+    }
+
+    function renderTraceItem(item) {
+      return `<div class="trace-item">
+        <span class="src">[${item.source}]</span> ${item.reason}：<b>${item.value >= 0 ? "+" : ""}${item.value}</b>
+        ${item.id ? `<span class="muted">(${item.id})</span>` : ""}
+      </div>`;
+    }
+
+    function runScoreTest() {
+      const hexId = parseInt(document.getElementById("scoreHexSelect").value);
+      const catId = document.getElementById("scoreCatSelect").value;
+      const hex = D.hexagrams.find(h => h.id === hexId);
+      const cat = D.categoryInterpretations.find(ci => ci.hexagramId === hexId && ci.category === catId);
+      if (!hex) return;
+
+      const values = hex.lines.map(v => v ? 7 : 8);
+      const scores = Z.scoreReading(hex, hex, values, cat);
+
+      const labels = { clarity: "局勢明朗度", action: "行動適合度", risk: "風險壓力度", change: "變化強度", support: "人和支援度", timing: "時機成熟度" };
+
+      let html = `<h3>${hex.symbol} ${hex.fullName} · ${cat ? cat.categoryName : catId} · 靜卦</h3>`;
+      html += `<div class="score-breakdown">`;
+      ["clarity","action","risk","change","support","timing"].forEach(k => {
+        const base = hex.scores[k] || 50;
+        const adj = (cat && cat.scoreAdjust) ? (cat.scoreAdjust[k] || 0) : 0;
+        html += `<div class="score-detail">
+          <div class="label">${labels[k]}</div>
+          <div class="val">${scores[k]}${getBand(k, scores[k]) ? ` <span class="band-display ${getBandClass(scores[k])}">${getBand(k, scores[k])}</span>` : ""}</div>
+          <div class="breakdown">基礎分 ${base} ${adj >= 0 ? "+" : ""}${adj}（分類修正）→ ${scores[k]}</div>
+        </div>`;
+      });
+      html += `</div>`;
+      html += `<hr class="separator"><p class="muted">公式：result[k] = clamp(0, 100, base[k] + adj[k] + (change_count × 7 for k=change) + (max(0, change_count-2) × 5 for k=risk))</p>`;
+
+      document.getElementById("scoreResult").innerHTML = html;
+      document.getElementById("traceResult").style.display = "none";
+    }
+
+    function runScoreTrace() {
+      const hexId = parseInt(document.getElementById("scoreHexSelect").value);
+      const catId = document.getElementById("scoreCatSelect").value;
+      const hex = D.hexagrams.find(h => h.id === hexId);
+      const cat = D.categoryInterpretations.find(ci => ci.hexagramId === hexId && ci.category === catId);
+      if (!hex) return;
+
+      const testValues = [...hex.lines];
+      for (let i = 0; i < 3 && i < 6; i++) {
+        testValues[i] = testValues[i] ? 9 : 6;
+      }
+      const changedHex = Z.findHexagramByLines(Z.changedLinesFromValues(testValues));
+      const pair = changedHex ? D.pairInterpretations.find(p => p.from === hexId && p.to === changedHex.id) : null;
+
+      const labels = { clarity: "局勢明朗度", action: "行動適合度", risk: "風險壓力度", change: "變化強度", support: "人和支援度", timing: "時機成熟度" };
+      const result = Z.scoreReadingDetailed(hex, changedHex || hex, testValues, cat, pair);
+
+      let html = `<h3>${hex.symbol} ${hex.fullName} · ${cat ? cat.categoryName : catId} · 3 動爻 · 完整 scoreTrace</h3>`;
+      html += `<table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:8px">`;
+      html += `<thead><tr><th>維度</th><th>基礎分</th><th>分類</th><th>動爻</th><th>pair</th><th>最終</th></tr></thead><tbody>`;
+      Object.keys(labels).forEach(k => {
+        const t = result.scoreTrace[k];
+        if (!t) return;
+        const adjCat = t.items.find(i => i.source.includes('category'));
+        const adjLine = t.items.find(i => i.source.includes('changingLine'));
+        const adjPair = t.items.find(i => i.source.includes('pair'));
+        html += `<tr>
+          <td>${labels[k]}</td>
+          <td>${t.raw - (adjCat ? adjCat.value : 0) - (adjLine ? adjLine.value : 0) - (adjPair ? adjPair.value : 0)}</td>
+          <td>${adjCat ? (adjCat.value >= 0 ? '+' : '') + adjCat.value : '0'}</td>
+          <td>${adjLine ? (adjLine.value >= 0 ? '+' : '') + adjLine.value : '0'}</td>
+          <td>${adjPair ? (adjPair.value >= 0 ? '+' : '') + adjPair.value : '0'}</td>
+          <td><b>${t.final}</b> ${getBand(k, t.final) ? `<span class="band-display ${getBandClass(t.final)}">${getBand(k, t.final)}</span>` : ""}</td>
+        </tr>`;
+      });
+      html += `</tbody></table>`;
+      html += `<hr class="separator"><p class="muted">clamp 範圍：0～100，動爻數：3（前3爻設為動爻）</p>`;
+
+      document.getElementById("traceResult").style.display = "block";
+      document.getElementById("traceResult").innerHTML = `<div class="card">${html}</div>`;
+
+      runScoreTest();
+    }
+
+    function showAll64Scores() {
+      let html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">';
+      D.hexagrams.forEach(h => {
+        const avg = Math.round(Object.values(h.scores).reduce((a, b) => a + b, 0) / 6);
+        html += `<div class="stat"><div>${h.symbol} ${h.name}</div><div class="num">${avg}</div><span class="muted text-sm">均分</span></div>`;
+      });
+      html += '</div>';
+      document.getElementById("all64Grid").innerHTML = html;
+      document.getElementById("all64Result").style.display = "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      D.hexagrams.forEach(h => {
+        const opt = document.createElement("option");
+        opt.value = h.id;
+        opt.textContent = h.symbol + " " + h.name + " (#" + h.id + ")";
+        document.getElementById("scoreHexSelect").appendChild(opt);
+      });
+      D.categories.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.id;
+        opt.textContent = c.name;
+        document.getElementById("scoreCatSelect").appendChild(opt);
+      });
+
+      document.getElementById("scoreRun").addEventListener("click", runScoreTest);
+      document.getElementById("scoreTraceRun").addEventListener("click", runScoreTrace);
+      document.getElementById("scoreAll64").addEventListener("click", showAll64Scores);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Reading Lab - 易卦</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lab-row { display: flex; gap: 8px; align-items: center; }
+    .lab-row input { width: 80px; text-align: center; }
+    .lab-row label { min-width: 50px; font-size: 14px; color: var(--muted); }
+    .source-item { font-size: 13px; color: var(--muted); padding: 4px 8px; background: var(--panel2); border-radius: 8px; display: inline-block; margin: 2px 4px; }
+    @media (max-width: 640px) { .lab-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Reading Lab</div>
+    <div class="subtitle">易卦 本機驗證工具 — 完整解卦檢驗</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/hexagram-tester.html">Hexagram Tester</a>
+      <a href="../tools/reading-lab.html" class="active">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/score-tester.html">Score Tester</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Reading Lab</h1>
+      <p>手動輸入六爻 (bottom-up)，選擇問事分類，檢查完整解卦輸出、來源追溯與組裝結果。</p>
+    </section>
+
+    <div class="lab-grid">
+      <section class="card">
+        <h3>手動輸入六爻</h3>
+        <p class="muted text-sm">bottom-up：value[0]=初爻, value[5]=上爻。值：6=老陰 7=少陽 8=少陰 9=老陽</p>
+        <div class="lab-row"><label>初爻</label><input type="number" id="line1" min="6" max="9" value="7"></div>
+        <div class="lab-row"><label>二爻</label><input type="number" id="line2" min="6" max="9" value="7"></div>
+        <div class="lab-row"><label>三爻</label><input type="number" id="line3" min="6" max="9" value="7"></div>
+        <div class="lab-row"><label>四爻</label><input type="number" id="line4" min="6" max="9" value="7"></div>
+        <div class="lab-row"><label>五爻</label><input type="number" id="line5" min="6" max="9" value="7"></div>
+        <div class="lab-row"><label>上爻</label><input type="number" id="line6" min="6" max="9" value="7"></div>
+        <div class="controls" style="margin-top:12px">
+          <select id="labCategory"></select>
+          <button id="labRun">執行解卦</button>
+        </div>
+        <div class="controls" style="margin-top:8px">
+          <button id="labRandom" class="secondary small">隨機六爻</button>
+          <button id="labPreset1" class="secondary small">乾卦(全陽)</button>
+          <button id="labPreset2" class="secondary small">坤卦(全陰)</button>
+          <button id="labPreset3" class="secondary small">屯卦(動爻)</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>卦象輸出</h3>
+        <div id="hexResult"><span class="muted">執行解卦後顯示</span></div>
+        <div id="hexagramLines" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card">
+        <h3>解卦文字</h3>
+        <div id="readingResult"><span class="muted">執行解卦後顯示</span></div>
+      </section>
+
+      <section class="card">
+        <h3>來源追溯 (Source Trace)</h3>
+        <div id="sourceResult"><span class="muted">執行解卦後顯示</span></div>
+      </section>
+
+      <section class="card" style="grid-column:1/-1">
+        <h3>完整 deep 輸出</h3>
+        <pre id="deepResult" class="pre-wrap" style="max-height:400px;overflow-y:auto"><span class="muted">執行解卦後顯示</span></pre>
+      </section>
+
+      <section class="card" style="grid-column:1/-1">
+        <h3>匯出</h3>
+        <div class="controls">
+          <button id="labExportJSON" class="secondary">匯出 JSON</button>
+          <button id="labExportHTML" class="secondary">匯出 HTML 報告</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/js/core.js"></script>
+  <script>
+    const Z = window.Zero1Matrix;
+    let currentLabReading = null;
+
+    function getLabValues() {
+      return [
+        parseInt(document.getElementById("line1").value),
+        parseInt(document.getElementById("line2").value),
+        parseInt(document.getElementById("line3").value),
+        parseInt(document.getElementById("line4").value),
+        parseInt(document.getElementById("line5").value),
+        parseInt(document.getElementById("line6").value)
+      ];
+    }
+
+    function setLabValues(vals) {
+      for (let i = 0; i < 6; i++) {
+        document.getElementById("line" + (i + 1)).value = vals[i];
+      }
+    }
+
+    function renderHexagramLines(values) {
+      const pos = ["初","二","三","四","五","上"];
+      let html = '<div class="hexagram-display">';
+      for (let i = 5; i >= 0; i--) {
+        const v = values[i];
+        const isYin = v === 6 || v === 8;
+        const isChg = v === 6 || v === 9;
+        const cls = isYin ? "yin" : "yang";
+        const chgCls = isChg ? " changing" : "";
+        html += '<div class="hexagram-line">';
+        html += `<span class="line-label">${pos[i]}${v}</span>`;
+        html += `<span class="hexagram-line-bar ${cls}${chgCls}">${isYin ? "<span></span><span></span>" : ""}</span>`;
+        html += isChg ? '<span class="line-arrow">→</span>' : '<span></span>';
+        html += '</div>';
+      }
+      html += '</div>';
+      return html;
+    }
+
+    function runLab() {
+      const values = getLabValues();
+      const catId = document.getElementById("labCategory").value;
+      try {
+        const reading = Z.buildReading(values, catId);
+        currentLabReading = reading;
+
+        const pos = ["初","二","三","四","五","上"];
+        document.getElementById("hexResult").innerHTML = `
+          <p><b>本卦：</b>${reading.originalHex.symbol} ${reading.originalHex.fullName}（${reading.upperTrigram}上${reading.lowerTrigram}下）</p>
+          <p><b>變卦：</b>${reading.changedHex.symbol} ${reading.changedHex.fullName}</p>
+          <p><b>動爻：</b>${reading.changingLines.length ? reading.changingLines.join("、") + "（" + reading.changingLines.map(n => pos[n-1]).join("、") + "）" : "無（靜卦）"}</p>
+          <p><b>互卦：</b>${reading.nuclearHex ? reading.nuclearHex.symbol + " " + reading.nuclearHex.fullName : "—"}</p>
+          <p><b>錯卦：</b>${reading.oppositeHex ? reading.oppositeHex.symbol + " " + reading.oppositeHex.fullName : "—"}</p>
+          <p><b>綜卦：</b>${reading.reversedHex ? reading.reversedHex.symbol + " " + reading.reversedHex.fullName : "—"}</p>
+        `;
+        document.getElementById("hexagramLines").innerHTML = renderHexagramLines(values);
+
+        document.getElementById("readingResult").innerHTML = `
+          <p><b class="text-gold">一句話：</b>${reading.oneLine}</p>
+          <div style="margin-top:8px"><b class="text-gold">簡解：</b><div class="pre-wrap">${reading.simple.replaceAll("\n","<br>")}</div></div>
+          <div style="margin-top:8px"><b class="text-gold">分類解讀 (${reading.categoryInterpretation ? "✓" : "✗ 缺"})：</b>
+            ${reading.categoryInterpretation ?
+              `<div>含義：${reading.categoryInterpretation.meaning}<br>建議：${reading.categoryInterpretation.advice}<br>提醒：${reading.categoryInterpretation.warning}</div>` :
+              '<span class="text-red">缺分類解讀</span>'}
+          </div>
+          <div style="margin-top:8px"><b class="text-gold">變卦組合 (${reading.pairInterpretation ? "✓" : "✗ 缺"})：</b>
+            ${reading.pairInterpretation ?
+              `<div>類型：${reading.pairInterpretation.type}<br>摘要：${reading.pairInterpretation.summary}<br>建議：${reading.pairInterpretation.advice}</div>` :
+              '<span class="text-red">缺配對解讀</span>'}
+          </div>
+        `;
+
+        const src = reading.sourceTrace;
+        let srcHtml = '<table style="width:100%;font-size:13px;border-collapse:collapse">';
+        srcHtml += '<thead><tr><th>段落</th><th>檔案</th><th>ID</th><th>欄位</th><th>依據</th></tr></thead><tbody>';
+        
+        if (src.hexagram && src.hexagram.length) {
+          srcHtml += '<tr><td>本卦總解</td><td>hexagrams.data.js</td><td>' + (src.hexagram[0].id || src.hexagram[0]) + '</td><td>summary</td><td>' + (src.hexagram[0].basis || []).join('、') + '</td></tr>';
+        }
+        if (src.category && src.category.length) {
+          srcHtml += '<tr><td>分類建議</td><td>categoryInterpretations.data.js</td><td>' + (src.category[0].id || src.category[0]) + '</td><td>advice</td><td>' + (src.category[0].basis || []).join('、') + '</td></tr>';
+        }
+        if (src.lines && src.lines.length) {
+          src.lines.forEach(s => {
+            srcHtml += '<tr><td>動爻解讀</td><td>lines.data.js</td><td>' + (s.id || s) + '</td><td>meaning</td><td>' + (s.basis || []).join('、') + '</td></tr>';
+          });
+        }
+        if (src.lineCategories && src.lineCategories.length) {
+          src.lineCategories.forEach(s => {
+            srcHtml += '<tr><td>爻分類解讀</td><td>lineCategoryInterpretations.data.js</td><td>' + (s.id || s) + '</td><td>advice</td><td>' + (s.basis || []).join('、') + '</td></tr>';
+          });
+        }
+        if (src.pair && src.pair.length) {
+          srcHtml += '<tr><td>變卦趨勢</td><td>pairInterpretations.data.js</td><td>' + (src.pair[0].id || src.pair[0]) + '</td><td>summary</td><td>' + (src.pair[0].basis || []).join('、') + '</td></tr>';
+        }
+        if (src.scores && src.scores.length) {
+          src.scores.forEach(s => {
+            srcHtml += '<tr><td>分數來源</td><td>' + (s.file || s.source) + '</td><td>' + (s.id || '') + '</td><td>' + (s.field || '') + '</td><td>' + (s.reason || '') + '</td></tr>';
+          });
+        }
+        srcHtml += '</tbody></table>';
+        document.getElementById("sourceResult").innerHTML = srcHtml;
+
+        if (reading.scoreTrace) {
+          const stDiv = document.createElement("div");
+          stDiv.innerHTML = "<h4 style='margin-top:8px' class='text-gold'>scoreTrace 詳細</h4>";
+          const labels = { clarity: "局勢明朗度", action: "行動適合度", risk: "風險壓力度", change: "變化強度", support: "人和支援度", timing: "時機成熟度" };
+          Object.keys(labels).forEach(k => {
+            const t = reading.scoreTrace[k];
+            if (!t) return;
+            stDiv.innerHTML += `<div style="font-size:13px;margin:4px 0"><span class="text-gold">${labels[k]}</span>: ${t.final} (raw: ${t.raw})`;
+            t.items.forEach(item => {
+              stDiv.innerHTML += `<br>&nbsp;&nbsp;<span class="muted">[${item.source}]</span> ${item.reason}: ${item.value >= 0 ? "+" : ""}${item.value}`;
+            });
+            stDiv.innerHTML += `</div>`;
+          });
+          document.getElementById("sourceResult").appendChild(stDiv);
+        }
+
+        document.getElementById("deepResult").textContent = reading.deep;
+      } catch (e) {
+        document.getElementById("hexResult").innerHTML = `<span class="text-red">錯誤：${e.message}</span>`;
+      }
+    }
+
+    function exportLabJSON() {
+      if (!currentLabReading) return;
+      const blob = new Blob([JSON.stringify({
+        values: currentLabReading.values,
+        categoryId: currentLabReading.categoryId,
+        originalHex: currentLabReading.originalHex.id,
+        changedHex: currentLabReading.changedHex.id,
+        changingLines: currentLabReading.changingLines,
+        scores: currentLabReading.scores,
+        sourceTrace: currentLabReading.sourceTrace
+      }, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "lab-reading.json";
+      a.click();
+    }
+
+    function exportLabHTML() {
+      if (!currentLabReading) return;
+      const r = currentLabReading;
+      const html = `<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>Lab Report</title>
+<style>body{font-family:sans-serif;max-width:800px;margin:0 auto;padding:20px;line-height:1.6}
+.card{border:1px solid #ccc;padding:16px;margin:10px 0;border-radius:8px}
+h2,h3{color:#333}pre{white-space:pre-wrap}</style></head>
+<body><h1>Reading Lab 驗證報告</h1>
+<div class="card"><p>本卦：${r.originalHex.symbol} ${r.originalHex.fullName}</p><p>變卦：${r.changedHex.symbol} ${r.changedHex.fullName}</p></div>
+<div class="card"><h3>深解</h3><pre>${r.deep}</pre></div>
+<div class="card"><h3>來源追溯</h3><pre>${JSON.stringify(r.sourceTrace,null,2)}</pre></div>
+</body></html>`;
+      const blob = new Blob([html], { type: "text/html" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "lab-report.html";
+      a.click();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      window.Zero1MatrixData.categories.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.id;
+        opt.textContent = c.name;
+        document.getElementById("labCategory").appendChild(opt);
+      });
+
+      document.getElementById("labRun").addEventListener("click", runLab);
+      document.getElementById("labRandom").addEventListener("click", () => {
+        const vals = [];
+        for (let i = 0; i < 6; i++) {
+          vals.push([6,7,8,9][Math.floor(Math.random() * 4)]);
+        }
+        setLabValues(vals);
+        runLab();
+      });
+      document.getElementById("labPreset1").addEventListener("click", () => { setLabValues([7,7,7,7,7,7]); runLab(); });
+      document.getElementById("labPreset2").addEventListener("click", () => { setLabValues([8,8,8,8,8,8]); runLab(); });
+      document.getElementById("labPreset3").addEventListener("click", () => { setLabValues([6,7,8,8,9,7]); runLab(); });
+      document.getElementById("labExportJSON").addEventListener("click", exportLabJSON);
+      document.getElementById("labExportHTML").addEventListener("click", exportLabHTML);
+    });
+  </script>
+</body>
+</html>

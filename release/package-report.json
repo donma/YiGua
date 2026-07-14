@@ -1,0 +1,11 @@
+{
+  "project": "Zero1Matrix",
+  "created": "2026-07-09",
+  "files": 28,
+  "notes": [
+    "此包包含完整施工書與可執行骨架。",
+    "核心硬資料與 coverage 骨架已放入 .data.js。",
+    "needsExpansion: true 的詞庫項目代表需要依 schema 擴寫與校對。",
+    "tools 頁為本機驗證工具骨架，需施工補齊互動檢查。"
+  ]
+}

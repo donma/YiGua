@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="易卦 歷史紀錄">
+  <meta name="theme-color" content="#080706">
+  <title>歷史紀錄 - 易卦</title>
+  <link rel="stylesheet" href="./src/css/app.css">
+</head>
+<body>
+  <header>
+    <div class="logo">易卦</div>
+    <div class="subtitle">歷史紀錄</div>
+    <nav>
+      <a href="./index.html">起卦</a>
+      <a href="./history.html" class="active">歷史紀錄</a>
+      <a href="./report-viewer.html">報告檢視</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>歷史紀錄</h1>
+      <p class="muted">所有解卦紀錄儲存在本機，不上傳、不外洩。</p>
+      <div class="filter-bar" style="margin-top:12px">
+        <input type="search" id="searchInput" placeholder="搜尋卦名、分類、日期...">
+        <select id="filterCategory">
+          <option value="">全部分類</option>
+        </select>
+        <select id="filterSort">
+          <option value="newest">最新優先</option>
+          <option value="oldest">最舊優先</option>
+        </select>
+        <button id="exportAllJSON" class="secondary small">匯出全部 JSON</button>
+        <button id="importJSON" class="secondary small">匯入 JSON</button>
+        <button id="clearAll" class="danger small">清除全部</button>
+        <input type="file" id="importFile" accept=".json" style="display:none">
+      </div>
+      <div id="historyCount" class="muted text-sm" style="margin-top:8px"></div>
+    </section>
+
+    <div id="historyList">
+      <div class="card"><span class="muted">尚無歷史紀錄</span></div>
+    </div>
+
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 id="modalTitle" style="margin:0"></h2>
+        <button onclick="document.getElementById('detailModal').classList.remove('open')" class="small">✕</button>
+      </div>
+      <div id="modalContent"></div>
+      <div class="controls" style="margin-top:16px">
+        <button id="modalExportJSON" class="secondary small">匯出 JSON</button>
+        <button id="modalExportHTML" class="secondary small">匯出 HTML 報告</button>
+        <button id="modalDelete" class="danger small">刪除紀錄</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/data/categories.data.js"></script>
+  <script src="./src/data/hexagrams.data.js"></script>
+  <script src="./src/data/lines.data.js"></script>
+  <script src="./src/data/categoryInterpretations.data.js"></script>
+  <script src="./src/data/pairInterpretations.data.js"></script>
+  <script src="./src/js/core.js"></script>
+  <script>
+    const STORAGE_KEY = "zero1matrix_history";
+    const PAGE_SIZE = 10;
+    let currentPage = 1;
+    let currentDetailRecord = null;
+
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch (e) { return []; }
+    }
+
+    function saveHistory(history) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    }
+
+    function getFilteredHistory() {
+      let history = getHistory();
+      const search = (document.getElementById("searchInput").value || "").toLowerCase();
+      const filterCat = document.getElementById("filterCategory").value;
+      const sort = document.getElementById("filterSort").value;
+
+      if (search) {
+        history = history.filter(r =>
+          (r.originalHexagramName && r.originalHexagramName.toLowerCase().includes(search)) ||
+          (r.changedHexagramName && r.changedHexagramName.toLowerCase().includes(search)) ||
+          (r.categoryName && r.categoryName.includes(search)) ||
+          (r.createdAt && r.createdAt.includes(search)) ||
+          (r.oneLine && r.oneLine.toLowerCase().includes(search))
+        );
+      }
+
+      if (filterCat) {
+        history = history.filter(r => r.category === filterCat);
+      }
+
+      if (sort === "oldest") {
+        history = [...history].reverse();
+      }
+
+      return history;
+    }
+
+    function renderHistory() {
+      const filtered = getFilteredHistory();
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const page = filtered.slice(start, start + PAGE_SIZE);
+
+      document.getElementById("historyCount").textContent = `共 ${total} 筆紀錄` + (total > PAGE_SIZE ? `，第 ${start + 1}-${Math.min(start + PAGE_SIZE, total)} 筆` : "");
+
+      if (page.length === 0) {
+        document.getElementById("historyList").innerHTML = '<div class="card"><span class="muted">尚無歷史紀錄</span></div>';
+        document.getElementById("pagination").innerHTML = "";
+        return;
+      }
+
+      let html = "";
+      page.forEach(r => {
+        const date = new Date(r.createdAt).toLocaleString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+        html += `<div class="history-item" onclick="showDetail('${r.id}')">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="hex-symbol">${r.symbol || ""}</span>
+            <div style="flex:1">
+              <div><b style="color:var(--gold)">${r.originalHexagramName || "?"}</b>${r.originalHexagramId !== r.changedHexagramId ? ` → ${r.changedHexagramName || "?"}` : "（靜卦）"}</div>
+              <div style="font-size:14px;color:var(--muted)">${r.oneLine ? r.oneLine.substring(0, 60) + (r.oneLine.length > 60 ? "..." : "") : ""}</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>${date}</span>
+            <span>${r.categoryName || r.category || "一般"}</span>
+            <span>${r.changingLines && r.changingLines.length ? r.changingLines.length + " 爻動" : "靜卦"}</span>
+          </div>
+        </div>`;
+      });
+      document.getElementById("historyList").innerHTML = html;
+
+      let pagHtml = "";
+      if (totalPages > 1) {
+        for (let i = 1; i <= totalPages; i++) {
+          pagHtml += `<button onclick="goToPage(${i})" class="small ${i === currentPage ? '' : 'secondary'}" ${i === currentPage ? 'disabled' : ''}>${i}</button>`;
+        }
+      }
+      document.getElementById("pagination").innerHTML = pagHtml;
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderHistory();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showDetail(id) {
+      const history = getHistory();
+      const record = history.find(r => r.id === id);
+      if (!record) return;
+
+      currentDetailRecord = record;
+      const date = new Date(record.createdAt).toLocaleString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+      document.getElementById("modalTitle").textContent = (record.symbol || "") + " " + (record.originalHexagramName || "?");
+
+      const scores = record.scores || {};
+      const scoreLabels = { clarity: "局勢明朗度", action: "行動適合度", risk: "風險壓力度", change: "變化強度", support: "人和支援度", timing: "時機成熟度" };
+      let scoresHtml = '<div class="score-grid">';
+      Object.keys(scoreLabels).forEach(k => {
+        scoresHtml += `<div class="score"><span>${scoreLabels[k]}</span><b>${scores[k] || "—"}</b></div>`;
+      });
+      scoresHtml += '</div>';
+
+      document.getElementById("modalContent").innerHTML = `
+        <p class="muted">${date} · ${record.categoryName || record.category} · 三枚銅錢</p>
+        <p style="color:var(--gold);margin:8px 0">${record.oneLine || ""}</p>
+        ${scoresHtml}
+        <div style="margin-top:12px"><b class="text-gold">簡解</b><div class="pre-wrap">${(record.simple || "").replaceAll("\n", "<br>")}</div></div>
+        <div style="margin-top:12px"><b class="text-gold">深解</b><pre class="pre-wrap">${record.deep || ""}</pre></div>
+      `;
+
+      document.getElementById("detailModal").classList.add("open");
+    }
+
+    function deleteRecord() {
+      if (!currentDetailRecord) return;
+      if (!confirm("確定要刪除這筆紀錄嗎？此操作無法復原。")) return;
+      let history = getHistory();
+      history = history.filter(r => r.id !== currentDetailRecord.id);
+      saveHistory(history);
+      document.getElementById("detailModal").classList.remove("open");
+      currentDetailRecord = null;
+      renderHistory();
+    }
+
+    function exportAllJSON() {
+      const history = getHistory();
+      if (history.length === 0) { alert("尚無歷史紀錄可匯出"); return; }
+      const blob = new Blob([JSON.stringify(history, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "yigua-history-" + new Date().toISOString().slice(0, 10) + ".json";
+      a.click();
+    }
+
+    function exportDetailJSON() {
+      if (!currentDetailRecord) return;
+      const blob = new Blob([JSON.stringify(currentDetailRecord, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "yigua-reading-" + currentDetailRecord.id + ".json";
+      a.click();
+    }
+
+    function exportDetailHTML() {
+      if (!currentDetailRecord) return;
+      const r = currentDetailRecord;
+      const html = `<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>易卦 解卦報告 - ${r.originalHexagramName}</title>
+<style>:root{--bg:#080706;--text:#f3ead8;--muted:#b9a98d;--gold:#c9a45c}
+body{background:#0b0908;color:var(--text);font-family:"Microsoft JhengHei",sans-serif;max-width:800px;margin:0 auto;padding:32px 16px;line-height:1.65}
+h1,h2,h3{color:var(--gold)}.card{border:1px solid #3a3028;padding:16px;margin:10px 0;border-radius:12px}pre{white-space:pre-wrap}
+@media print{body{background:white;color:#222}.card{border-color:#ccc}}</style></head>
+<body><h1>易卦 解卦報告</h1>
+<div class="card"><p class="muted">${new Date(r.createdAt).toLocaleString("zh-TW")} · ${r.categoryName || r.category}</p>
+<p>${r.symbol || ""} ${r.originalHexagramName || ""}${r.originalHexagramId !== r.changedHexagramId ? " → " + r.changedHexagramName : ""}</p>
+<p style="color:var(--gold)">${r.oneLine || ""}</p></div>
+<div class="card"><h3>簡解</h3><pre>${r.simple || ""}</pre></div>
+<div class="card"><h3>深解</h3><pre>${r.deep || ""}</pre></div>
+</body></html>`;
+      const blob = new Blob([html], { type: "text/html" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "yigua-report-" + r.id + ".html";
+      a.click();
+    }
+
+    function importJSON() {
+      document.getElementById("importFile").click();
+    }
+
+    function handleImport(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (!Array.isArray(data)) throw new Error("格式錯誤：需要 JSON 陣列");
+          const existing = getHistory();
+          let added = 0;
+          data.forEach(r => {
+            if (!r.id || existing.find(e => e.id === r.id)) {
+              r.id = "imported_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6);
+            }
+            existing.unshift(r);
+            added++;
+          });
+          saveHistory(existing);
+          renderHistory();
+          alert(`成功匯入 ${added} 筆紀錄`);
+        } catch (err) {
+          alert("匯入失敗：" + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
+    }
+
+    function clearAll() {
+      if (!confirm("確定要清除全部歷史紀錄嗎？建議先匯出備份。此操作無法復原。")) return;
+      saveHistory([]);
+      renderHistory();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      window.Zero1MatrixData.categories.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.id;
+        opt.textContent = c.name;
+        document.getElementById("filterCategory").appendChild(opt);
+      });
+
+      document.getElementById("searchInput").addEventListener("input", () => { currentPage = 1; renderHistory(); });
+      document.getElementById("filterCategory").addEventListener("change", () => { currentPage = 1; renderHistory(); });
+      document.getElementById("filterSort").addEventListener("change", () => { currentPage = 1; renderHistory(); });
+      document.getElementById("exportAllJSON").addEventListener("click", exportAllJSON);
+      document.getElementById("importJSON").addEventListener("click", importJSON);
+      document.getElementById("importFile").addEventListener("change", handleImport);
+      document.getElementById("clearAll").addEventListener("click", clearAll);
+      document.getElementById("modalExportJSON").addEventListener("click", exportDetailJSON);
+      document.getElementById("modalExportHTML").addEventListener("click", exportDetailHTML);
+      document.getElementById("modalDelete").addEventListener("click", deleteRecord);
+      document.getElementById("detailModal").addEventListener("click", function(e) {
+        if (e.target === this) this.classList.remove("open");
+      });
+
+      renderHistory();
+    });
+  </script>
+</body>
+</html>

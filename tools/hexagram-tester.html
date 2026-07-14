@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hexagram Tester - 易卦</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    .tester-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tester-grid .card { margin: 0; }
+    .test-case { margin: 8px 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel2); }
+    .test-case.pass { border-left: 4px solid #4a8; }
+    .test-case.fail { border-left: 4px solid var(--red); }
+    .test-result { font-family: var(--font-mono); font-size: 13px; }
+    @media (max-width: 640px) { .tester-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Hexagram Tester</div>
+    <div class="subtitle">易卦 本機驗證工具 — 卦象計算測試</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/hexagram-tester.html" class="active">Hexagram Tester</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/score-tester.html">Score Tester</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Hexagram Tester</h1>
+      <p>測試 bottom-up 六爻、上下卦、本卦、變卦、互卦、錯卦、綜卦計算正確性。</p>
+      <div class="controls" style="margin-top:12px">
+        <button id="runAll">執行所有測試</button>
+        <button id="runCoinTest" class="secondary">銅錢測試</button>
+        <button id="runAll64" class="secondary">64卦 Mapping</button>
+        <button id="runFixtures" class="secondary">載入 Fixture 測試</button>
+      </div>
+    </section>
+
+    <div class="tester-grid">
+      <section class="card">
+        <h3>銅錢起卦測試</h3>
+        <div id="coinTests"><span class="muted">點擊「銅錢測試」執行</span></div>
+      </section>
+      <section class="card">
+        <h3>線值轉換測試</h3>
+        <div id="valueTests"><span class="muted">點擊「執行所有測試」執行</span></div>
+      </section>
+      <section class="card">
+        <h3>64 卦 Mapping 測試</h3>
+        <div id="mappingTests"><span class="muted">點擊「64卦 Mapping」執行</span></div>
+      </section>
+      <section class="card">
+        <h3>互卦 / 錯卦 / 綜卦 測試</h3>
+        <div id="advancedTests"><span class="muted">點擊「執行所有測試」執行</span></div>
+      </section>
+      <section class="card" style="grid-column:1/-1">
+        <h3>Fixture 驗證測試</h3>
+        <div id="fixtureResults"><span class="muted">點擊「載入 Fixture 測試」執行</span></div>
+      </section>
+      <section class="card" style="grid-column:1/-1">
+        <h3>手動輸入測試</h3>
+        <div class="controls">
+          <input id="manualInput" placeholder="六爻值 e.g. 6,7,8,9,7,6 (bottom-up)" style="flex:1">
+          <button id="runManual">測試</button>
+        </div>
+        <div id="manualResult" style="margin-top:12px"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/js/core.js"></script>
+  <script src="../tests/fixtures/hexagram-validation-cases.data.js"></script>
+  <script>
+    const Z = window.Zero1Matrix;
+    function passBadge() { return '<span style="color:#4a8">✓ PASS</span>'; }
+    function failBadge(msg) { return '<span style="color:var(--red)">✗ FAIL: ' + msg + '</span>'; }
+
+    function loadFixtures() {
+      const fixtures = (window.Zero1MatrixTestFixtures && window.Zero1MatrixTestFixtures.hexagramValidationCases) || [];
+      if (!fixtures.length) {
+        document.getElementById("fixtureResults").innerHTML = '<div class="test-case fail"><span style="color:var(--red)">✗ 載入失敗: fixtures 為空</span></div>';
+        return;
+      }
+      let html = "";
+      fixtures.forEach(f => {
+        let passed = true;
+        const errors = [];
+        const origLines = Z.linesFromValues(f.values);
+        if (JSON.stringify(origLines) !== JSON.stringify(f.originalLines)) {
+          passed = false;
+          errors.push(`originalLines: expected ${JSON.stringify(f.originalLines)}, got ${JSON.stringify(origLines)}`);
+        }
+        const chgLines = Z.getChangingLines(f.values);
+        if (JSON.stringify(chgLines) !== JSON.stringify(f.changingLines)) {
+          passed = false;
+          errors.push(`changingLines: expected ${JSON.stringify(f.changingLines)}, got ${JSON.stringify(chgLines)}`);
+        }
+        const origHex = Z.findHexagramByLines(origLines);
+        if (f.expectedOriginal && (!origHex || origHex.fullName !== f.expectedOriginal)) {
+          passed = false;
+          errors.push(`originalHex: expected "${f.expectedOriginal}", got "${origHex ? origHex.fullName : 'null'}"`);
+        }
+        const chgBinary = Z.changedLinesFromValues(f.values);
+        const changedHex = Z.findHexagramByLines(chgBinary);
+        if (f.expectedChanged && (!changedHex || changedHex.fullName !== f.expectedChanged)) {
+          passed = false;
+          errors.push(`changedHex: expected "${f.expectedChanged}", got "${changedHex ? changedHex.fullName : 'null'}"`);
+        }
+        html += `<div class="test-case ${passed ? 'pass' : 'fail'}">`;
+        html += passed ? '<span style="color:#4a8">✓ PASS</span> ' : '<span style="color:var(--red)">✗ FAIL</span> ';
+        html += `${f.caseId} (values: [${f.values.join(",")}])`;
+        if (errors.length) errors.forEach(e => html += `<br><span class="muted" style="font-size:12px">  ${e}</span>`);
+        html += `</div>`;
+      });
+      document.getElementById("fixtureResults").innerHTML = html;
+    }
+
+    function test(label, fn) {
+      try {
+        const result = fn();
+        if (result === true || result === undefined) {
+          return `<div class="test-case pass">${passBadge()} ${label}</div>`;
+        }
+        return `<div class="test-case fail">${failBadge(typeof result === "string" ? result : "未通過")} ${label}</div>`;
+      } catch (e) {
+        return `<div class="test-case fail">${failBadge(e.message)} ${label}</div>`;
+      }
+    }
+
+    function runCoinTests() {
+      const c = Z.coinThrowToLine;
+      let html = "";
+      html += test("TTT(2+2+2=6) → 老陰", () => { const v = c(["T","T","T"]); if (v !== 6) return "got " + v; });
+      html += test("HTT(3+2+2=7) → 少陽", () => { const v = c(["H","T","T"]); if (v !== 7) return "got " + v; });
+      html += test("HHT(3+3+2=8) → 少陰", () => { const v = c(["H","H","T"]); if (v !== 8) return "got " + v; });
+      html += test("HHH(3+3+3=9) → 老陽", () => { const v = c(["H","H","H"]); if (v !== 9) return "got " + v; });
+      html += test("THT(2+3+2=7) → 少陽", () => { const v = c(["T","H","T"]); if (v !== 7) return "got " + v; });
+      html += test("HTH(3+2+3=8) → 少陰", () => { const v = c(["H","T","H"]); if (v !== 8) return "got " + v; });
+      html += test("6 是動爻", () => { if (!Z.isChanging(6)) return "6 should be changing"; });
+      html += test("7 不是動爻", () => { if (Z.isChanging(7)) return "7 should not be changing"; });
+      html += test("8 不是動爻", () => { if (Z.isChanging(8)) return "8 should not be changing"; });
+      html += test("9 是動爻", () => { if (!Z.isChanging(9)) return "9 should be changing"; });
+      html += test("test fixture coin-001", () => {
+        const fixture = {"throws":[["T","T","T"],["H","T","T"],["H","H","T"],["H","H","H"],["T","H","T"],["H","T","H"]],"expectedValues":[6,7,8,9,7,8],"expectedChangingLines":[1,4],"expectedOriginalBinary":[0,1,0,1,1,0],"expectedChangedBinary":[1,1,0,0,1,0]};
+        const vals = fixture.throws.map(t => Z.coinThrowToLine(t));
+        if (JSON.stringify(vals) !== JSON.stringify(fixture.expectedValues)) return "values mismatch";
+        const chgLines = Z.getChangingLines(vals);
+        if (JSON.stringify(chgLines) !== JSON.stringify(fixture.expectedChangingLines)) return "changing lines mismatch";
+        const orig = Z.linesFromValues(vals);
+        if (JSON.stringify(orig) !== JSON.stringify(fixture.expectedOriginalBinary)) return "original binary mismatch: " + JSON.stringify(orig);
+        const chgd = Z.changedLinesFromValues(vals);
+        if (JSON.stringify(chgd) !== JSON.stringify(fixture.expectedChangedBinary)) return "changed binary mismatch: " + JSON.stringify(chgd);
+      });
+      return html;
+    }
+
+    function runValueTests() {
+      let html = "";
+      html += test("6→陰(0)", () => { if (Z.lineValueToYinYang(6) !== 0) return "got " + Z.lineValueToYinYang(6); });
+      html += test("7→陽(1)", () => { if (Z.lineValueToYinYang(7) !== 1) return "got " + Z.lineValueToYinYang(7); });
+      html += test("8→陰(0)", () => { if (Z.lineValueToYinYang(8) !== 0) return "got " + Z.lineValueToYinYang(8); });
+      html += test("9→陽(1)", () => { if (Z.lineValueToYinYang(9) !== 1) return "got " + Z.lineValueToYinYang(9); });
+      html += test("6變化→陽(1)", () => { if (Z.changedYinYang(6) !== 1) return "got " + Z.changedYinYang(6); });
+      html += test("9變化→陰(0)", () => { if (Z.changedYinYang(9) !== 0) return "got " + Z.changedYinYang(9); });
+      html += test("7不變→陽(1)", () => { if (Z.changedYinYang(7) !== 1) return "got " + Z.changedYinYang(7); });
+      html += test("8不變→陰(0)", () => { if (Z.changedYinYang(8) !== 0) return "got " + Z.changedYinYang(8); });
+      html += test("trigram mapping 111→乾", () => { if (Z.getTrigram([1,1,1]) !== "乾") return "got " + Z.getTrigram([1,1,1]); });
+      html += test("trigram mapping 000→坤", () => { if (Z.getTrigram([0,0,0]) !== "坤") return "got " + Z.getTrigram([0,0,0]); });
+      return html;
+    }
+
+    function runMappingTests() {
+      let html = "";
+      const data = window.Zero1MatrixData.hexagrams;
+      let pass = 0, fail = 0;
+      for (const h of data) {
+        const found = Z.findHexagramByLines(h.lines);
+        if (found && found.id === h.id) {
+          pass++;
+        } else {
+          fail++;
+          html += `<div class="test-case fail">${failBadge("not found")} hex ${h.id} ${h.fullName} lines=${JSON.stringify(h.lines)}</div>`;
+        }
+      }
+      html = `<div class="test-case pass">${passBadge()} 正確 mapping: ${pass}/64</div>` + html;
+      if (fail === 0) html += `<div class="test-case pass">${passBadge()} 全部 64 卦 mapping 正確率 100%</div>`;
+      return html;
+    }
+
+    function runAdvancedTests() {
+      let html = "";
+      const qianLines = [1,1,1,1,1,1];
+      const kunLines = [0,0,0,0,0,0];
+
+      const nuclearQian = Z.getNuclearLines(qianLines);
+      html += test("乾卦互卦仍為乾", () => {
+        if (JSON.stringify(nuclearQian) !== JSON.stringify([1,1,1,1,1,1])) return "got " + JSON.stringify(nuclearQian);
+      });
+
+      const oppositeQian = Z.getOppositeLines(qianLines);
+      html += test("乾卦錯卦為坤", () => {
+        if (JSON.stringify(oppositeQian) !== JSON.stringify(kunLines)) return "got " + JSON.stringify(oppositeQian);
+      });
+
+      const reversedQian = Z.getReversedLines(qianLines);
+      html += test("乾卦綜卦仍為乾", () => {
+        if (JSON.stringify(reversedQian) !== JSON.stringify(qianLines)) return "got " + JSON.stringify(reversedQian);
+      });
+
+      const kanLines = [0,1,0,0,1,0];
+      const nuclearKan = Z.getNuclearLines(kanLines);
+      html += test("坎卦互卦 lines[1,2,3],[2,3,4]", () => {
+        const expected = [kanLines[1],kanLines[2],kanLines[3],kanLines[2],kanLines[3],kanLines[4]];
+        if (JSON.stringify(nuclearKan) !== JSON.stringify(expected)) return "got " + JSON.stringify(nuclearKan) + " exp " + JSON.stringify(expected);
+      });
+
+      html += test("互卦規則: 二三四爻為下卦", () => {
+        const lines = [1,1,0,1,0,1];
+        const n = Z.getNuclearLines(lines);
+        const lower = n.slice(0,3);
+        if (JSON.stringify(lower) !== JSON.stringify([lines[1],lines[2],lines[3]])) return "lower wrong";
+      });
+      html += test("互卦規則: 三四五爻為上卦", () => {
+        const lines = [1,1,0,1,0,1];
+        const n = Z.getNuclearLines(lines);
+        const upper = n.slice(3,6);
+        if (JSON.stringify(upper) !== JSON.stringify([lines[2],lines[3],lines[4]])) return "upper wrong";
+      });
+
+      html += test("錯卦規則: 全部反轉", () => {
+        const lines = [1,0,1,0,1,0];
+        const opp = Z.getOppositeLines(lines);
+        if (JSON.stringify(opp) !== JSON.stringify([0,1,0,1,0,1])) return "got " + JSON.stringify(opp);
+      });
+
+      html += test("綜卦規則: 上下顛倒", () => {
+        const lines = [1,0,1,0,1,0];
+        const rev = Z.getReversedLines(lines);
+        if (JSON.stringify(rev) !== JSON.stringify([0,1,0,1,0,1])) return "got " + JSON.stringify(rev);
+      });
+
+      return html;
+    }
+
+    function runManual(values) {
+      let html = "";
+      try {
+        const reading = Z.buildReading(values, "general");
+        html += '<div class="test-case pass">✓ 起卦成功</div>';
+        html += `<div class="test-case"><b>本卦：</b>${reading.originalHex.symbol} ${reading.originalHex.fullName}（${reading.upperTrigram}上${reading.lowerTrigram}下）</div>`;
+        html += `<div class="test-case"><b>變卦：</b>${reading.changedHex.symbol} ${reading.changedHex.fullName}</div>`;
+        html += `<div class="test-case"><b>動爻：</b>${reading.changingLines.length ? reading.changingLines.join("、") : "無（靜卦）"}</div>`;
+        if (reading.nuclearHex) html += `<div class="test-case"><b>互卦：</b>${reading.nuclearHex.symbol} ${reading.nuclearHex.fullName}</div>`;
+        if (reading.oppositeHex) html += `<div class="test-case"><b>錯卦：</b>${reading.oppositeHex.symbol} ${reading.oppositeHex.fullName}</div>`;
+        if (reading.reversedHex) html += `<div class="test-case"><b>綜卦：</b>${reading.reversedHex.symbol} ${reading.reversedHex.fullName}</div>`;
+      } catch (e) {
+        html += `<div class="test-case fail">${failBadge(e.message)}</div>`;
+      }
+      return html;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("runCoinTest").addEventListener("click", () => {
+        document.getElementById("coinTests").innerHTML = runCoinTests();
+      });
+      document.getElementById("runAll").addEventListener("click", () => {
+        document.getElementById("coinTests").innerHTML = runCoinTests();
+        document.getElementById("valueTests").innerHTML = runValueTests();
+        document.getElementById("advancedTests").innerHTML = runAdvancedTests();
+      });
+      document.getElementById("runAll64").addEventListener("click", () => {
+        document.getElementById("mappingTests").innerHTML = runMappingTests();
+      });
+      document.getElementById("runFixtures").addEventListener("click", loadFixtures);
+      document.getElementById("runManual").addEventListener("click", () => {
+        const input = document.getElementById("manualInput").value.trim();
+        if (!input) return;
+        const values = input.split(",").map(s => parseInt(s.trim()));
+        document.getElementById("manualResult").innerHTML = runManual(values);
+      });
+
+      document.querySelectorAll(".tester-grid .card:nth-child(-n+4) .muted").forEach(el => {
+        el.innerHTML = '<span class="muted">尚未測試</span>';
+      });
+    });
+  </script>
+</body>
+</html>

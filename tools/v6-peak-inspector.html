@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>v6 Peak Inspector - Zero1Matrix</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+</head>
+<body>
+  <header>
+    <div class="logo">v6 Peak Inspector</div>
+    <div class="subtitle">峰頂前最後大補驗收</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html" class="active">v6 Peak</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h1>v6 Patch Report</h1>
+      <button id="run">Run v6 Check</button>
+      <pre id="report"></pre>
+    </section>
+  </main>
+
+  <script src="../src/data/pairInterpretations.v6.301-900.patch.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.v6.hex9-16.patch.data.js"></script>
+  <script src="../src/data/actionSuggestions.data.js"></script>
+  <script src="../src/data/contentQualityRules.v6.data.js"></script>
+  <script>
+    function norm(text) {
+      return String(text || "")
+        .replace(/[「」]/g, "")
+        .replace(/[0-9０-９一二三四五六七八九十百千萬]+/g, "N")
+        .replace(/乾|坤|屯|蒙|需|訟|師|比|小畜|履|泰|否|同人|大有|謙|豫|隨|蠱|臨|觀|噬嗑|賁|剝|復|無妄|大畜|頤|大過|坎|離|咸|恆|遯|大壯|晉|明夷|家人|睽|蹇|解|損|益|夬|姤|萃|升|困|井|革|鼎|震|艮|漸|歸妹|豐|旅|巽|兌|渙|節|中孚|小過|既濟|未濟/g, "某卦")
+        .replace(/一般|工作事業|感情關係|財務金錢|人際合作|家庭親人|學習考試|身心狀態|重大決策|創業經營|官非合約|心境修行/g, "分類")
+        .replace(/\s+/g, "");
+    }
+
+    function textStats(arr, field) {
+      const values = arr.map(x => x[field] || "").filter(Boolean);
+      const normalized = values.map(norm);
+      const counts = {};
+      for (const n of normalized) counts[n] = (counts[n] || 0) + 1;
+      const top = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+      return {
+        count: arr.length,
+        unique: new Set(values).size,
+        normalizedUnique: new Set(normalized).size,
+        maxSameNormalizedTextCount: top.length ? top[0][1] : 0,
+        topNormalizedDuplicates: top
+      };
+    }
+
+    function forbiddenHits(arr, fields, terms) {
+      const hits = [];
+      for (const rec of arr) {
+        for (const field of fields) {
+          const text = rec[field] || "";
+          for (const term of terms) {
+            if (text.includes(term)) hits.push({ id: rec.id, field, term });
+          }
+        }
+      }
+      return hits;
+    }
+
+    function runCheck() {
+      const D = window.Zero1MatrixData;
+      const pairs = D.pairInterpretationsV6Patch301900 || [];
+      const lines = D.lineCategoryInterpretationsV6PatchHex9To16 || [];
+      const actions = D.actionSuggestions || [];
+      const rules = D.contentQualityRulesV6;
+      const report = {
+        pairs: {
+          count: pairs.length,
+          needsExpansion: pairs.filter(x => x.needsExpansion).length,
+          shortSummary: pairs.filter(x => (x.summary || "").length < 120).length,
+          shortAdvice: pairs.filter(x => (x.advice || "").length < 80).length,
+          shortRisk: pairs.filter(x => (x.risk || "").length < 60).length
+        },
+        lineCategories: {
+          count: lines.length,
+          needsExpansion: lines.filter(x => x.needsExpansion).length,
+          shortMeaning: lines.filter(x => (x.meaning || "").length < 90).length,
+          shortAdvice: lines.filter(x => (x.advice || "").length < 70).length,
+          shortWarning: lines.filter(x => (x.warning || "").length < 60).length
+        },
+        actionSuggestions: textStats(actions, "text"),
+        forbiddenHits: [
+          ...forbiddenHits(pairs, ["summary","advice","risk","timing"], rules.forbiddenTerms),
+          ...forbiddenHits(lines, ["meaning","advice","warning"], rules.forbiddenTerms),
+          ...forbiddenHits(actions, ["text"], rules.forbiddenTerms)
+        ]
+      };
+      report.status = (
+        report.pairs.count === 600 &&
+        report.pairs.needsExpansion === 0 &&
+        report.pairs.shortSummary === 0 &&
+        report.pairs.shortAdvice === 0 &&
+        report.pairs.shortRisk === 0 &&
+        report.lineCategories.count === 576 &&
+        report.lineCategories.needsExpansion === 0 &&
+        report.lineCategories.shortMeaning === 0 &&
+        report.lineCategories.shortAdvice === 0 &&
+        report.lineCategories.shortWarning === 0 &&
+        report.actionSuggestions.count === 768 &&
+        report.actionSuggestions.normalizedUnique >= 450 &&
+        report.actionSuggestions.maxSameNormalizedTextCount <= 36 &&
+        report.forbiddenHits.length === 0
+      ) ? "PASS" : "FAIL";
+      return report;
+    }
+
+    document.getElementById("run").addEventListener("click", () => {
+      document.getElementById("report").textContent = JSON.stringify(runCheck(), null, 2);
+    });
+  </script>
+</body>
+</html>

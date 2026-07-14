@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="易卦 — 不問天命，只觀時勢，東方神秘決策工具">
+  <meta name="theme-color" content="#080706">
+  <title>易卦 — 易經起卦與解卦</title>
+  <link rel="stylesheet" href="./src/css/app.css">
+  <link rel="stylesheet" href="./src/css/coin.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+</head>
+<body>
+  <header>
+    <div class="logo">易卦</div>
+    <div class="subtitle">不問天命，只觀時勢，東方神秘決策工具</div>
+    <nav>
+      <a href="./index.html" class="active">起卦</a>
+      <a href="./history.html">歷史紀錄</a>
+      <a href="./report-viewer.html">報告檢視</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>問事起卦</h1>
+      <p class="muted">心中默念所問之事，選擇起卦方式即可。</p>
+
+      <div class="tabs" style="margin-top:14px">
+        <div class="tab active" data-tab="tab-coin">三枚銅錢</div>
+        <div class="tab" data-tab="tab-daily">每日一卦</div>
+        <div class="tab" data-tab="tab-manual">手動排卦</div>
+        <div class="tab" data-tab="tab-settings">設定</div>
+      </div>
+
+      <div class="tab-content active" id="tab-coin">
+        <div class="controls" style="margin-top:14px">
+          <select id="category"></select>
+          <button id="cast">擲爻起卦</button>
+          <button id="fastCast" class="secondary small">快速起卦</button>
+        </div>
+        <div class="setting-row">
+          <label><input type="checkbox" id="fastMode"> 快速模式</label>
+          <label><input type="checkbox" id="soundEnabled"> 音效（預設關）</label>
+        </div>
+        <section class="card" style="margin-top:16px">
+          <div id="coinMount"></div>
+        </section>
+      </div>
+
+      <div class="tab-content" id="tab-daily" style="display:none">
+        <p class="muted" style="margin-top:12px">每日一卦是今日提醒，以當日日期作為固定種子，本日所有人看到的卦象相同。</p>
+        <div class="controls" style="margin-top:14px">
+          <select id="dailyCategory"></select>
+          <button id="dailyCast">取得今日一卦</button>
+        </div>
+        <div id="dailyCoinMount" style="margin-top:12px"></div>
+      </div>
+
+      <div class="tab-content" id="tab-manual" style="display:none">
+        <p class="muted" style="margin-top:12px">手動輸入六爻值（bottom-up：value[0]=初爻），6=老陰 7=少陽 8=少陰 9=老陽。</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center">
+          <label class="muted text-sm">初</label><input type="number" id="ml0" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <label class="muted text-sm">二</label><input type="number" id="ml1" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <label class="muted text-sm">三</label><input type="number" id="ml2" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <label class="muted text-sm">四</label><input type="number" id="ml3" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <label class="muted text-sm">五</label><input type="number" id="ml4" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <label class="muted text-sm">上</label><input type="number" id="ml5" min="6" max="9" value="7" style="width:56px;text-align:center">
+          <select id="manualCategory" style="min-width:120px"></select>
+          <button id="manualCast">排卦</button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-settings" style="display:none">
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+          <label class="text-sm"><input type="checkbox" id="cfgFastMode"> 快速模式（跳過動畫，立即產出結果）</label>
+          <label class="text-sm"><input type="checkbox" id="cfgSound"> 音效（擲爻時播放系統提示音）</label>
+        </div>
+        <p class="muted text-sm" style="margin-top:14px">安全聲明：易卦不做醫療診斷、不給具體投資指令、不取代法律意見、不輸出恐嚇式斷語。</p>
+      </div>
+    </section>
+
+    <div id="result"></div>
+  </main>
+
+  <footer style="text-align:center;padding:32px 0;color:var(--muted);font-size:13px">
+    <p>易卦 — 不登入 · 不上傳 · 不追蹤 · 完全本機運作</p>
+    <p style="margin-top:4px">
+      <a href="./tools/hexagram-tester.html">Hexagram Tester</a> ·
+      <a href="./tools/reading-lab.html">Reading Lab</a> ·
+      <a href="./tools/data-inspector.html">Data Inspector</a> ·
+      <a href="./tools/score-tester.html">Score Tester</a>
+    </p>
+  </footer>
+
+  <script src="./src/data/categories.data.js"></script>
+  <script src="./src/data/hexagrams.data.js"></script>
+  <script src="./src/data/lines.data.js"></script>
+  <script src="./src/data/categoryInterpretations.data.js"></script>
+  <script src="./src/data/pairInterpretations.data.js"></script>
+  <script src="./src/data/templates.data.js"></script>
+  <script src="./src/data/reflectionQuestions.data.js"></script>
+  <script src="./src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="./src/data/actionSuggestions.data.js"></script>
+  <script src="./src/data/riskWarnings.data.js"></script>
+  <script src="./src/js/core.js"></script>
+  <script src="./src/js/coin-animation.js"></script>
+  <script src="./src/js/app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator && location.protocol === "https:") {
+      navigator.serviceWorker.register("./sw.js");
+    }
+  </script>
+</body>
+</html>

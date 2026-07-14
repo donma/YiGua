@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dictionary Workbench - 易卦</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    .workbench-grid { display: grid; grid-template-columns: 300px 1fr; gap: 14px; }
+    .record-panel { max-height: 70vh; overflow-y: auto; }
+    .record-item { padding: 8px 12px; border-bottom: 1px solid var(--line); cursor: pointer; font-size: 14px; }
+    .record-item:hover { background: var(--panel2); }
+    .record-item.active { background: var(--panel2); border-left: 3px solid var(--gold); }
+    .field-row { margin: 8px 0; }
+    .field-row label { display: block; color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .field-row .val { padding: 8px; background: var(--panel2); border-radius: 8px; min-height: 32px; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; margin: 2px; }
+    .tag.ne { background: rgba(159,47,36,.25); color: var(--red); }
+    .tag.nr { background: rgba(201,164,92,.25); color: var(--gold); }
+    .tag.ok { background: rgba(74,136,74,.25); color: #5a5; }
+    .search-bar { margin-bottom: 12px; }
+    @media (max-width: 768px) { .workbench-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dictionary Workbench</div>
+    <div class="subtitle">易卦 本機驗證工具 — 詞庫檢視與審查</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/hexagram-tester.html">Hexagram Tester</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/score-tester.html">Score Tester</a>
+      <a href="../tools/dictionary-workbench.html" class="active">Workbench</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Dictionary Workbench</h1>
+      <p class="muted">檢視單筆詞庫記錄、標記 reviewed、匯出待修清單。</p>
+      <div class="controls" style="margin-top:12px">
+        <select id="packSelect">
+          <option value="categoryInterpretations">64×12 分類解讀</option>
+          <option value="lineCategoryInterpretations">384×12 爻分類解讀</option>
+          <option value="pairInterpretations">4096 本卦變卦</option>
+          <option value="lines">384 爻</option>
+          <option value="hexagrams">64 卦</option>
+          <option value="templates">templates</option>
+          <option value="reflectionQuestions">reflectionQuestions</option>
+          <option value="actionSuggestions">actionSuggestions</option>
+          <option value="riskWarnings">riskWarnings</option>
+        </select>
+        <input id="wbSearch" class="search-bar" placeholder="搜尋 id / keyword..." style="flex:1;min-width:200px">
+        <button id="wbFilterNeedsExp" class="secondary small">只顯示待擴寫</button>
+        <button id="wbExportPending" class="secondary small">匯出待修清單</button>
+      </div>
+    </section>
+
+    <div class="workbench-grid">
+      <section class="card record-panel" id="recordList">
+        <span class="muted">選擇資料集後載入</span>
+      </section>
+
+      <section class="card" id="recordDetail">
+        <span class="muted">點擊左側記錄檢視詳情</span>
+      </section>
+    </div>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/data/templates.data.js"></script>
+  <script src="../src/data/reflectionQuestions.data.js"></script>
+  <script src="../src/data/actionSuggestions.data.js"></script>
+  <script src="../src/data/riskWarnings.data.js"></script>
+  <script>
+    const D = window.Zero1MatrixData;
+    let currentPack = null;
+    let currentRecords = [];
+    let filterNeedsExp = false;
+    let reviewMarks = {};
+
+    try { reviewMarks = JSON.parse(localStorage.getItem("yigua_review_marks") || "{}"); } catch(e) {}
+
+    function saveReviewMarks() {
+      localStorage.setItem("yigua_review_marks", JSON.stringify(reviewMarks));
+    }
+
+    function loadPack() {
+      const key = document.getElementById("packSelect").value;
+      currentPack = key;
+      currentRecords = D[key] || [];
+      filterNeedsExp = false;
+      document.getElementById("wbFilterNeedsExp").textContent = "只顯示待擴寫";
+      renderList();
+    }
+
+    function searchRecords(records, query) {
+      if (!query) return records;
+      const q = query.toLowerCase();
+      return records.filter(r => {
+        const id = (r.id || "").toLowerCase();
+        const text = JSON.stringify(r).toLowerCase();
+        return id.includes(q) || text.includes(q);
+      });
+    }
+
+    function renderList() {
+      let records = currentRecords;
+      const query = document.getElementById("wbSearch").value.trim();
+
+      if (filterNeedsExp) {
+        records = records.filter(r => r.needsExpansion || r.needsHumanReview);
+      }
+      records = searchRecords(records, query);
+      records = records.slice(0, 200);
+
+      const el = document.getElementById("recordList");
+      if (records.length === 0) {
+        el.innerHTML = '<span class="muted">無符合記錄</span>';
+        return;
+      }
+
+      let html = `<div class="muted text-sm" style="margin-bottom:8px">顯示 ${records.length} 筆${records.length >= 200 ? '（上限 200）' : ''}</div>`;
+      records.forEach(r => {
+        const reviewed = reviewMarks[r.id] === true;
+        const needs = r.needsExpansion || r.needsHumanReview;
+        let tags = "";
+        if (needs) tags += '<span class="tag ne">待擴寫</span>';
+        if (reviewed) tags += '<span class="tag ok">已審查</span>';
+        else if (!needs) tags += '<span class="tag nr">未審查</span>';
+        html += `<div class="record-item" data-id="${r.id}" onclick="showDetail('${r.id}')">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:var(--gold);font-family:var(--font-mono)">${r.id}</span>
+            <span>${tags}</span>
+          </div>
+          <div class="muted text-sm">${(r.meaning || r.summary || r.text || r.type || "").substring(0, 50)}</div>
+        </div>`;
+      });
+      el.innerHTML = html;
+    }
+
+    function showDetail(id) {
+      const record = currentRecords.find(r => r.id === id);
+      if (!record) return;
+
+      const reviewed = reviewMarks[id] === true;
+      const needs = record.needsExpansion || record.needsHumanReview;
+
+      let html = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="margin:0">${record.id}</h3>
+        <div>
+          <button id="wbReview" class="small ${reviewed ? '' : 'secondary'}" onclick="toggleReview('${id}')">${reviewed ? '✓ 已審查' : '標記已審查'}</button>
+        </div>
+      </div>`;
+
+      if (needs) html += '<span class="tag ne">needsExpansion / needsHumanReview</span> ';
+
+      const showFields = ["id", "hexagramId", "line", "category", "categoryName", "from", "to",
+        "text", "plain", "meaning", "advice", "warning", "summary", "situation", "coreAdvice",
+        "risk", "type", "tone", "timing", "action", "keywords", "basis", "tags",
+        "scoreAdjust", "scores", "goodFor", "notGoodFor", "actionBias", "version", "sourceType"];
+
+      showFields.forEach(f => {
+        if (record[f] !== undefined && record[f] !== null && f !== "id") {
+          const val = typeof record[f] === "object" ? JSON.stringify(record[f], null, 2) : String(record[f]);
+          html += `<div class="field-row">
+            <label>${f}</label>
+            <div class="val pre-wrap">${val.replaceAll("<", "&lt;").replaceAll("\n", "<br>")}</div>
+          </div>`;
+        }
+      });
+
+      document.getElementById("recordDetail").innerHTML = html;
+      document.querySelectorAll(".record-item").forEach(el => el.classList.remove("active"));
+      const active = document.querySelector(`.record-item[data-id="${id}"]`);
+      if (active) active.classList.add("active");
+    }
+
+    function toggleReview(id) {
+      reviewMarks[id] = !reviewMarks[id];
+      saveReviewMarks();
+      renderList();
+      showDetail(id);
+    }
+
+    function exportPending() {
+      const pending = currentRecords.filter(r =>
+        (r.needsExpansion || r.needsHumanReview) && !reviewMarks[r.id]
+      );
+      if (pending.length === 0) { alert("沒有待修記錄"); return; }
+      const list = pending.map(r => ({ id: r.id, needsExpansion: !!r.needsExpansion, needsHumanReview: !!r.needsHumanReview }));
+      const blob = new Blob([JSON.stringify(list, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `yigua-pending-${currentPack}-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("packSelect").addEventListener("change", loadPack);
+      document.getElementById("wbSearch").addEventListener("input", renderList);
+      document.getElementById("wbFilterNeedsExp").addEventListener("click", () => {
+        filterNeedsExp = !filterNeedsExp;
+        document.getElementById("wbFilterNeedsExp").textContent = filterNeedsExp ? "顯示全部" : "只顯示待擴寫";
+        renderList();
+      });
+      document.getElementById("wbExportPending").addEventListener("click", exportPending);
+      loadPack();
+    });
+  </script>
+</body>
+</html>

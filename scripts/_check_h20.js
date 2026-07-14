@@ -1,0 +1,1 @@
+const fs=require("fs");const c=fs.readFileSync("D:/AI_PROJECTS/Zero1Matrix/scripts/_gen_w05_h20.js","utf8");const mIdx=c.indexOf(`e(20,1,"money"`);const pIdx=c.indexOf(`e(20,1,"people"`);console.log("money entry length:",pIdx-mIdx);console.log("ends with:",JSON.stringify(c.substring(pIdx-30,pIdx)))

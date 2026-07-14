@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="易卦 報告檢視">
+  <meta name="theme-color" content="#080706">
+  <title>報告檢視 - 易卦</title>
+  <link rel="stylesheet" href="./src/css/app.css">
+  <style>
+    @media print {
+      body { background: white; color: #222; }
+      .card { border-color: #ccc; box-shadow: none; background: white; }
+      .no-print { display: none !important; }
+      header, nav, footer { display: none; }
+      h1, h2, h3 { color: #333; }
+      .score { border-color: #ccc; background: #f9f9f9; }
+      .score b { color: #333; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">易卦</div>
+    <div class="subtitle">報告檢視</div>
+    <nav>
+      <a href="./index.html">起卦</a>
+      <a href="./history.html">歷史紀錄</a>
+      <a href="./report-viewer.html" class="active">報告檢視</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card no-print">
+      <h1>報告檢視</h1>
+      <p class="muted">選擇歷史紀錄生成 HTML 報告，支援列印成 PDF。</p>
+      <div class="controls" style="margin-top:12px">
+        <select id="reportSelect">
+          <option value="">— 選擇一筆紀錄 —</option>
+        </select>
+        <button id="loadReport">載入報告</button>
+        <button id="printReport" class="secondary">列印 / 存 PDF</button>
+      </div>
+    </section>
+
+    <div id="reportContent">
+      <div class="card"><span class="muted">選擇一筆歷史紀錄來檢視報告</span></div>
+    </div>
+  </main>
+
+  <script src="./src/data/categories.data.js"></script>
+  <script src="./src/data/hexagrams.data.js"></script>
+  <script src="./src/js/core.js"></script>
+  <script>
+    const STORAGE_KEY = "zero1matrix_history";
+
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch (e) { return []; }
+    }
+
+    function loadRecordList() {
+      const history = getHistory();
+      const sel = document.getElementById("reportSelect");
+      sel.innerHTML = '<option value="">— 選擇一筆紀錄 —</option>';
+      history.forEach(r => {
+        const date = new Date(r.createdAt).toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+        const opt = document.createElement("option");
+        opt.value = r.id;
+        opt.textContent = `${r.symbol || ""} ${r.originalHexagramName || "?"} · ${r.categoryName || ""} · ${date}`;
+        sel.appendChild(opt);
+      });
+    }
+
+    function renderReport(record) {
+      const scoreLabels = { clarity: "局勢明朗度", action: "行動適合度", risk: "風險壓力度", change: "變化強度", support: "人和支援度", timing: "時機成熟度" };
+      const scores = record.scores || {};
+      let scoresHtml = '<div class="score-grid">';
+      Object.keys(scoreLabels).forEach(k => {
+        scoresHtml += `<div class="score"><span>${scoreLabels[k]}</span><b>${scores[k] || "—"}</b></div>`;
+      });
+      scoresHtml += '</div>';
+
+      const date = new Date(record.createdAt).toLocaleString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+      document.getElementById("reportContent").innerHTML = `
+        <section class="card">
+          <h1>易卦 解卦報告</h1>
+          <div class="muted">
+            <p>起卦時間：${date}</p>
+            <p>問事分類：${record.categoryName || record.category || "一般"}</p>
+            <p>起卦方式：三枚銅錢</p>
+            <p>報告編號：${record.id}</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>${record.symbol || ""} ${record.originalHexagramName || "?"}</h2>
+          ${record.originalHexagramId !== record.changedHexagramId
+            ? `<p>本卦 → ${record.changedHexagramName || "?"} · ${record.changingLines && record.changingLines.length ? record.changingLines.length + " 爻變動" : "靜卦"}</p>`
+            : `<p>靜卦</p>`}
+          <p style="color:var(--gold);font-family:var(--font-serif);font-size:16px">${record.oneLine || ""}</p>
+        </section>
+
+        <section class="card">
+          <h3>多維度卦象分數</h3>
+          ${scoresHtml}
+        </section>
+
+        <section class="card">
+          <h3>簡解</h3>
+          <div class="pre-wrap">${(record.simple || "").replaceAll("\n", "<br>")}</div>
+        </section>
+
+        <section class="card">
+          <h3>深解</h3>
+          <pre class="pre-wrap">${record.deep || ""}</pre>
+        </section>
+
+        <section class="card">
+          <h3>起卦資料</h3>
+          <p><span class="muted">六爻值 (bottom-up)：</span>[${(record.casts || []).join(", ")}]</p>
+          <p><span class="muted">動爻：</span>${record.changingLines && record.changingLines.length ? record.changingLines.join("、") : "無"}</p>
+        </section>
+
+        <p class="muted" style="text-align:center;margin-top:32px">易卦 — Local-first 易經起卦系統 · 不登入 · 不上傳 · 本機運作</p>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadRecordList();
+
+      document.getElementById("loadReport").addEventListener("click", () => {
+        const id = document.getElementById("reportSelect").value;
+        if (!id) return;
+        const history = getHistory();
+        const record = history.find(r => r.id === id);
+        if (!record) { alert("找不到紀錄"); return; }
+        renderReport(record);
+      });
+
+      document.getElementById("printReport").addEventListener("click", () => {
+        window.print();
+      });
+    });
+  </script>
+</body>
+</html>

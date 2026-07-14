@@ -1,0 +1,65 @@
+[
+  {
+    "caseId": "coin-001",
+    "throws": [
+      [
+        "T",
+        "T",
+        "T"
+      ],
+      [
+        "H",
+        "T",
+        "T"
+      ],
+      [
+        "H",
+        "H",
+        "T"
+      ],
+      [
+        "H",
+        "H",
+        "H"
+      ],
+      [
+        "T",
+        "H",
+        "T"
+      ],
+      [
+        "H",
+        "T",
+        "H"
+      ]
+    ],
+    "expectedValues": [
+      6,
+      7,
+      8,
+      9,
+      7,
+      8
+    ],
+    "expectedChangingLines": [
+      1,
+      4
+    ],
+    "expectedOriginalBinary": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
+    "expectedChangedBinary": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  }
+]

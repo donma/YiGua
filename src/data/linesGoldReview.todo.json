@@ -1,0 +1,9986 @@
+[
+  {
+    "id": "hex-001-line-1",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-001-line-2",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-001-line-3",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-001-line-4",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-001-line-5",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-001-line-6",
+    "hexagramId": 1,
+    "hexagramName": "乾",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-1",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-2",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-3",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-4",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-5",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-002-line-6",
+    "hexagramId": 2,
+    "hexagramName": "坤",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-1",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-2",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-3",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-4",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-5",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-003-line-6",
+    "hexagramId": 3,
+    "hexagramName": "屯",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-1",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-2",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-3",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-4",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-5",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-004-line-6",
+    "hexagramId": 4,
+    "hexagramName": "蒙",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-1",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-2",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-3",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-4",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-5",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-005-line-6",
+    "hexagramId": 5,
+    "hexagramName": "需",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-1",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-2",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-3",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-4",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-5",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-006-line-6",
+    "hexagramId": 6,
+    "hexagramName": "訟",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-1",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-2",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-3",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-4",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-5",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-007-line-6",
+    "hexagramId": 7,
+    "hexagramName": "師",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-1",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-2",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-3",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-4",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-5",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-008-line-6",
+    "hexagramId": 8,
+    "hexagramName": "比",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-1",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-2",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-3",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-4",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-5",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-009-line-6",
+    "hexagramId": 9,
+    "hexagramName": "小畜",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-1",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-2",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-3",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-4",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-5",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-010-line-6",
+    "hexagramId": 10,
+    "hexagramName": "履",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-1",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-2",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-3",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-4",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-5",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-011-line-6",
+    "hexagramId": 11,
+    "hexagramName": "泰",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-1",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-2",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-3",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-4",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-5",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-012-line-6",
+    "hexagramId": 12,
+    "hexagramName": "否",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-1",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-2",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-3",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-4",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-5",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-013-line-6",
+    "hexagramId": 13,
+    "hexagramName": "同人",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-1",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-2",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-3",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-4",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-5",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-014-line-6",
+    "hexagramId": 14,
+    "hexagramName": "大有",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-1",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-2",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-3",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-4",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-5",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-015-line-6",
+    "hexagramId": 15,
+    "hexagramName": "謙",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-1",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-2",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-3",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-4",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-5",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-016-line-6",
+    "hexagramId": 16,
+    "hexagramName": "豫",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-1",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-2",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-3",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-4",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-5",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-017-line-6",
+    "hexagramId": 17,
+    "hexagramName": "隨",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-1",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-2",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-3",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-4",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-5",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-018-line-6",
+    "hexagramId": 18,
+    "hexagramName": "蠱",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-1",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-2",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-3",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-4",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-5",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-019-line-6",
+    "hexagramId": 19,
+    "hexagramName": "臨",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-1",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-2",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-3",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-4",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-5",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-020-line-6",
+    "hexagramId": 20,
+    "hexagramName": "觀",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-1",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-2",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-3",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-4",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-5",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-021-line-6",
+    "hexagramId": 21,
+    "hexagramName": "噬嗑",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-1",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-2",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-3",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-4",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-5",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-022-line-6",
+    "hexagramId": 22,
+    "hexagramName": "賁",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-1",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-2",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-3",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-4",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-5",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-023-line-6",
+    "hexagramId": 23,
+    "hexagramName": "剝",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-1",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-2",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-3",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-4",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-5",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-024-line-6",
+    "hexagramId": 24,
+    "hexagramName": "復",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-1",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-2",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-3",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-4",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-5",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-025-line-6",
+    "hexagramId": 25,
+    "hexagramName": "無妄",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-1",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-2",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-3",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-4",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-5",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-026-line-6",
+    "hexagramId": 26,
+    "hexagramName": "大畜",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-1",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-2",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-3",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-4",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-5",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-027-line-6",
+    "hexagramId": 27,
+    "hexagramName": "頤",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-1",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-2",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-3",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-4",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-5",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-028-line-6",
+    "hexagramId": 28,
+    "hexagramName": "大過",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-1",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-2",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-3",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-4",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-5",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-029-line-6",
+    "hexagramId": 29,
+    "hexagramName": "坎",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-1",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-2",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-3",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-4",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-5",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-030-line-6",
+    "hexagramId": 30,
+    "hexagramName": "離",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-1",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-2",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-3",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-4",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-5",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-031-line-6",
+    "hexagramId": 31,
+    "hexagramName": "咸",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-1",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-2",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-3",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-4",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-5",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-032-line-6",
+    "hexagramId": 32,
+    "hexagramName": "恆",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-1",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-2",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-3",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-4",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-5",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-033-line-6",
+    "hexagramId": 33,
+    "hexagramName": "遯",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-1",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-2",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-3",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-4",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-5",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-034-line-6",
+    "hexagramId": 34,
+    "hexagramName": "大壯",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-1",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-2",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-3",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-4",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-5",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-035-line-6",
+    "hexagramId": 35,
+    "hexagramName": "晉",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-1",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-2",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-3",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-4",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-5",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-036-line-6",
+    "hexagramId": 36,
+    "hexagramName": "明夷",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-1",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-2",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-3",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-4",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-5",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-037-line-6",
+    "hexagramId": 37,
+    "hexagramName": "家人",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-1",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-2",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-3",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-4",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-5",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-038-line-6",
+    "hexagramId": 38,
+    "hexagramName": "睽",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-1",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-2",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-3",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-4",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-5",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-039-line-6",
+    "hexagramId": 39,
+    "hexagramName": "蹇",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-1",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-2",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-3",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-4",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-5",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-040-line-6",
+    "hexagramId": 40,
+    "hexagramName": "解",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-1",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-2",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-3",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-4",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-5",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-041-line-6",
+    "hexagramId": 41,
+    "hexagramName": "損",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-1",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-2",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-3",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-4",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-5",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-042-line-6",
+    "hexagramId": 42,
+    "hexagramName": "益",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-1",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-2",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-3",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-4",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-5",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-043-line-6",
+    "hexagramId": 43,
+    "hexagramName": "夬",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-1",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-2",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-3",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-4",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-5",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-044-line-6",
+    "hexagramId": 44,
+    "hexagramName": "姤",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-1",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-2",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-3",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-4",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-5",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-045-line-6",
+    "hexagramId": 45,
+    "hexagramName": "萃",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-1",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-2",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-3",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-4",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-5",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-046-line-6",
+    "hexagramId": 46,
+    "hexagramName": "升",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-1",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-2",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-3",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-4",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-5",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-047-line-6",
+    "hexagramId": 47,
+    "hexagramName": "困",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-1",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-2",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-3",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-4",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-5",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-048-line-6",
+    "hexagramId": 48,
+    "hexagramName": "井",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-1",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-2",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-3",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-4",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-5",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-049-line-6",
+    "hexagramId": 49,
+    "hexagramName": "革",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-1",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-2",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-3",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-4",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-5",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-050-line-6",
+    "hexagramId": 50,
+    "hexagramName": "鼎",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-1",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-2",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-3",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-4",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-5",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-051-line-6",
+    "hexagramId": 51,
+    "hexagramName": "震",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-1",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-2",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-3",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-4",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-5",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-052-line-6",
+    "hexagramId": 52,
+    "hexagramName": "艮",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-1",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-2",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-3",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-4",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-5",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-053-line-6",
+    "hexagramId": 53,
+    "hexagramName": "漸",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-1",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-2",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-3",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-4",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-5",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-054-line-6",
+    "hexagramId": 54,
+    "hexagramName": "歸妹",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-1",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-2",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-3",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-4",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-5",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-055-line-6",
+    "hexagramId": 55,
+    "hexagramName": "豐",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-1",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-2",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-3",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-4",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-5",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-056-line-6",
+    "hexagramId": 56,
+    "hexagramName": "旅",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-1",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-2",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-3",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-4",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-5",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-057-line-6",
+    "hexagramId": 57,
+    "hexagramName": "巽",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-1",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-2",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-3",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-4",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-5",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-058-line-6",
+    "hexagramId": 58,
+    "hexagramName": "兌",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-1",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-2",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-3",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-4",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-5",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-059-line-6",
+    "hexagramId": 59,
+    "hexagramName": "渙",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-1",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-2",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-3",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-4",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-5",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-060-line-6",
+    "hexagramId": 60,
+    "hexagramName": "節",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-1",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-2",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-3",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-4",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-5",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-061-line-6",
+    "hexagramId": 61,
+    "hexagramName": "中孚",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-1",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-2",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-3",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-4",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-5",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-062-line-6",
+    "hexagramId": 62,
+    "hexagramName": "小過",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-1",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-2",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-3",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-4",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-5",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-063-line-6",
+    "hexagramId": 63,
+    "hexagramName": "既濟",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-1",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 1,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-2",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 2,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-3",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 3,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-4",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 4,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-5",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 5,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  },
+  {
+    "id": "hex-064-line-6",
+    "hexagramId": 64,
+    "hexagramName": "未濟",
+    "line": 6,
+    "requiredFields": [
+      "text",
+      "plain",
+      "meaning",
+      "advice",
+      "warning",
+      "basis",
+      "qualityLevel",
+      "reviewed",
+      "reviewedBy",
+      "reviewedAt"
+    ],
+    "minLengths": {
+      "plain": 120,
+      "meaning": 120,
+      "advice": 80,
+      "warning": 60
+    },
+    "finalQualityLevel": "gold",
+    "status": "todo"
+  }
+]

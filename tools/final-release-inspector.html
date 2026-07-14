@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Final Release Inspector v7.1</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+  <style>
+    body { background: #0d1117; color: #c9d1d9; font-family: system-ui, sans-serif; }
+    .pass { color: #3fb950; }
+    .fail { color: #f85149; }
+    .warn { color: #d2991d; }
+    .progress { color: #58a6ff; }
+    pre { background: #161b22; padding: 16px; border-radius: 8px; overflow: auto; white-space: pre-wrap; font-size: 13px; }
+    h2 { border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-top: 24px; }
+  </style>
+</head>
+<body style="max-width:960px;margin:0 auto;padding:24px">
+  <nav style="margin-bottom:16px">
+    <a href="../index.html" style="color:#58a6ff">← 回起卦頁</a>
+  </nav>
+  <h1>Final Release Inspector v7.1</h1>
+  <p style="color:#8b949e;font-size:13px">Zero1Matrix — Structural Release Gate · Lines Gold Gate · Full Content Gold Gate</p>
+  <button id="run" style="margin:12px 0;padding:10px 24px;font-size:15px;cursor:pointer">Run Inspection</button>
+  <pre id="report">Click Run Inspection</pre>
+
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/reflectionQuestions.data.js"></script>
+  <script src="../src/data/actionSuggestions.data.js"></script>
+  <script src="../src/data/riskWarnings.data.js"></script>
+  <script src="../tests/results/golden-test-results.data.js"></script>
+  <script src="../tests/results/score-calibration-results.data.js"></script>
+  <script src="../tests/results/hard-correctness-results.data.js"></script>
+  <script src="../tests/results/file-mode-results.data.js"></script>
+  <script src="../tests/results/js-syntax-results.data.js"></script>
+
+  <script>
+  (function() {
+    var D = window.Zero1MatrixData || {};
+    function g(name, alt) { return D[name] || D[alt] || []; }
+
+    document.getElementById("run").addEventListener("click", function() {
+      var ci = g("categoryInterpretations", "category");
+      var pi = g("pairInterpretations", "pair");
+      var lc = g("lineCategoryInterpretations", "lineCategory");
+      var hx = D.hexagrams || [];
+      var li = D.lines || [];
+      var rf = D.reflectionQuestions || [];
+      var as = D.actionSuggestions || [];
+      var rw = D.riskWarnings || [];
+
+      function ds(arr, exp, label) {
+        var ids = arr.map(function(x) { return x.id; });
+        var unique = new Set(ids).size;
+        var reviewed = arr.filter(function(x) { return x.reviewed === true; }).length;
+        var gold = arr.filter(function(x) { return x.qualityLevel === "gold"; }).length;
+        var refined = arr.filter(function(x) { return x.qualityLevel === "refined"; }).length;
+        var hasBasis = arr.filter(function(x) { return Array.isArray(x.basis) && x.basis.length > 0; }).length;
+        return { label: label, count: arr.length, expected: exp, unique: unique, reviewed: reviewed, gold: gold, refined: refined, hasBasis: hasBasis, ok: arr.length === exp && unique === exp };
+      }
+
+      var datasets = [
+        ds(hx, 64, "hexagrams"), ds(li, 384, "lines"), ds(pi, 4096, "pairs"),
+        ds(lc, 4608, "lineCategory"), ds(ci, 768, "category"), ds(rf, 2304, "reflections"),
+        ds(as, 768, "actions"), ds(rw, 768, "riskWarnings")
+      ];
+
+      // Lines gold check
+      var meanings = li.map(function(x) { return x.meaning || ""; });
+      var plains = li.map(function(x) { return x.plain || ""; });
+      var linesGoldOk = li.length === 384 &&
+        li.filter(function(x) { return x.qualityLevel === "gold"; }).length === 384 &&
+        li.filter(function(x) { return x.reviewed === true; }).length === 384 &&
+        new Set(meanings).size === 384;
+
+      // Forbidden scan on actual content
+      var allRecords = hx.concat(li, pi, lc, ci, rf, as, rw);
+      var fullText = JSON.stringify(allRecords);
+      var forbiddenTerms = ["必定成功","一定成功","必有災禍","一定會失敗","不用看醫生","停止就醫","官司一定贏","保證獲利","保證賺錢","馬上辭職","必須分手","必須離婚","穩賺","包贏","絕對成功","絕對失敗"];
+      var forbiddenHits = [];
+      forbiddenTerms.forEach(function(term) {
+        if (fullText.indexOf(term) >= 0) {
+          var matches = [];
+          allRecords.forEach(function(r) {
+            if (JSON.stringify(r).indexOf(term) >= 0) {
+              matches.push({ id: r.id || "?", term: term });
+            }
+          });
+          forbiddenHits = forbiddenHits.concat(matches.slice(0, 5));
+        }
+      });
+
+      // Golden tests
+      var gt = window.Zero1MatrixGoldenTestResults || {};
+      var goldenPass = gt.total === 300 && gt.passed === 300 && gt.failed === 0 &&
+        gt.uniqueCasts === 300 && gt.originalHexagramMismatch === 0 &&
+        gt.changedHexagramMismatch === 0 && gt.movingLinesMismatch === 0;
+
+      // Score calibration
+      var sc = window.Zero1MatrixScoreCalibration || {};
+
+      // Hard correctness
+      var hc = window.Zero1MatrixHardCorrectness || {};
+
+      // File mode
+      var fm = window.Zero1MatrixFileMode || {};
+
+      // JS syntax
+      var js = window.Zero1MatrixJSSyntax || {};
+
+      // Structural Gate
+      var allCountsOk = datasets.every(function(d) { return d.ok; });
+      var structuralOk = allCountsOk && forbiddenHits.length === 0 && goldenPass &&
+        (hc.pass === true) && (fm.pass === true) && (js.errors === 0);
+
+      // Content Gold Gate
+      var allGold = datasets.every(function(d) { return d.gold === d.expected; });
+      var allReviewed = datasets.every(function(d) { return d.reviewed === d.expected; });
+      var contentGoldOk = allGold && allReviewed;
+
+      // Score Status
+      var scStatus = sc.status || "?";
+      var scRepro = (sc.reproducibilityFailures || 0) === 0 ? "PASS" : "FAIL";
+
+      var totalGold = datasets.reduce(function(s,d) { return s + d.gold; }, 0);
+      var totalExpected = datasets.reduce(function(s,d) { return s + d.expected; }, 0);
+      var totalReviewed = datasets.reduce(function(s,d) { return s + d.reviewed; }, 0);
+
+      var lines = [];
+      lines.push("=== FINAL RELEASE INSPECTOR v7.1 ===");
+      lines.push("");
+      lines.push("--- Structural Release Gate ---");
+      lines.push("Status: " + (structuralOk ? "PASS" : "FAIL"));
+      datasets.forEach(function(d) {
+        lines.push("  " + d.label + ": " + d.count + "/" + d.expected + " unique=" + d.unique + " gold=" + d.gold + " reviewed=" + d.reviewed + " " + (d.ok ? "OK" : "FAIL"));
+      });
+      lines.push("Forbidden hits: " + forbiddenHits.length + " " + (forbiddenHits.length === 0 ? "PASS" : "FAIL"));
+      if (forbiddenHits.length > 0) {
+        forbiddenHits.forEach(function(h) { lines.push("  " + h.id + " -> " + h.term); });
+      }
+      lines.push("Golden Tests: " + (gt.passed||0) + "/" + (gt.total||0) + " PASS, unique casts=" + (gt.uniqueCasts||0) + " " + (goldenPass ? "PASS" : "FAIL"));
+      lines.push("Hard Correctness: " + (hc.pass ? "PASS" : "FAIL") + " (hex=" + (hc.hexagramCount||0) + " patterns=" + (hc.uniquePatterns||0) + " dups=" + (hc.duplicatePatterns||0) + ")");
+      lines.push("file:// Support: " + (fm.pass ? "PASS" : "FAIL") + " (scanned=" + (fm.filesScanned||0) + " violations=" + ((fm.violations||[]).length) + ")");
+      lines.push("JS Syntax: " + ((js.errors||0) === 0 ? "PASS" : "FAIL") + " (files=" + (js.filesChecked||0) + " errors=" + (js.errors||0) + ")");
+      lines.push("");
+      lines.push("--- Lines Gold Gate ---");
+      lines.push("Status: " + (linesGoldOk ? "PASS" : "FAIL"));
+      lines.push("  Lines: 384/384 gold=" + (li.filter(function(x){return x.qualityLevel==="gold";}).length) + " reviewed=" + (li.filter(function(x){return x.reviewed===true;}).length));
+      lines.push("  Unique meanings: " + new Set(meanings).size + "/384");
+      lines.push("  Unique plains: " + new Set(plains).size + "/384");
+      lines.push("");
+      lines.push("--- Full Content Gold Gate ---");
+      lines.push("Status: " + (contentGoldOk ? "PASS" : "IN PROGRESS"));
+      lines.push("  Total gold: " + totalGold + " / " + totalExpected);
+      lines.push("  Total reviewed: " + totalReviewed + " / " + totalExpected);
+      lines.push("  All 8 datasets need reviewed=true AND qualityLevel=gold for PASS.");
+      lines.push("");
+      lines.push("--- Score Calibration ---");
+      lines.push("Status: " + scStatus);
+      lines.push("  Reproducibility: " + scRepro + " (" + (sc.reproducibilityFailures||0) + "/" + (sc.reproducibilityCases||0) + " failures)");
+      lines.push("  NaN: " + (sc.nanCount||0) + " Undefined: " + (sc.undefinedCount||0) + " OutOfRange: " + (sc.outOfRangeCount||0) + " MissingCategory: " + (sc.missingCategoryRecords||0));
+      var dims = sc.dimensions || {};
+      Object.keys(dims).forEach(function(d) {
+        var s = dims[d];
+        lines.push("  " + d + ": n=" + s.count + " mean=" + s.mean + " std=" + s.standardDeviation + " bandConc=" + (s.bandConcentrationPercent||0) + "%");
+      });
+      lines.push("");
+      lines.push("=== SUMMARY ===");
+      lines.push("Structural Release Gate: " + (structuralOk ? "PASS" : "FAIL"));
+      lines.push("Lines Gold Gate: " + (linesGoldOk ? "PASS" : "FAIL"));
+      lines.push("Full Content Gold Gate: " + (contentGoldOk ? "PASS" : "IN PROGRESS"));
+      lines.push("Golden Tests: " + (gt.passed||0) + "/" + (gt.total||0) + " PASS (" + (gt.uniqueCasts||0) + " unique casts)");
+      lines.push("Score Calibration: " + scStatus);
+      lines.push("Score Reproducibility: " + scRepro);
+      lines.push("Hard Correctness: " + (hc.pass ? "PASS" : "FAIL"));
+      lines.push("file:// Support: " + (fm.pass ? "PASS" : "FAIL"));
+      lines.push("JS Syntax: " + ((js.errors||0) === 0 ? "PASS" : "FAIL"));
+      lines.push("Forbidden Hits: " + forbiddenHits.length);
+
+      document.getElementById("report").textContent = lines.join("\n");
+    });
+  })();
+  </script>
+</body>
+</html>

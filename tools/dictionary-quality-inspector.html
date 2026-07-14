@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dictionary Quality Inspector - Zero1Matrix</title>
+  <link rel="stylesheet" href="../src/css/app.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Dictionary Quality</div>
+    <div class="subtitle">Zero1Matrix 詞庫品質檢查</div>
+    <nav>
+      <a href="../index.html">← 回起卦頁</a>
+      <a href="../tools/reading-lab.html">Reading Lab</a>
+      <a href="../tools/data-inspector.html">Data Inspector</a>
+      <a href="../tools/dictionary-quality-inspector.html" class="active">Quality Inspector</a>
+      <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
+      <a href="../tools/content-quality-inspector.html">Content Quality</a>
+      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h1>Quality Report</h1>
+      <button id="run">Run Check</button>
+      <pre id="report"></pre>
+    </section>
+  </main>
+
+  <script src="../src/data/categories.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
+  <script src="../src/data/dictionaryQualityRules.data.js"></script>
+
+  <script>
+    function scanText(value, terms) {
+      if (typeof value !== "string") return [];
+      return terms.filter(term => value.includes(term));
+    }
+
+    function collectStrings(obj, path = "") {
+      const out = [];
+      if (!obj || typeof obj !== "object") return out;
+      for (const [key, value] of Object.entries(obj)) {
+        const next = path ? `${path}.${key}` : key;
+        if (typeof value === "string") out.push({ path: next, value });
+        else if (Array.isArray(value)) value.forEach((item, i) => out.push(...collectStrings(item, `${next}[${i}]`)));
+        else if (value && typeof value === "object") out.push(...collectStrings(value, next));
+      }
+      return out;
+    }
+
+    function runQualityCheck() {
+      const D = window.Zero1MatrixData;
+      const rules = D.dictionaryQualityRules;
+      const report = {
+        coverage: {
+          hexagrams: `${D.hexagrams?.length || 0}/64`,
+          lines: `${D.lines?.length || 0}/384`,
+          categoryInterpretations: `${D.categoryInterpretations?.length || 0}/768`,
+          lineCategoryInterpretations: `${D.lineCategoryInterpretations?.length || 0}/4608`,
+          pairInterpretations: `${D.pairInterpretations?.length || 0}/4096`
+        },
+        hardText: {
+          emptyLineText: [],
+          placeholderLineText: [],
+          insufficientSources: [],
+          sourceDisagreement: []
+        },
+        safety: {
+          forbiddenHits: [],
+          warningHits: []
+        },
+        quality: {
+          missingBasis: [],
+          needsExpansion: 0,
+          needsHumanReview: 0,
+          reviewed: 0
+        },
+        status: "PASS"
+      };
+
+      const lines = D.lines || [];
+      for (const line of lines) {
+        if (!line.text || !line.text.trim()) report.hardText.emptyLineText.push(line.id);
+        const bad = scanText(line.text || "", rules.classicTextMustNotContain || []);
+        if (bad.length) report.hardText.placeholderLineText.push({ id: line.id, hits: bad });
+        if (!line.classicTextSources || line.classicTextSources.length < 2) report.hardText.insufficientSources.push(line.id);
+        if (line.sourceAgreement !== true) report.hardText.sourceDisagreement.push(line.id);
+      }
+
+      const all = [
+        ...(D.hexagrams || []),
+        ...(D.lines || []),
+        ...(D.categoryInterpretations || []),
+        ...(D.lineCategoryInterpretations || []),
+        ...(D.pairInterpretations || [])
+      ];
+
+      for (const rec of all) {
+        if (!rec.basis || !rec.basis.length) report.quality.missingBasis.push(rec.id);
+        if (rec.needsExpansion) report.quality.needsExpansion += 1;
+        if (rec.needsHumanReview) report.quality.needsHumanReview += 1;
+        if (rec.reviewed) report.quality.reviewed += 1;
+
+        for (const item of collectStrings(rec)) {
+          const forbidden = scanText(item.value, rules.forbiddenTerms || []);
+          if (forbidden.length) report.safety.forbiddenHits.push({ id: rec.id, path: item.path, hits: forbidden });
+          const warnings = scanText(item.value, rules.warningTerms || []);
+          if (warnings.length) report.safety.warningHits.push({ id: rec.id, path: item.path, hits: warnings });
+        }
+      }
+
+      if (
+        report.hardText.emptyLineText.length ||
+        report.hardText.placeholderLineText.length ||
+        report.hardText.insufficientSources.length ||
+        report.hardText.sourceDisagreement.length ||
+        report.safety.forbiddenHits.length ||
+        report.quality.missingBasis.length
+      ) {
+        report.status = "FAIL";
+      } else if (report.quality.needsExpansion || report.quality.needsHumanReview || report.safety.warningHits.length) {
+        report.status = "WARN";
+      }
+
+      return report;
+    }
+
+    document.getElementById("run").addEventListener("click", () => {
+      document.getElementById("report").textContent = JSON.stringify(runQualityCheck(), null, 2);
+    });
+  </script>
+</body>
+</html>

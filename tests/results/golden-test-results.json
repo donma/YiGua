@@ -1,0 +1,10 @@
+{
+  "total": 300,
+  "passed": 300,
+  "failed": 0,
+  "uniqueCasts": 300,
+  "originalHexagramMismatch": 0,
+  "changedHexagramMismatch": 0,
+  "movingLinesMismatch": 0,
+  "testTimestamp": "2026-07-12T01:27:46"
+}
