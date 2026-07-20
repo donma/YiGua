@@ -187,8 +187,8 @@
       "path": "index.html",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 9760,
-      "sha256": "37bee777e4d10d9b2c809ff2b43d5eeeec8fca406caa1a5d40d532079e15c400"
+      "bytes": 10639,
+      "sha256": "621f0f8a0c674049cb838705c8146c2bc29995cab693b15441f98722a679a8d7"
     },
     {
       "name": "history.html",
@@ -244,15 +244,15 @@
       "layer": "runtime",
       "recordCount": null,
       "bytes": 2072,
-      "sha256": "58190eae28184b2497a9404f45e5c629058d232891e3ca144ddcfbfa90f0f150"
+      "sha256": "f12574ccb16d486369fe5176107d51d03d322a07a80848c4614164c38d28dd82"
     },
     {
       "name": "app.css",
       "path": "src/css/app.css",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 11293,
-      "sha256": "811a7e035dea235d2b605bc47c22c88e6733c908372dd9404de2e1513c402873"
+      "bytes": 14277,
+      "sha256": "678241a6e6ec25cfe766edfd51773bf86f627286cc064a52bc2179afd5835b49"
     },
     {
       "name": "coin.css",

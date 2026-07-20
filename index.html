@@ -128,14 +128,40 @@
 
     <div id="result"></div>
 
-    <section class="card project-intro" aria-labelledby="about-yigua">
-      <h2 id="about-yigua">易卦：可驗證的易經起卦與六爻判讀</h2>
-      <p>易卦以《周易》六十四卦、384 爻原文為第一層，再把工作、感情、財務、健康與重大決策等現代情境放在第二層。結果先呈現經典判讀主軸，再顯示分類解讀、行動建議與風險提醒，避免兩種內容混為一談。</p>
-      <h3>三枚銅錢與每日一卦</h3>
-      <p>每一爻由三枚公平銅錢的組合機率產生：老陰 1/8、少陽 3/8、少陰 3/8、老陽 1/8。每日一卦使用日期作固定種子，但仍維持同一個三枚銅錢機率模型。</p>
-      <h3>透明的多動爻規則與資料版本</h3>
-      <p>多動爻明示採《易學啟蒙》系統規則。經典文字已完成 64 卦／384 爻的機器交叉核對，異文、可信狀態與待人工校勘項目均不隱藏。可查閱 <a href="./data-release-manifest.json">公開資料版本 manifest</a> 驗證檔案雜湊與資料筆數。</p>
-      <p class="muted text-sm">易卦用於文化研究與決策反思，不取代醫療、法律、投資或其他專業意見。</p>
+    <section class="project-intro" aria-labelledby="about-yigua">
+      <header class="project-intro-header">
+        <span class="project-intro-eyebrow">關於易卦</span>
+        <h2 id="about-yigua">可驗證的易經起卦與六爻判讀</h2>
+      </header>
+
+      <div class="project-intro-grid">
+        <article class="project-intro-item">
+          <span class="project-intro-index" aria-hidden="true">一</span>
+          <div>
+            <h3>經典為底，應用分層</h3>
+            <p>易卦以《周易》<span class="intro-stat">六十四卦、384 爻</span>原文為第一層，再把工作、感情、財務、健康與重大決策等現代情境放在第二層。結果先呈現經典判讀主軸，再顯示分類解讀、行動建議與風險提醒，避免兩種內容混為一談。</p>
+          </div>
+        </article>
+
+        <article class="project-intro-item">
+          <span class="project-intro-index" aria-hidden="true">二</span>
+          <div>
+            <h3>三枚銅錢與每日一卦</h3>
+            <p>每一爻由三枚公平銅錢的組合機率產生：<span class="intro-stat">老陰 1/8、少陽 3/8、少陰 3/8、老陽 1/8</span>。每日一卦使用日期作固定種子，但仍維持同一個三枚銅錢機率模型。</p>
+          </div>
+        </article>
+
+        <article class="project-intro-item">
+          <span class="project-intro-index" aria-hidden="true">三</span>
+          <div>
+            <h3>透明規則與資料版本</h3>
+            <p>多動爻明示採《易學啟蒙》系統規則。經典文字已完成 <span class="intro-stat">64 卦／384 爻</span>的機器交叉核對，異文、可信狀態與待人工校勘項目均不隱藏。</p>
+            <a class="manifest-link" href="./data-release-manifest.json">查閱公開資料版本 manifest <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <p class="project-intro-note">易卦用於文化研究與決策反思，不取代醫療、法律、投資或其他專業意見。</p>
     </section>
   </main>
 
