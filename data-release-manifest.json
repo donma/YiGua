@@ -187,8 +187,8 @@
       "path": "index.html",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 10429,
-      "sha256": "ebb1d5a4a750cd2def28a10b0502554b906f226726c12730e1c1e2ba511fe06a"
+      "bytes": 10498,
+      "sha256": "a2fedd49410066a680e6fd4640d6717236d3820e6c4433a4a5c2a76c237e22f9"
     },
     {
       "name": "history.html",
@@ -244,7 +244,7 @@
       "layer": "runtime",
       "recordCount": null,
       "bytes": 2254,
-      "sha256": "90c203fe27e3c97474202d2f046bb6dad11be192692a1436fe3027b5443e62e3"
+      "sha256": "18cca8bcdb5734741d46ef02bbc9816843db66cffde01984b243347b52a1461f"
     },
     {
       "name": "app.css",
