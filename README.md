@@ -159,3 +159,11 @@ src/data/*.data.js                 產品資料集
 - JSON 匯入限制 schema、檔案大小、筆數與欄位
 - 歷史及報告頁不把匯入文字直接當成 HTML 執行
 - 不提供醫療診斷、具體投資指令、法律結論或恐嚇式斷語
+
+## 銅錢素材來源
+
+起卦動畫使用乾隆通寶、道光通寶與嘉慶通寶寶泉局正反面素材，均已針對網頁呈現進行裁切、去背、色調統一與 WebP 最佳化。
+
+- 乾隆通寶實物圖：Murberget Länsmuseet Västernorrland，經 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coin._Qing_Dynasty._Qianlong_Tongbao._Bao_Quan._obv.jpg) 提供，Public Domain
+- 道光通寶實物圖：The British Museum 與 Portable Antiquities Scheme，經 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coin._Qing_Dynasty._Daoguang_Tongbao._1_cash._Bao_Quan._obv.png) 提供， [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+- 嘉慶通寶正反面依專案提供的實物樣本製作

@@ -1,4 +1,4 @@
-const CACHE_NAME = "yigua-core-2026-07-20-v5";
+const CACHE_NAME = "yigua-core-2026-07-20-v6";
 
 const CACHE_URLS = [
   "./",
@@ -29,8 +29,12 @@ const CACHE_URLS = [
   "./src/data/interpretationMethod.data.js",
   "./src/data/classicCanon.data.js",
   "./src/data/classicTextVariants.data.js",
-  "./src/assets/coins/coin-front.svg",
-  "./src/assets/coins/coin-back.svg",
+  "./src/assets/coins/qianlong-front.webp",
+  "./src/assets/coins/qianlong-back.webp",
+  "./src/assets/coins/daoguang-front.webp",
+  "./src/assets/coins/daoguang-back.webp",
+  "./src/assets/coins/jiaqing-front.webp",
+  "./src/assets/coins/jiaqing-back.webp",
   "./src/assets/icons/icon.svg"
 ];
 

@@ -497,7 +497,7 @@
       const container = coinMount || document.body;
 
       if (Z.coinAnimation && Z.coinAnimation.throwOneLine) {
-        const result = await Z.coinAnimation.throwOneLine(container, fastMode);
+        const result = await Z.coinAnimation.throwOneLine(container, fastMode, i);
         values.push(result.value);
       } else {
         const result = Z.castRandomCoinLine();
@@ -506,13 +506,14 @@
       }
 
       playSound("settle");
-      if (!fastMode && i < 5) await sleep(180);
+      if (!fastMode && i < 5) await sleep(70);
     }
 
     playSound("done");
 
     if (coinMount) {
-      coinMount.innerHTML += renderCoinCastLog(values, fastMode);
+      if (Z.coinAnimation && Z.coinAnimation.finishCasting) Z.coinAnimation.finishCasting(coinMount);
+      coinMount.insertAdjacentHTML("beforeend", renderCoinCastLog(values, fastMode));
     }
 
     return values;
@@ -657,6 +658,11 @@
     const fastCastBtn = $("#fastCast");
     const dailyCastBtn = $("#dailyCast");
     const manualCastBtn = $("#manualCast");
+
+    const coinMount = $("#coinMount");
+    if (coinMount && Z.coinAnimation && Z.coinAnimation.renderCoins) {
+      Z.coinAnimation.renderCoins(coinMount);
+    }
 
     if (castBtn) castBtn.addEventListener("click", handleCoinCast);
     if (fastCastBtn) fastCastBtn.addEventListener("click", handleFastCast);

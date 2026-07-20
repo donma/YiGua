@@ -243,8 +243,8 @@
       "path": "sw.js",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 2072,
-      "sha256": "f12574ccb16d486369fe5176107d51d03d322a07a80848c4614164c38d28dd82"
+      "bytes": 2254,
+      "sha256": "395481b76eb701e3804f02c92f53787ed3037ef92e8fb382f18a02a66d46cbee"
     },
     {
       "name": "app.css",
@@ -259,8 +259,8 @@
       "path": "src/css/coin.css",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 2228,
-      "sha256": "eaf5e0577a66492b4d5ae22cbc4dc92fd4e10dea4992b3687b94c61952d6f937"
+      "bytes": 9189,
+      "sha256": "81e952691849835b0897b168d83069ce78f532ab859d0ee7c4d8f237bd85527e"
     },
     {
       "name": "core.js",
@@ -275,16 +275,16 @@
       "path": "src/js/app.js",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 26573,
-      "sha256": "01f9b7f8042fe3514c51f50d605125fc3d76f10f6c87bb541c8c499f4adce32b"
+      "bytes": 26860,
+      "sha256": "610f916ee8b93beaa35877dce81fb5321f4773351a70260217efec6680962776"
     },
     {
       "name": "coin-animation.js",
       "path": "src/js/coin-animation.js",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 1542,
-      "sha256": "7bd0a145bccec42512ec34024f45012a00e4c3f0fff8fc2c5d6d6a57af9603d2"
+      "bytes": 4590,
+      "sha256": "ac1f4ddbd04284b8d5621cf68cb9c5d1f616bda31cef483e335849349279127b"
     },
     {
       "name": "history-safety.js",
