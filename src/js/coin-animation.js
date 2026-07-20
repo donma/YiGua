@@ -72,6 +72,7 @@
     const stage = container.querySelector(".coin-stage");
     const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const shouldAnimate = !fastMode && !reducedMotion;
+    const shouldPace = !fastMode;
     const resultCoins = [0,1,2].map(() => Math.random() < 0.5 ? "H" : "T");
 
     if (stage) {
@@ -87,7 +88,7 @@
       if (shouldAnimate) coin.classList.add("throwing");
     });
 
-    if (shouldAnimate) await sleep(760);
+    if (shouldPace) await sleep(760);
 
     coins.forEach((coin, idx) => {
       coin.classList.remove("throwing", "throw-from-tail", "settle-head", "settle-tail");
@@ -95,7 +96,7 @@
       if (shouldAnimate) coin.classList.add("landed");
     });
 
-    if (shouldAnimate) await sleep(210);
+    if (shouldPace) await sleep(210);
     coins.forEach(coin => coin.classList.remove("landed"));
 
     const value = Z.coinThrowToLine(resultCoins);

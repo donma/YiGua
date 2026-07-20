@@ -93,7 +93,10 @@
 
 .coin:nth-child(1) .coin-face { background-image: url("../assets/coins/qianlong-front.webp"); }
 .coin:nth-child(2) .coin-face { background-image: url("../assets/coins/daoguang-front.webp"); }
-.coin:nth-child(3) .coin-face { background-image: url("../assets/coins/jiaqing-front.webp"); }
+.coin:nth-child(3) .coin-face {
+  background-image: url("../assets/coins/jiaqing-front.webp");
+  background-size: 114%;
+}
 .coin:nth-child(1).settle-tail .coin-face { background-image: url("../assets/coins/qianlong-back.webp"); }
 .coin:nth-child(2).settle-tail .coin-face { background-image: url("../assets/coins/daoguang-back.webp"); }
 .coin:nth-child(3).settle-tail .coin-face { background-image: url("../assets/coins/jiaqing-back.webp"); }
