@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="易卦">
+  <rect width="512" height="512" rx="112" fill="#080706"/>
+  <circle cx="256" cy="256" r="184" fill="#17120e" stroke="#c9a45c" stroke-width="12"/>
+  <circle cx="256" cy="256" r="142" fill="none" stroke="#72572f" stroke-width="3"/>
+  <g fill="#c9a45c">
+    <rect x="222" y="50" width="68" height="12" rx="6"/>
+    <rect x="222" y="450" width="68" height="12" rx="6"/>
+    <rect x="50" y="250" width="68" height="12" rx="6"/>
+    <rect x="394" y="250" width="68" height="12" rx="6"/>
+  </g>
+  <text x="256" y="335" text-anchor="middle" font-size="218" font-weight="700" font-family="serif" fill="#e0bd73">易</text>
+</svg>

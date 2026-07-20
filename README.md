@@ -2,173 +2,169 @@
 
 > 不問天命，只觀時勢。
 
-易卦（原始專案代號 Zero1Matrix）是一套以《易經》六十四卦為基礎的本機起卦、分類解讀與反思工具。專案以原生 HTML、CSS、JavaScript 和靜態資料檔構成，不需要後端、帳號、資料庫、第三方 API、追蹤程式或 CDN。
+易卦是一套繁體中文的《易經》起卦、六爻判讀與決策反思工具。專案以「經典忠實為底、現代應用為第二層」為核心原則：先呈現卦辭、象辭、爻辭與多動爻主判讀，再提供分類解讀、行動建議、風險提醒和反思問題，避免把古典原文與現代詮釋混成同一種權威。
 
-系統採 Local-first／Offline-first 設計。核心起卦可直接從 `file://` 執行；透過 localhost 或 HTTPS 開啟時，亦可安裝為 PWA 並使用離線快取。
+線上版本：[https://donma.github.io/YiGua/](https://donma.github.io/YiGua/)
 
-## 目前完成狀態
-
-核心資料工程與產品修正已完成，最終全專案驗收狀態為 `COMPLETE`：
-
-- 64 卦、384 爻與 12 種問事分類完整對應
-- 4,608 筆動爻分類解讀全數完成 Gold／Reviewed
-- 4,096 筆有方向性的本卦 → 變卦 Pair 全矩陣完成
-- 768 筆行動建議、768 筆風險提醒與 2,304 筆反思問題完成
-- 每日一卦已修正為同日期固定、與分類無關，舊快取可安全汰換
-- JSON 匯入已加入 schema、大小、筆數與欄位驗證，歷史及報告頁已防止持久型 HTML 注入
-- PWA 圖示、快取版本、更新流程與離線回退已補齊
-- 動爻畫面完整呈現分類解讀、建議、提醒、依據與六維分數修正
-- 大型資料查詢改用 lazy `Map` 索引，保留既有公開 schema 與 `file://` 行為
-
-## 功能
+## 主要功能
 
 - 三枚銅錢起卦、快速起卦、每日一卦與手動排卦
-- 顯示本卦、變卦、動爻、互卦、錯卦與綜卦
-- 卦辭、象辭、爻辭、白話解讀、局勢、時機與核心建議
-- 12 種分類：一般、工作事業、感情關係、財務金錢、人際合作、家庭親人、學習考試、身心狀態、重大決策、創業經營、官非合約、心境修行
-- 動爻 × 分類的完整 meaning、advice、warning、basis 與 scoreAdjust
-- 本卦 → 變卦的方向性轉化解讀、行動、風險與節奏
-- 對應卦象及分類的 Action、Risk 與 Reflection
-- 六維評分：明朗度、行動、風險、變化、支援、時機
-- 本機歷史紀錄、搜尋、分頁、JSON 匯入／匯出與 HTML 報告
-- PWA 安裝、更新與離線核心
+- 本卦、之卦、動爻、互卦、錯卦與綜卦
+- 64 卦、384 爻的繁體中文經典層資料
+- 依動爻數自動產生經典判讀主軸
+- 一般、工作、感情、財務、合作、家庭、學習、健康、決策、創業、合約與修行等 12 類現代應用
+- 768 筆卦分類解讀與 4,608 筆爻分類解讀
+- 4,096 筆有方向性的本卦至之卦轉化內容
+- 768 筆行動建議、768 筆風險提醒與 2,304 筆反思問題
+- 本機歷史紀錄、HTML／JSON 匯出與安全 JSON 匯入
+- PWA 安裝、離線快取、更新提示與 `file://` 核心模式
+- 不需帳號、後端、資料庫、第三方 API、追蹤程式或 CDN
 
-## 起卦規則
+## 三枚銅錢機率
 
-每一爻由三枚銅錢相加：
+一般起卦與每日一卦都採三枚公平銅錢的標準組合機率。每爻分布如下：
 
-- 正面 `H = 3`
-- 反面 `T = 2`
-- `6`：老陰，陰爻，動爻，變為陽
-- `7`：少陽，陽爻，不變
-- `8`：少陰，陰爻，不變
-- `9`：老陽，陽爻，動爻，變為陰
+| 爻值 | 名稱 | 組合機率 | 是否變爻 |
+|---:|---|---:|---|
+| 6 | 老陰 | 1/8 | 是 |
+| 7 | 少陽 | 3/8 | 否 |
+| 8 | 少陰 | 3/8 | 否 |
+| 9 | 老陽 | 1/8 | 是 |
 
-六爻採 bottom-up 儲存，`values[0]` 是初爻，`values[5]` 是上爻。本卦由原始陰陽值查找；6 與 9 翻轉後形成變卦。
+每日一卦使用本機日曆日期作為固定種子，確保同一天結果可重現；日期只決定亂數序列，不改變 1:3:3:1 的銅錢機率。演算法版本為 `3`，舊快取不會沿用到新版結果。
 
-## 八卦 bit mapping
+## 經典層與多動爻判讀
 
-三位 bit 同樣由下往上排列：
+經典資料分成獨立底本與異文表：
 
-| Bits | 卦 |
-| --- | --- |
-| `000` | 坤 |
-| `001` | 艮 |
-| `010` | 坎 |
-| `011` | 巽 |
-| `100` | 震 |
-| `101` | 離 |
-| `110` | 兌 |
-| `111` | 乾 |
+- `classicCanon.data.js`：64 卦、384 爻、乾坤用九／用六、來源修訂號與逐筆驗證狀態
+- `classicTextVariants.data.js`：正規化字形、標點差異、舊資料缺文及待人工裁定的不同讀法
+- `hexagrams.data.js`／`lines.data.js`：產品執行時使用的完整卦辭、象辭、爻辭與正確爻位
 
-下三爻形成下卦，上三爻形成上卦；64 種六位陰陽組合均有唯一卦象。
+本版已完成 64 卦／384 爻的全量機器交叉核對、六爻覆蓋、爻位陰陽、繁體正規化與來源修訂號固定。可機器驗證的部分均已通過；依掃描底本逐葉核校及版本學異文裁定仍保留為具名人工工作，不宣稱已由學者完成。
 
-## 資料規模
+多動爻採明示的《易學啟蒙》系統規則：
 
-| 資料域 | 數量 | 狀態 |
-| --- | ---: | --- |
-| Hexagrams | 64 | 完整 |
-| Lines | 384 | 完整 |
-| CategoryInterpretations | 768 | 完整 |
-| ReflectionQuestions | 2,304 | 完整 |
-| LineCategoryInterpretations | 4,608 | Gold／Reviewed／16 Waves Frozen |
-| PairInterpretations | 4,096 | Gold／Reviewed／16 Waves Frozen |
-| ActionSuggestions | 768 | Gold／Reviewed／8 Waves Frozen |
-| RiskWarnings | 768 | Gold／Reviewed／8 Waves Frozen |
+| 動爻數 | 主判讀依據 |
+|---:|---|
+| 0 | 本卦卦辭 |
+| 1 | 本卦動爻爻辭 |
+| 2 | 本卦兩動爻，以上爻為主 |
+| 3 | 本卦與之卦卦辭，本卦為貞、之卦為悔 |
+| 4 | 之卦兩個不變爻，以下爻為主 |
+| 5 | 之卦唯一不變爻 |
+| 6 | 乾坤取用九／用六，其餘取之卦卦辭 |
 
-## 執行方式
+此方法是專案選定且公開的判讀系統，不宣稱為所有易學流派的唯一規則。
 
-### 直接使用 file://
+## 資料可信狀態
 
-下載專案後，以瀏覽器直接開啟 `index.html`。核心資料使用 `.data.js` 載入，不需要 `fetch()` JSON，因此起卦、解讀、歷史紀錄與報告功能可在無伺服器模式運作。
+過去資料中的 Gold／Reviewed 標記缺少可公開驗證的具名人工審校證據，因此本版已撤銷其人工審定含義。新版狀態定義如下：
 
-瀏覽器對本機檔案的安全政策可能不同；PWA 安裝與 Service Worker 不會在 `file://` 註冊。
+| 狀態 | 必要條件 | 可否代表人工審定 |
+|---|---|---|
+| `machine-validated` | schema、筆數、唯一鍵、引用完整性與規則式內容檢查通過 | 否 |
+| `reviewed` | 具名審校者、日期、範圍與審校證據齊全 | 是 |
+| `gold` | Reviewed、獨立第二次審校、阻斷問題歸零且版本雜湊凍結 | 是 |
 
-### Local HTTP
+目前經典資料標為 `machine-crosschecked`，現代應用資料標為 `machine-validated`；兩者都保留 `needsHumanReview: true`，目前沒有任何資料冒稱 Reviewed 或 Gold。
 
-如果電腦已有 Python，可在專案根目錄執行：
+## 目前完成進度
+
+準確性版本 `2.0.0-accuracy` 已完成下列機器工程：
+
+- 每日一卦修正為三枚銅錢 1:3:3:1 機率
+- 建立經典底本、來源階層、修訂號與 252 筆異文／舊文差異
+- 全查 64 卦、384 爻的覆蓋、正文同步、爻位與繁體正規化
+- 重定義 Gold／Reviewed，撤銷無證據的舊人工審定標記
+- 實作 0 至 6 動爻的《易學啟蒙》判讀規則並呈現在結果頁
+- 重新驗證 768 Category 與 4,608 LineCategory 的唯一鍵、引用、必要欄位、依據與分數修正
+- 最後重新驗證 4,096 Pair、768 Action、768 Risk 與 2,304 Reflection
+- 4,096 種六爻值組合全部能建立完整解讀
+- 300 筆 golden case、JavaScript 語法、PWA、資料安全與效能檢查通過
+- 建立可公開驗證的 `data-release-manifest.json`
+- 補齊 SEO 標題、摘要、canonical、Open Graph、結構化資料、robots、sitemap 與 favicon
+
+完整自動驗證狀態為 `COMPLETE`。仍需真人介入的工作會持續明列，不納入已完成的人工審校宣稱。
+
+## 公開驗證資料版本
+
+[`data-release-manifest.json`](./data-release-manifest.json) 公開以下資訊：
+
+- 發布版本、時間與驗證狀態
+- 經典來源政策與人工作業缺口
+- 銅錢機率與每日演算法版本
+- 每個資料集的筆數、檔案大小與 SHA-256
+- 核心執行檔的 SHA-256
+- 自動驗證階段與執行結果
+
+PowerShell 驗證單一檔案：
+
+```powershell
+Get-FileHash -Algorithm SHA256 src/data/lines.data.js
+```
+
+Linux 或 macOS：
+
+```bash
+sha256sum src/data/lines.data.js
+```
+
+將輸出轉為小寫後，與 manifest 內相同路徑的 `sha256` 逐字比對即可。
+
+## 使用方式
+
+直接開啟 `index.html` 即可使用核心起卦、解讀、歷史與匯出功能。若要啟用 PWA、Service Worker 與完整離線快取，請透過 localhost 或 HTTPS：
 
 ```bash
 python -m http.server 8080
 ```
 
-然後開啟 `http://localhost:8080/`。這不會安裝額外套件，伺服器只負責傳送靜態檔案。
+然後開啟 `http://localhost:8080/`。
 
-## PWA
-
-- Service Worker 僅在 HTTPS、`localhost` 或 `127.0.0.1` 啟用
-- `file://` 模式不註冊 Service Worker，但核心功能仍可直接使用
-- 新版 Service Worker 會更新靜態資源、清除舊版快取，網路失敗時回退離線快取
-- `index.html`、歷史頁、報告頁、核心程式、完整資料與本機圖示均納入離線資源
-
-## 測試與驗收
-
-目前最終驗收結果包括：
-
-- 300／300 golden reading cases 通過
-- 4,096 種六爻組合皆可建立本卦與變卦，兩者均覆蓋 64／64 卦
-- H／T、6／7／8／9、bottom-up、動爻翻轉與八卦 mapping 全部通過
-- Score Engine 10,000 次校準、100 次重現性：NaN／undefined／越界／漂移皆為 0
-- 八個資料域的 count、ID、coverage、foreign key 與跨域一致性通過
-- Frozen 與 Protected hashes 全部驗證一致
-- LineCategory、Pair、Action、Risk 的 exact、normalized、完整句與高相似檢查通過
-- 每日一卦 3,650 日期樣本、JSON 惡意匯入、PWA、file://、本機 HTTP、runtime 與效能測試通過
-- 全專案 JavaScript 語法錯誤為 0
-
-可直接執行的既有檢查命令：
-
-```bash
-node scripts/run-score-calibration.js
-node --check src/js/core.js
-node --check src/js/app.js
-node --check src/js/history-safety.js
-node --check src/js/pwa.js
-node --check sw.js
-```
-
-測試 fixtures 與既有結果位於 `tests/`。驗收工具會產生本機報告；發佈成品不依賴這些工具才能運作。
-
-## 資料治理
-
-- `Gold`：內容已達正式資料品質門檻
-- `Reviewed`：紀錄含審閱狀態、審閱者標記與日期
-- `Frozen hashes`：逐 Wave 封存，後續波次會驗證先前內容未被改動
-- `Protected hashes`：保護核心及已封版資料域，防止非預期修改
-- Checker 採唯讀原則；生成、修復、驗收與凍結職責分離
-- 正式資料保留唯一 ID、basis、scoreAdjust 與 source trace，方便追溯
-
-## 隱私與安全
-
-- 無登入、無後端、無追蹤、無第三方 API、無 CDN
-- 起卦內容、設定與歷史紀錄留在瀏覽器本機 `localStorage`
-- JSON 匯入會驗證檔案大小、筆數、casts、卦 ID、分類、時間、分數與文字長度
-- 匯入資料的卦名、符號、分類名稱與動爻會由本機可信資料重新建立
-- 清除瀏覽器資料前，建議先從歷史頁匯出 JSON 備份
+專案沒有建置步驟，也不需要安裝套件。
 
 ## 專案結構
 
 ```text
-.
-├── index.html                 # 起卦與解讀主頁
-├── history.html               # 本機歷史與安全匯入
-├── report-viewer.html         # 報告檢視與列印
-├── manifest.webmanifest       # PWA manifest
-├── sw.js                      # 更新與離線快取
-├── src/
-│   ├── assets/                # 銅錢與應用程式圖示
-│   ├── css/                   # 介面樣式
-│   ├── data/                  # 正式靜態資料
-│   └── js/                    # 起卦、索引、應用、安全與 PWA 邏輯
-└── tests/                     # Fixtures 與驗收結果
+index.html                         起卦與解讀主頁
+history.html                       本機歷史紀錄
+report-viewer.html                 匯出報告檢視
+manifest.webmanifest               PWA 設定
+sw.js                              離線快取與更新策略
+favicon.svg                        網站與 PWA 圖示
+robots.txt / sitemap.xml           搜尋引擎索引資訊
+data-release-manifest.json         公開資料版本與 SHA-256
+src/js/core.js                     起卦、卦象、分數與多動爻核心
+src/js/app.js                      主頁流程與每日一卦
+src/data/classicCanon.data.js      經典底本
+src/data/classicTextVariants.data.js 異文表
+src/data/verificationPolicy.data.js 可信狀態規則
+src/data/interpretationMethod.data.js 多動爻判讀規則
+src/data/*.data.js                 產品資料集
 ```
 
-## 已知限制與免責
+## 經典來源政策
 
-- 主起卦頁會載入約 46.8 MiB 的完整靜態資料；首次解析時間取決於裝置效能
-- 歷史紀錄受瀏覽器 `localStorage` 容量限制，重要資料應定期匯出
-- 易經內容用於文化研究、自我整理與反思參考，不是對未來的保證或唯一答案
-- 本專案不提供醫療診斷、不取代法律意見、不提供財務獲利保證，也不取代合格專業人士
+- 權威底本參照：[中國哲學書電子化計劃《周易》](https://ctext.org/book-of-changes/zh)，其頁面列示《武英殿十三經注疏》本《周易正義》等底本
+- 可固定修訂號的全量機器見證本：[維基文庫《周易》](https://zh.wikisource.org/zh-hant/周易)
+- 多動爻規則：[維基文庫《易學象數論・占法》所錄啓蒙占法](https://zh.wikisource.org/zh-hant/易學象數論/占法)
 
-## License
+字形政策採 Unicode NFC 與繁體顯示；`于`、表示君主的 `后` 等古籍通行字依文義保留。不同見證本的 `無／无`、`群／羣`、標點與實質文字差異會留在異文表，不以無痕覆寫處理。
 
-目前 repository 未提供 License 檔案，因此不自行宣稱任何開源授權。使用、修改或散布前，請先取得專案權利人的許可。
+## 隱私與安全
+
+- 歷史紀錄只存於瀏覽器 `localStorage`
+- 不登入、不上傳、不追蹤
+- JSON 匯入限制 schema、檔案大小、筆數與欄位
+- 歷史及報告頁不把匯入文字直接當成 HTML 執行
+- 不提供醫療診斷、具體投資指令、法律結論或恐嚇式斷語
+
+## 尚需人工完成
+
+- 依權威掃描本逐葉校勘 64 卦、384 爻及標點
+- 由具名古籍版本學／易學審校者裁定異文表的待判項目
+- 由具名編輯逐筆審閱現代應用內容，留下範圍、日期與證據
+- 完成獨立第二次審校後，才評估資料是否能升級為 Gold
+
+這些項目必須由真人負責，因此不會以自動化結果代替。

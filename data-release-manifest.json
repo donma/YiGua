@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "易卦",
+  "releaseVersion": "2.0.0-accuracy",
+  "releasedAt": "2026-07-20T00:00:00+08:00",
+  "hashAlgorithm": "SHA-256",
+  "releaseStatus": {
+    "machineValidation": "complete",
+    "humanTextualCollation": "pending",
+    "humanEditorialReview": "pending",
+    "goldEligible": false,
+    "note": "本版本完成所有可自動化驗證；未把機器結果冒稱為學者人工審定。"
+  },
+  "classicalLayer": {
+    "status": "provisional-machine-base",
+    "operationalWitness": {
+      "title": "維基文庫《周易》六十四卦",
+      "url": "https://zh.wikisource.org/zh-hant/周易",
+      "role": "可用修訂號固定、供 64 卦／384 爻完整機器交叉核對"
+    },
+    "primaryReference": {
+      "title": "《武英殿十三經注疏》本《周易正義》",
+      "repository": "中國哲學書電子化計劃",
+      "url": "https://ctext.org/book-of-changes/zh",
+      "role": "權威底本參照；逐葉人工覆核待完成"
+    },
+    "scope": {
+      "hexagrams": 64,
+      "lines": 384,
+      "useTexts": 2
+    },
+    "variantEntries": 252
+  },
+  "probabilityModel": {
+    "method": "three-fair-coins",
+    "perLine": {
+      "oldYin6": "1/8",
+      "youngYang7": "3/8",
+      "youngYin8": "3/8",
+      "oldYang9": "1/8"
+    },
+    "dailyAlgorithmVersion": 3,
+    "dailySeed": "local-calendar-date",
+    "note": "每日一卦為可重現的日期種子，機率分段與三枚公平銅錢一致。"
+  },
+  "movingLineMethod": {
+    "id": "yixue-qimeng-changing-lines",
+    "name": "《易學啟蒙》多動爻判讀法",
+    "source": {
+      "title": "《易學啟蒙》占法（《易學象數論・占法》所錄）",
+      "url": "https://zh.wikisource.org/zh-hant/易學象數論/占法",
+      "accessed": "2026-07-20"
+    },
+    "ruleCount": 7
+  },
+  "verificationPolicy": {
+    "id": "yigua-verification-policy-v2",
+    "version": "2.0.0",
+    "legacyGoldReviewed": "revoked"
+  },
+  "validation": {
+    "status": "COMPLETE",
+    "phases": [
+      "classic-corpus",
+      "verification-policy",
+      "changing-line-method",
+      "category-768",
+      "line-category-4608",
+      "downstream-pair-action-risk-reflection",
+      "runtime-and-safety"
+    ],
+    "runtime": {
+      "allCastCombinations": 4096,
+      "goldenCases": 300,
+      "syntaxFailures": 0
+    }
+  },
+  "datasets": [
+    {
+      "name": "categories",
+      "path": "src/data/categories.data.js",
+      "layer": "reference",
+      "recordCount": 12,
+      "bytes": 764,
+      "sha256": "82f512ffde76278e8b77abe3dc5027393c37f4b31ff1bd1591f212e5b803ef35"
+    },
+    {
+      "name": "hexagrams",
+      "path": "src/data/hexagrams.data.js",
+      "layer": "classic-and-modern",
+      "recordCount": 64,
+      "bytes": 537915,
+      "sha256": "1a2f77a92a7cb0d6d88dd593f219d1f13fda651eaca0f3ed0a7fe1caaf16b4cc"
+    },
+    {
+      "name": "lines",
+      "path": "src/data/lines.data.js",
+      "layer": "classic-and-modern",
+      "recordCount": 384,
+      "bytes": 761147,
+      "sha256": "eab97c4ab976a587b078b20be48db256f7d4efa9799fed235e2c3b689b09ee79"
+    },
+    {
+      "name": "categoryInterpretations",
+      "path": "src/data/categoryInterpretations.data.js",
+      "layer": "modern-application",
+      "recordCount": 768,
+      "bytes": 2710120,
+      "sha256": "e8ee45ea3753da5db5ed788955a57344db90d1f3aff1cc616ff32b39f1a60dd9"
+    },
+    {
+      "name": "lineCategoryInterpretations",
+      "path": "src/data/lineCategoryInterpretations.data.js",
+      "layer": "modern-application",
+      "recordCount": 4608,
+      "bytes": 10523837,
+      "sha256": "944b70c2d83a6b74d29b1d7f9bff3f58003be5833bf39dc581eca372c54f4a2d"
+    },
+    {
+      "name": "pairInterpretations",
+      "path": "src/data/pairInterpretations.data.js",
+      "layer": "modern-application",
+      "recordCount": 4096,
+      "bytes": 33201421,
+      "sha256": "3d34c3dfb2a9cccedd144b020bc460ce1430ceb91be80a52112e6605b405694e"
+    },
+    {
+      "name": "actionSuggestions",
+      "path": "src/data/actionSuggestions.data.js",
+      "layer": "modern-application",
+      "recordCount": 768,
+      "bytes": 2057069,
+      "sha256": "806496c317e448b58af3c980ae319f606545b67eb4520bfbe0dd1f99e517e106"
+    },
+    {
+      "name": "riskWarnings",
+      "path": "src/data/riskWarnings.data.js",
+      "layer": "modern-application",
+      "recordCount": 768,
+      "bytes": 2053644,
+      "sha256": "1637444be5f0c3fc561cf9d4d878953648a26638f90e19e953e6a1dbf3eb7c81"
+    },
+    {
+      "name": "reflectionQuestions",
+      "path": "src/data/reflectionQuestions.data.js",
+      "layer": "modern-application",
+      "recordCount": 2304,
+      "bytes": 2075192,
+      "sha256": "7f12c0489d11f90e5e9142f7524594f597abbba9516ed683a86e36041f050a9e"
+    },
+    {
+      "name": "verificationPolicy",
+      "path": "src/data/verificationPolicy.data.js",
+      "layer": "policy",
+      "recordCount": 3,
+      "bytes": 1320,
+      "sha256": "b05e294edf4278c8fcec58e0830eee748084aab96e997506979fbffbfb8bd9f6"
+    },
+    {
+      "name": "interpretationMethod",
+      "path": "src/data/interpretationMethod.data.js",
+      "layer": "policy",
+      "recordCount": 7,
+      "bytes": 1359,
+      "sha256": "4fb87a959cb7cbd8d749dedca0e53840dedef50eb41ab090ea390533d4dd4b74"
+    },
+    {
+      "name": "classicCanon",
+      "path": "src/data/classicCanon.data.js",
+      "layer": "classic-source",
+      "recordCount": 64,
+      "bytes": 143257,
+      "sha256": "1aa7de9b2c5f6c138fc05ad8ab2dc370bae63d127f276a20e4ec506a8f98b56f"
+    },
+    {
+      "name": "classicTextVariants",
+      "path": "src/data/classicTextVariants.data.js",
+      "layer": "classic-source",
+      "recordCount": 252,
+      "bytes": 74495,
+      "sha256": "aaa910eecfdc7954fb0d1f1de9797b23722a7ae6dd786c68045d95e5a8833d4f"
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "name": "index.html",
+      "path": "index.html",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 9760,
+      "sha256": "37bee777e4d10d9b2c809ff2b43d5eeeec8fca406caa1a5d40d532079e15c400"
+    },
+    {
+      "name": "history.html",
+      "path": "history.html",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 13937,
+      "sha256": "f91b358da69d33af007a6f47c02d693442643ff4effac2ca895f193d51fd7fff"
+    },
+    {
+      "name": "report-viewer.html",
+      "path": "report-viewer.html",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 6306,
+      "sha256": "375f97ca563ad2a7d4cf65d08fa3ed7294a4e7c02971dd58d31b586cd9a5b7ad"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "path": "manifest.webmanifest",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 563,
+      "sha256": "16a50760298437d333692759c43bd54f8a1d552437f2028704701f4f42f1375b"
+    },
+    {
+      "name": "favicon.svg",
+      "path": "favicon.svg",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 715,
+      "sha256": "17006289e76328d868c0adb60c8e79254d86a37b3676065dd85e02c2db1c4707"
+    },
+    {
+      "name": "robots.txt",
+      "path": "robots.txt",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 75,
+      "sha256": "107ea32c85fa7e5c76490468e3458a0caf7707d33c41056c9791fac15c640edf"
+    },
+    {
+      "name": "sitemap.xml",
+      "path": "sitemap.xml",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 272,
+      "sha256": "d3d99e1dba0011953253b9c0414f69497c911993819b126aea5c6a0d7aa0f8d4"
+    },
+    {
+      "name": "sw.js",
+      "path": "sw.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 2072,
+      "sha256": "58190eae28184b2497a9404f45e5c629058d232891e3ca144ddcfbfa90f0f150"
+    },
+    {
+      "name": "app.css",
+      "path": "src/css/app.css",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 11293,
+      "sha256": "811a7e035dea235d2b605bc47c22c88e6733c908372dd9404de2e1513c402873"
+    },
+    {
+      "name": "coin.css",
+      "path": "src/css/coin.css",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 2228,
+      "sha256": "eaf5e0577a66492b4d5ae22cbc4dc92fd4e10dea4992b3687b94c61952d6f937"
+    },
+    {
+      "name": "core.js",
+      "path": "src/js/core.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 17128,
+      "sha256": "238748aa7dab69c7e3d290ac4e349182e17225c0f709370640f32cda263a1635"
+    },
+    {
+      "name": "app.js",
+      "path": "src/js/app.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 26573,
+      "sha256": "01f9b7f8042fe3514c51f50d605125fc3d76f10f6c87bb541c8c499f4adce32b"
+    },
+    {
+      "name": "coin-animation.js",
+      "path": "src/js/coin-animation.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 1542,
+      "sha256": "7bd0a145bccec42512ec34024f45012a00e4c3f0fff8fc2c5d6d6a57af9603d2"
+    },
+    {
+      "name": "history-safety.js",
+      "path": "src/js/history-safety.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 5522,
+      "sha256": "154fc35fa37ab1cacd0bce0316f8fe31ed31a16f0e27111aa59970caad00663b"
+    },
+    {
+      "name": "pwa.js",
+      "path": "src/js/pwa.js",
+      "layer": "runtime",
+      "recordCount": null,
+      "bytes": 727,
+      "sha256": "6529f68a336a6d583e1150c72591fa4e01f96a4f51040d9c39ed69883bd31c8a"
+    }
+  ],
+  "humanReviewQueue": [
+    "依《武英殿十三經注疏》掃描逐葉覆核 64 卦、384 爻與標點",
+    "由具名易學／古籍版本學審校者裁定異文表中的待判項目",
+    "由具名編輯逐筆審閱現代應用內容後，才可升級 Reviewed 或 Gold"
+  ],
+  "verificationInstructions": {
+    "powershell": "Get-FileHash -Algorithm SHA256 <file>",
+    "unix": "sha256sum <file>",
+    "compare": "將輸出轉為小寫後，與 datasets 或 runtimeFiles 的 sha256 欄位逐字比對。"
+  }
+}

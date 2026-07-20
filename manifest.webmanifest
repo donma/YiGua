@@ -9,10 +9,11 @@
   "lang": "zh-Hant",
   "background_color": "#080706",
   "theme_color": "#080706",
-  "description": "不問天命，只觀時勢，東方神秘決策工具",
+  "description": "經典卦爻辭為底、現代應用為第二層的繁體中文易經起卦與六爻判讀工具",
+  "categories": ["lifestyle", "education", "utilities"],
   "icons": [
     {
-      "src": "./src/assets/icons/icon.svg",
+      "src": "./favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

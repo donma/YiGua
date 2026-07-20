@@ -476,3 +476,29 @@ nav a:hover, nav a.active {
     transition-duration: 0.01ms !important;
   }
 }
+
+.classic-layer {
+  border-color: rgba(201, 164, 92, .5);
+  background: linear-gradient(145deg, rgba(201, 164, 92, .09), var(--panel2));
+}
+
+.classic-focus-list {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.classic-focus-list li::marker,
+.classic-primary strong {
+  color: var(--gold);
+}
+
+.classic-layer details {
+  margin-top: 12px;
+}
+
+.classic-layer summary {
+  cursor: pointer;
+  color: var(--muted);
+}

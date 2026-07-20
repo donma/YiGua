@@ -1,4 +1,4 @@
-const CACHE_NAME = "yigua-core-2026-07-20-v3";
+const CACHE_NAME = "yigua-core-2026-07-20-v4";
 
 const CACHE_URLS = [
   "./",
@@ -6,6 +6,8 @@ const CACHE_URLS = [
   "./history.html",
   "./report-viewer.html",
   "./manifest.webmanifest",
+  "./favicon.svg",
+  "./data-release-manifest.json",
   "./src/css/app.css",
   "./src/css/coin.css",
   "./src/js/core.js",
@@ -23,6 +25,10 @@ const CACHE_URLS = [
   "./src/data/reflectionQuestions.data.js",
   "./src/data/actionSuggestions.data.js",
   "./src/data/riskWarnings.data.js",
+  "./src/data/verificationPolicy.data.js",
+  "./src/data/interpretationMethod.data.js",
+  "./src/data/classicCanon.data.js",
+  "./src/data/classicTextVariants.data.js",
   "./src/assets/coins/coin-front.svg",
   "./src/assets/coins/coin-back.svg",
   "./src/assets/icons/icon.svg"

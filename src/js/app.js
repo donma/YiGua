@@ -6,7 +6,7 @@
   const STORAGE_KEY = "zero1matrix_history";
   const SETTINGS_KEY = "zero1matrix_settings";
   const DAILY_KEY = "zero1matrix_daily";
-  const DAILY_ALGORITHM_VERSION = 2;
+  const DAILY_ALGORITHM_VERSION = 3;
 
   let currentReading = null;
 
@@ -47,9 +47,9 @@
     const values = [];
     for (let i = 0; i < 6; i++) {
       const value = rand();
-      if (value < 0.0625) values.push(6);
-      else if (value < 0.3125) values.push(7);
-      else if (value < 0.5625) values.push(8);
+      if (value < 0.125) values.push(6);
+      else if (value < 0.5) values.push(7);
+      else if (value < 0.875) values.push(8);
       else values.push(9);
     }
     return values;
@@ -247,8 +247,10 @@
         </div>
       </section>
 
+      ${renderClassicFocus(r.interpretationFocus)}
+
       <section class="card">
-        <h3>多維度卦象分數</h3>
+        <h3>現代應用層：多維度卦象分數</h3>
         <div class="score-grid">${renderScores(r.scores)}</div>
       </section>
 
@@ -285,6 +287,7 @@
           <h3>原文資料</h3>
           <p><span class="muted">卦辭：</span>${r.originalHex.judgement}</p>
           <p><span class="muted">象辭：</span>${r.originalHex.image}</p>
+          <p class="muted text-sm">底本狀態：64 卦／384 爻已完成修訂號固定的機器交叉核對；權威底本逐葉人工校勘仍明確標為待審。</p>
           ${r.originalHex.goodFor && r.originalHex.goodFor.length ? `<p><span class="muted">宜：</span>${r.originalHex.goodFor.join("、")}</p>` : ""}
           ${r.originalHex.notGoodFor && r.originalHex.notGoodFor.length ? `<p><span class="muted">不宜：</span>${r.originalHex.notGoodFor.join("、")}</p>` : ""}
         </section>
@@ -319,6 +322,28 @@
     const resultEl = $("#result");
     resultEl.innerHTML = html;
     resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderClassicFocus(focus) {
+    if (!focus) return "";
+    const primary = focus.primary.map(item => `
+      <li${item.isPrimary ? ' class="classic-primary"' : ""}>
+        <strong>${item.label}${item.isPrimary ? "（主）" : ""}</strong>：${item.text}
+      </li>
+    `).join("");
+    const secondary = focus.secondary.map(item => `<li><strong>${item.label}</strong>：${item.text}</li>`).join("");
+    return `
+      <section class="card classic-layer">
+        <div class="card-header">
+          <h3>經典層：判讀主軸</h3>
+          <span class="badge">${focus.methodName}</span>
+        </div>
+        <p class="muted text-sm">${focus.rule}</p>
+        <ul class="classic-focus-list">${primary}</ul>
+        ${secondary ? `<details><summary>次要參照</summary><ul class="classic-focus-list">${secondary}</ul></details>` : ""}
+        <p class="muted text-sm">經典原文優先；分類、分數、行動與風險內容均屬現代應用第二層。</p>
+      </section>
+    `;
   }
 
   function getActionSuggestion(hexagramId, categoryId) {

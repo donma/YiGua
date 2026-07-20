@@ -15,7 +15,8 @@ window.Zero1Matrix = window.Zero1Matrix || {};
       lineCategories: new Map(),
       actions: new Map(),
       risks: new Map(),
-      reflections: new Map()
+      reflections: new Map(),
+      classicCanon: new Map()
     };
     for (const item of data.hexagrams || []) {
       index.hexagramsByLines.set(item.lines.join(""), item);
@@ -27,6 +28,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
     for (const item of data.lineCategoryInterpretations || []) index.lineCategories.set(`${item.hexagramId}-${item.line}-${item.category}`, item);
     for (const item of data.actionSuggestions || []) index.actions.set(`${item.hexagramId}-${item.category}`, item);
     for (const item of data.riskWarnings || []) index.risks.set(`${item.hexagramId}-${item.category}`, item);
+    for (const item of data.classicCanon?.records || []) index.classicCanon.set(item.hexagramId, item);
     for (const item of data.reflectionQuestions || []) {
       const key = `${item.hexagramId}-${item.category}`;
       if (!index.reflections.has(key)) index.reflections.set(key, []);
@@ -50,6 +52,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
   Z.getActionSuggestion = (hexagramId, categoryId) => Z.getDataIndexes().actions.get(`${hexagramId}-${categoryId}`) || null;
   Z.getRiskWarning = (hexagramId, categoryId) => Z.getDataIndexes().risks.get(`${hexagramId}-${categoryId}`) || null;
   Z.getReflectionQuestions = (hexagramId, categoryId) => Z.getDataIndexes().reflections.get(`${hexagramId}-${categoryId}`) || [];
+  Z.getClassicHexagram = hexagramId => Z.getDataIndexes().classicCanon.get(hexagramId) || null;
 
   Z.lineValueToYinYang = function(value) {
     if (value === 6 || value === 8) return 0;
@@ -219,6 +222,55 @@ window.Zero1Matrix = window.Zero1Matrix || {};
     return Z.getDataIndexes().lines.get(`${hexagramId}-${lineIndex + 1}`) || null;
   };
 
+  Z.getInterpretationFocus = function(originalHex, changedHex, changingLines) {
+    const method = window.Zero1MatrixData.interpretationMethod || {};
+    const count = changingLines.length;
+    const rule = (method.rules || []).find(item => item.changingCount === count) || {};
+    const primary = [];
+    const secondary = [];
+    const originalCanon = Z.getClassicHexagram(originalHex.id);
+
+    const judgementItem = (hex, label) => ({ label, text: Z.getClassicHexagram(hex.id)?.judgement || hex.judgement });
+    const lineItem = (hex, lineNumber, label, isPrimary = false) => {
+      const line = Z.getLineText(hex.id, lineNumber - 1);
+      return { label: `${label}・${line?.position || Z.getPositionName(lineNumber - 1)}`, text: line?.text || "", isPrimary };
+    };
+
+    if (count === 0) {
+      primary.push(judgementItem(originalHex, "本卦卦辭"));
+    } else if (count === 1) {
+      primary.push(lineItem(originalHex, changingLines[0], "本卦動爻", true));
+      secondary.push(judgementItem(changedHex, "之卦卦辭"));
+    } else if (count === 2) {
+      const upper = Math.max(...changingLines);
+      changingLines.slice().sort((a, b) => a - b).forEach(line => primary.push(lineItem(originalHex, line, "本卦動爻", line === upper)));
+      secondary.push(judgementItem(changedHex, "之卦卦辭"));
+    } else if (count === 3) {
+      primary.push(judgementItem(originalHex, "本卦卦辭（貞）"));
+      secondary.push(judgementItem(changedHex, "之卦卦辭（悔）"));
+    } else if (count === 4 || count === 5) {
+      const unchanged = [1, 2, 3, 4, 5, 6].filter(line => !changingLines.includes(line));
+      const main = count === 4 ? Math.min(...unchanged) : unchanged[0];
+      unchanged.forEach(line => primary.push(lineItem(changedHex, line, "之卦不變爻", line === main)));
+      secondary.push(judgementItem(originalHex, "本卦卦辭"));
+    } else if (count === 6 && (originalHex.id === 1 || originalHex.id === 2) && originalCanon?.useText) {
+      primary.push({ label: originalCanon.useText.position, text: originalCanon.useText.text, isPrimary: true });
+      secondary.push(judgementItem(changedHex, "之卦卦辭"));
+    } else {
+      primary.push(judgementItem(changedHex, "之卦卦辭"));
+      secondary.push(judgementItem(originalHex, "本卦卦辭"));
+    }
+
+    return {
+      methodId: method.id || "yixue-qimeng-changing-lines",
+      methodName: method.name || "《易學啟蒙》多動爻判讀法",
+      changingCount: count,
+      rule: rule.primary || "依動爻數確定經典判讀主軸",
+      primary,
+      secondary
+    };
+  };
+
   Z.buildReading = function(values, categoryId) {
     const originalLines = Z.linesFromValues(values);
     const changedLines = Z.changedLinesFromValues(values);
@@ -271,6 +323,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
         categoryScoreAdjust: lineCat && lineCat.scoreAdjust ? { ...lineCat.scoreAdjust } : null
       };
     });
+    const interpretationFocus = Z.getInterpretationFocus(originalHex, changedHex, changingLines);
 
     let oneLine = "";
     if (changingLines.length === 0) {
@@ -303,6 +356,9 @@ window.Zero1Matrix = window.Zero1Matrix || {};
       `▎核心建議：${originalHex.coreAdvice}`,
       `▎風險：${originalHex.risk}`
     ];
+    deepLines.push(`\n▎經典判讀法：${interpretationFocus.methodName}`);
+    deepLines.push(`▎主軸：${interpretationFocus.rule}`);
+    interpretationFocus.primary.forEach(item => deepLines.push(`  ${item.label}${item.isPrimary ? "（主）" : ""}：${item.text}`));
 
     if (changingLines.length > 0) {
       deepLines.push(`\n▎動爻（${changingLines.length} 爻變動）：`);
@@ -364,6 +420,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
       simple,
       deep: deepLines.join("\n"),
       changingLineDetails,
+      interpretationFocus,
       sourceTrace
     };
   };

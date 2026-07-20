@@ -3,13 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="易卦 — 不問天命，只觀時勢，東方神秘決策工具">
+  <meta name="description" content="易卦是繁體中文易經起卦與決策反思工具，依三枚銅錢機率產生六爻，以經典卦爻辭為底、多動爻規則為主，提供十二類現代情境解讀。">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="keywords" content="易經,易卦,起卦,三枚銅錢,六十四卦,六爻,動爻,卦辭,爻辭,周易">
+  <meta name="application-name" content="易卦">
+  <meta name="apple-mobile-web-app-title" content="易卦">
+  <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#080706">
-  <title>易卦 — 易經起卦與解卦</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="易卦">
+  <meta property="og:title" content="易卦｜易經三枚銅錢起卦與六爻解讀">
+  <meta property="og:description" content="經典卦爻辭為底，現代應用為第二層；支援三枚銅錢、每日一卦、多動爻判讀與本機離線使用。">
+  <meta property="og:url" content="https://donma.github.io/YiGua/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="易卦｜易經三枚銅錢起卦與六爻解讀">
+  <meta name="twitter:description" content="經典忠實為底、現代應用為第二層的繁體中文易經起卦工具。">
+  <title>易卦｜易經三枚銅錢起卦、六十四卦與動爻解讀</title>
+  <link rel="canonical" href="https://donma.github.io/YiGua/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://donma.github.io/YiGua/">
   <link rel="stylesheet" href="./src/css/app.css">
   <link rel="stylesheet" href="./src/css/coin.css">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./src/assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://donma.github.io/YiGua/#website",
+        "url": "https://donma.github.io/YiGua/",
+        "name": "易卦",
+        "alternateName": "易經起卦與六爻解讀",
+        "description": "以經典卦爻辭為底、現代應用為第二層的繁體中文易經起卦工具。",
+        "inLanguage": "zh-Hant"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://donma.github.io/YiGua/#app",
+        "url": "https://donma.github.io/YiGua/",
+        "name": "易卦",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript; works offline after installation",
+        "isAccessibleForFree": true,
+        "inLanguage": "zh-Hant",
+        "description": "支援三枚銅錢、每日一卦、手動排卦、六十四卦與多動爻判讀的本機優先工具。"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header>
@@ -82,6 +127,16 @@
     </section>
 
     <div id="result"></div>
+
+    <section class="card project-intro" aria-labelledby="about-yigua">
+      <h2 id="about-yigua">易卦：可驗證的易經起卦與六爻判讀</h2>
+      <p>易卦以《周易》六十四卦、384 爻原文為第一層，再把工作、感情、財務、健康與重大決策等現代情境放在第二層。結果先呈現經典判讀主軸，再顯示分類解讀、行動建議與風險提醒，避免兩種內容混為一談。</p>
+      <h3>三枚銅錢與每日一卦</h3>
+      <p>每一爻由三枚公平銅錢的組合機率產生：老陰 1/8、少陽 3/8、少陰 3/8、老陽 1/8。每日一卦使用日期作固定種子，但仍維持同一個三枚銅錢機率模型。</p>
+      <h3>透明的多動爻規則與資料版本</h3>
+      <p>多動爻明示採《易學啟蒙》系統規則。經典文字已完成 64 卦／384 爻的機器交叉核對，異文、可信狀態與待人工校勘項目均不隱藏。可查閱 <a href="./data-release-manifest.json">公開資料版本 manifest</a> 驗證檔案雜湊與資料筆數。</p>
+      <p class="muted text-sm">易卦用於文化研究與決策反思，不取代醫療、法律、投資或其他專業意見。</p>
+    </section>
   </main>
 
   <footer style="text-align:center;padding:32px 0;color:var(--muted);font-size:13px">
@@ -104,6 +159,10 @@
   <script src="./src/data/lineCategoryInterpretations.data.js"></script>
   <script src="./src/data/actionSuggestions.data.js"></script>
   <script src="./src/data/riskWarnings.data.js"></script>
+  <script src="./src/data/verificationPolicy.data.js"></script>
+  <script src="./src/data/interpretationMethod.data.js"></script>
+  <script src="./src/data/classicCanon.data.js"></script>
+  <script src="./src/data/classicTextVariants.data.js"></script>
   <script src="./src/js/core.js"></script>
   <script src="./src/js/coin-animation.js"></script>
   <script src="./src/js/app.js"></script>
