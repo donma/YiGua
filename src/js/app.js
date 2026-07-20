@@ -12,9 +12,9 @@
 
   function getSettings() {
     try {
-      return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || { soundEnabled: false, fastMode: false };
+      return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || { soundEnabled: false };
     } catch (e) {
-      return { soundEnabled: false, fastMode: false };
+      return { soundEnabled: false };
     }
   }
 
@@ -485,8 +485,6 @@
 
   async function castWithCoinAnimation() {
     const coinMount = $("#coinMount");
-    const settings = getSettings();
-    const fastMode = settings.fastMode;
     const values = [];
 
     if (coinMount && Z.coinAnimation && Z.coinAnimation.renderCoins) {
@@ -497,23 +495,23 @@
       const container = coinMount || document.body;
 
       if (Z.coinAnimation && Z.coinAnimation.throwOneLine) {
-        const result = await Z.coinAnimation.throwOneLine(container, fastMode, i);
+        const result = await Z.coinAnimation.throwOneLine(container, false, i);
         values.push(result.value);
       } else {
         const result = Z.castRandomCoinLine();
         values.push(result.value);
-        if (!fastMode) await sleep(200);
+        await sleep(200);
       }
 
       playSound("settle");
-      if (!fastMode && i < 5) await sleep(70);
+      if (i < 5) await sleep(70);
     }
 
     playSound("done");
 
     if (coinMount) {
       if (Z.coinAnimation && Z.coinAnimation.finishCasting) Z.coinAnimation.finishCasting(coinMount);
-      coinMount.insertAdjacentHTML("beforeend", renderCoinCastLog(values, fastMode));
+      coinMount.insertAdjacentHTML("beforeend", renderCoinCastLog(values, false));
     }
 
     return values;
@@ -588,24 +586,14 @@
 
   function syncSettingsFromUI() {
     const s = getSettings();
-    const fastEl = $("#fastMode");
     const soundEl = $("#soundEnabled");
-    if (fastEl) fastEl.checked = s.fastMode;
     if (soundEl) soundEl.checked = s.soundEnabled;
   }
 
   function syncSettingsToUI() {
-    const fastEl = $("#fastMode");
     const soundEl = $("#soundEnabled");
-    const cfgFast = $("#cfgFastMode");
     const cfgSound = $("#cfgSound");
 
-    if (fastEl) fastEl.addEventListener("change", () => {
-      const s = getSettings();
-      s.fastMode = fastEl.checked;
-      saveSettings(s);
-      syncSettingsPanel();
-    });
     if (soundEl) soundEl.addEventListener("change", () => {
       const s = getSettings();
       s.soundEnabled = soundEl.checked;
@@ -613,12 +601,6 @@
       syncSettingsPanel();
     });
 
-    if (cfgFast) cfgFast.addEventListener("change", () => {
-      const s = getSettings();
-      s.fastMode = cfgFast.checked;
-      saveSettings(s);
-      syncSettingsFromUI();
-    });
     if (cfgSound) cfgSound.addEventListener("change", () => {
       const s = getSettings();
       s.soundEnabled = cfgSound.checked;
@@ -629,9 +611,7 @@
 
   function syncSettingsPanel() {
     const s = getSettings();
-    const cfgFast = $("#cfgFastMode");
     const cfgSound = $("#cfgSound");
-    if (cfgFast) cfgFast.checked = s.fastMode;
     if (cfgSound) cfgSound.checked = s.soundEnabled;
   }
 
