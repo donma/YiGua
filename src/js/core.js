@@ -2,6 +2,54 @@ window.Zero1Matrix = window.Zero1Matrix || {};
 
 (function() {
   const Z = window.Zero1Matrix;
+  let dataIndexes = null;
+
+  function buildDataIndexes() {
+    const data = window.Zero1MatrixData || {};
+    const index = {
+      hexagramsByLines: new Map(),
+      hexagramsById: new Map(),
+      lines: new Map(),
+      categories: new Map(),
+      pairs: new Map(),
+      lineCategories: new Map(),
+      actions: new Map(),
+      risks: new Map(),
+      reflections: new Map()
+    };
+    for (const item of data.hexagrams || []) {
+      index.hexagramsByLines.set(item.lines.join(""), item);
+      index.hexagramsById.set(item.id, item);
+    }
+    for (const item of data.lines || []) index.lines.set(`${item.hexagramId}-${item.line}`, item);
+    for (const item of data.categoryInterpretations || []) index.categories.set(`${item.hexagramId}-${item.category}`, item);
+    for (const item of data.pairInterpretations || []) index.pairs.set(`${item.from}-${item.to}`, item);
+    for (const item of data.lineCategoryInterpretations || []) index.lineCategories.set(`${item.hexagramId}-${item.line}-${item.category}`, item);
+    for (const item of data.actionSuggestions || []) index.actions.set(`${item.hexagramId}-${item.category}`, item);
+    for (const item of data.riskWarnings || []) index.risks.set(`${item.hexagramId}-${item.category}`, item);
+    for (const item of data.reflectionQuestions || []) {
+      const key = `${item.hexagramId}-${item.category}`;
+      if (!index.reflections.has(key)) index.reflections.set(key, []);
+      index.reflections.get(key).push(item);
+    }
+    return index;
+  }
+
+  Z.getDataIndexes = function() {
+    if (!dataIndexes) dataIndexes = buildDataIndexes();
+    return dataIndexes;
+  };
+
+  Z.resetDataIndexes = function() {
+    dataIndexes = null;
+  };
+
+  Z.getCategoryInterpretation = (hexagramId, categoryId) => Z.getDataIndexes().categories.get(`${hexagramId}-${categoryId}`) || null;
+  Z.getPairInterpretation = (from, to) => Z.getDataIndexes().pairs.get(`${from}-${to}`) || null;
+  Z.getLineCategoryInterpretation = (hexagramId, line, categoryId) => Z.getDataIndexes().lineCategories.get(`${hexagramId}-${line}-${categoryId}`) || null;
+  Z.getActionSuggestion = (hexagramId, categoryId) => Z.getDataIndexes().actions.get(`${hexagramId}-${categoryId}`) || null;
+  Z.getRiskWarning = (hexagramId, categoryId) => Z.getDataIndexes().risks.get(`${hexagramId}-${categoryId}`) || null;
+  Z.getReflectionQuestions = (hexagramId, categoryId) => Z.getDataIndexes().reflections.get(`${hexagramId}-${categoryId}`) || [];
 
   Z.lineValueToYinYang = function(value) {
     if (value === 6 || value === 8) return 0;
@@ -42,8 +90,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
   };
 
   Z.findHexagramByLines = function(lines) {
-    const data = window.Zero1MatrixData.hexagrams;
-    return data.find(h => JSON.stringify(h.lines) === JSON.stringify(lines)) || null;
+    return Z.getDataIndexes().hexagramsByLines.get(lines.join("")) || null;
   };
 
   Z.getChangingLines = function(values) {
@@ -169,9 +216,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
   };
 
   Z.getLineText = function(hexagramId, lineIndex) {
-    const data = window.Zero1MatrixData.lines;
-    const line = data.find(l => l.hexagramId === hexagramId && l.line === lineIndex + 1);
-    return line || null;
+    return Z.getDataIndexes().lines.get(`${hexagramId}-${lineIndex + 1}`) || null;
   };
 
   Z.buildReading = function(values, categoryId) {
@@ -188,12 +233,8 @@ window.Zero1Matrix = window.Zero1Matrix || {};
       throw new Error("找不到變卦，六爻: " + JSON.stringify(changedLines));
     }
 
-    const cat = window.Zero1MatrixData.categoryInterpretations.find(
-      x => x.hexagramId === originalHex.id && x.category === categoryId
-    );
-    const pair = window.Zero1MatrixData.pairInterpretations.find(
-      x => x.from === originalHex.id && x.to === changedHex.id
-    );
+    const cat = Z.getCategoryInterpretation(originalHex.id, categoryId);
+    const pair = Z.getPairInterpretation(originalHex.id, changedHex.id);
     const scoreResult = Z.scoreReadingDetailed(originalHex, changedHex, values, cat, pair);
     const scores = scoreResult.scores;
     const scoreTrace = scoreResult.scoreTrace;
@@ -210,11 +251,7 @@ window.Zero1Matrix = window.Zero1Matrix || {};
 
     const changingLineDetails = changingLines.map(lineNum => {
       const lineData = Z.getLineText(originalHex.id, lineNum - 1);
-      const lineCat = window.Zero1MatrixData.lineCategoryInterpretations
-        ? window.Zero1MatrixData.lineCategoryInterpretations.find(
-            lci => lci.hexagramId === originalHex.id && lci.line === lineNum && lci.category === categoryId
-          )
-        : null;
+      const lineCat = Z.getLineCategoryInterpretation(originalHex.id, lineNum, categoryId);
       return {
         number: lineNum,
         position: Z.getPositionName(lineNum - 1),
@@ -225,7 +262,13 @@ window.Zero1Matrix = window.Zero1Matrix || {};
         advice: lineData ? lineData.advice : "",
         warning: lineData ? lineData.warning : "",
         lineDataId: lineData ? lineData.id : null,
-        lineCategoryId: lineCat ? lineCat.id : null
+        lineCategoryId: lineCat ? lineCat.id : null,
+        categoryName: lineCat ? lineCat.categoryName : getCategoryName(categoryId),
+        categoryMeaning: lineCat ? lineCat.meaning : "",
+        categoryAdvice: lineCat ? lineCat.advice : "",
+        categoryWarning: lineCat ? lineCat.warning : "",
+        categoryBasis: lineCat && Array.isArray(lineCat.basis) ? [...lineCat.basis] : [],
+        categoryScoreAdjust: lineCat && lineCat.scoreAdjust ? { ...lineCat.scoreAdjust } : null
       };
     });
 
@@ -266,10 +309,11 @@ window.Zero1Matrix = window.Zero1Matrix || {};
       changingLineDetails.forEach(d => {
         deepLines.push(`  ${d.position}（${d.value === 6 ? "老陰" : "老陽"}）：${d.text}`);
         if (d.meaning) deepLines.push(`    ${d.meaning}`);
-        if (d.lineCategoryId) {
-          const lc = window.Zero1MatrixData.lineCategoryInterpretations.find(lci => lci.id === d.lineCategoryId);
-          if (lc && lc.meaning) deepLines.push(`    以「${getCategoryName(categoryId)}」來看：${lc.meaning}`);
-        }
+        if (d.categoryMeaning) deepLines.push(`    分類解讀（${d.categoryName}）：${d.categoryMeaning}`);
+        if (d.categoryAdvice) deepLines.push(`    分類建議：${d.categoryAdvice}`);
+        if (d.categoryWarning) deepLines.push(`    分類提醒：${d.categoryWarning}`);
+        if (d.categoryBasis.length) deepLines.push(`    解讀依據：${d.categoryBasis.join("、")}`);
+        if (d.categoryScoreAdjust) deepLines.push(`    分數修正：${Object.entries(d.categoryScoreAdjust).map(([key, value]) => `${key} ${value >= 0 ? "+" : ""}${value}`).join("、")}`);
       });
       deepLines.push(`\n▎變卦：${changedHex.symbol} ${changedHex.fullName}`);
       if (pair) {

@@ -1,15 +1,18 @@
-const CACHE_NAME = "zero1matrix-v2";
+const CACHE_NAME = "yigua-core-2026-07-20-v3";
 
 const CACHE_URLS = [
   "./",
   "./index.html",
   "./history.html",
   "./report-viewer.html",
+  "./manifest.webmanifest",
   "./src/css/app.css",
   "./src/css/coin.css",
   "./src/js/core.js",
   "./src/js/coin-animation.js",
   "./src/js/app.js",
+  "./src/js/history-safety.js",
+  "./src/js/pwa.js",
   "./src/data/categories.data.js",
   "./src/data/hexagrams.data.js",
   "./src/data/lines.data.js",
@@ -21,12 +24,13 @@ const CACHE_URLS = [
   "./src/data/actionSuggestions.data.js",
   "./src/data/riskWarnings.data.js",
   "./src/assets/coins/coin-front.svg",
-  "./src/assets/coins/coin-back.svg"
+  "./src/assets/coins/coin-back.svg",
+  "./src/assets/icons/icon.svg"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(CACHE_URLS).catch(e => console.warn("SW cache addAll:", e)))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(CACHE_URLS))
   );
   self.skipWaiting();
 });
@@ -41,7 +45,13 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(res => res || fetch(event.request))
-  );
+  if (event.request.method !== "GET") return;
+  const networkResponse = fetch(event.request);
+  event.waitUntil(networkResponse.then(response => {
+    if (!response || !response.ok || new URL(event.request.url).origin !== self.location.origin) return;
+    return caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+  }).catch(() => undefined));
+  event.respondWith(networkResponse.catch(() =>
+    caches.match(event.request).then(cached => cached || (event.request.mode === "navigate" ? caches.match("./index.html") : undefined))
+  ));
 });

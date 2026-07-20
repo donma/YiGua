@@ -6,6 +6,7 @@
   const STORAGE_KEY = "zero1matrix_history";
   const SETTINGS_KEY = "zero1matrix_settings";
   const DAILY_KEY = "zero1matrix_daily";
+  const DAILY_ALGORITHM_VERSION = 2;
 
   let currentReading = null;
 
@@ -27,27 +28,45 @@
   }
 
   function seededRandom(seed) {
-    let h = 0;
+    let h = 2166136261;
     for (let i = 0; i < seed.length; i++) {
-      h = ((h << 5) - h) + seed.charCodeAt(i);
-      h |= 0;
+      h ^= seed.charCodeAt(i);
+      h = Math.imul(h, 16777619) >>> 0;
     }
     return function() {
-      h = (h * 16807 + 0) % 2147483647;
-      return (h - 1) / 2147483646;
+      h = (h + 0x6D2B79F5) >>> 0;
+      let value = h;
+      value = Math.imul(value ^ (value >>> 15), value | 1);
+      value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+      return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
     };
+  }
+
+  function getDailyValuesForSeed(seed) {
+    const rand = seededRandom(seed);
+    const values = [];
+    for (let i = 0; i < 6; i++) {
+      const value = rand();
+      if (value < 0.0625) values.push(6);
+      else if (value < 0.3125) values.push(7);
+      else if (value < 0.5625) values.push(8);
+      else values.push(9);
+    }
+    return values;
   }
 
   function getCachedDailyHexagram(seed) {
     try {
       const cached = JSON.parse(localStorage.getItem(DAILY_KEY));
-      if (cached && cached.seed === seed) return cached;
+      if (cached && cached.seed === seed && cached.version === DAILY_ALGORITHM_VERSION &&
+          Array.isArray(cached.values) && cached.values.length === 6 &&
+          cached.values.every(value => [6, 7, 8, 9].includes(value))) return cached;
     } catch (e) {}
     return null;
   }
 
-  function cacheDailyHexagram(seed, reading) {
-    localStorage.setItem(DAILY_KEY, JSON.stringify({ seed, reading }));
+  function cacheDailyHexagram(seed, values) {
+    localStorage.setItem(DAILY_KEY, JSON.stringify({ seed, version: DAILY_ALGORITHM_VERSION, values }));
   }
 
   function generateId() {
@@ -159,6 +178,31 @@
     `).join("");
   }
 
+  function renderLineScoreAdjust(scoreAdjust) {
+    if (!scoreAdjust) return "";
+    const labels = { clarity: "明朗", action: "行動", risk: "風險", change: "變化", support: "支援", timing: "時機" };
+    return Object.keys(labels).filter(key => Number.isFinite(scoreAdjust[key])).map(key =>
+      `<span class="line-score-chip">${labels[key]} ${scoreAdjust[key] >= 0 ? "+" : ""}${scoreAdjust[key]}</span>`
+    ).join("");
+  }
+
+  function renderChangingLineCategories(details) {
+    if (!details || !details.length) return "";
+    return `<section class="card">
+      <h3>動爻分類解讀</h3>
+      <div class="moving-line-list">${details.map(detail => `
+        <article class="moving-line-card">
+          <h4>${detail.position}${detail.value === 6 ? "六" : "九"} · ${detail.text}</h4>
+          ${detail.plain ? `<p class="muted">${detail.plain}</p>` : ""}
+          <div class="moving-line-section"><b>分類解讀（${detail.categoryName}）</b><p>${detail.categoryMeaning || detail.meaning}</p></div>
+          <div class="moving-line-section advice"><b>行動建議</b><p>${detail.categoryAdvice || detail.advice}</p></div>
+          <div class="moving-line-section warning"><b>風險提醒</b><p>${detail.categoryWarning || detail.warning}</p></div>
+          ${detail.categoryBasis && detail.categoryBasis.length ? `<div class="moving-line-basis"><span>解讀依據</span>${detail.categoryBasis.map(item => `<span class="badge">${item}</span>`).join("")}</div>` : ""}
+          ${detail.categoryScoreAdjust ? `<div class="line-score-adjust">${renderLineScoreAdjust(detail.categoryScoreAdjust)}</div>` : ""}
+        </article>`).join("")}</div>
+    </section>`;
+  }
+
   function renderHexagramLines(values) {
     const positionNames = ["初", "二", "三", "四", "五", "上"];
     const html = [];
@@ -217,6 +261,7 @@
         <h3>深解</h3>
         <div class="pre-wrap">${r.deep.replaceAll("\n", "<br>")}</div>
       </section>
+      ${renderChangingLineCategories(r.changingLineDetails)}
     `;
 
     if (r.nuclearHex || r.oppositeHex || r.reversedHex) {
@@ -251,15 +296,15 @@
         <h3>行動建議</h3>
         <p>${r.originalHex.coreAdvice}</p>
         ${r.pairInterpretation ? `<p style="margin-top:8px"><span class="muted">變化建議：</span>${r.pairInterpretation.advice}</p>` : ""}
-        ${getActionSuggestion(r.categoryId)}
-        ${getRiskWarning(r.categoryId)}
+        ${getActionSuggestion(r.originalHex.id, r.categoryId)}
+        ${getRiskWarning(r.originalHex.id, r.categoryId)}
       </section>
     `;
 
     html += `
       <section class="card">
         <h3>反思問題</h3>
-        <p class="muted">${getReflectionQuestion(r.categoryId)}</p>
+        <p class="muted">${getReflectionQuestion(r.originalHex.id, r.categoryId)}</p>
       </section>
     `;
 
@@ -276,29 +321,23 @@
     resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function getActionSuggestion(categoryId) {
-    const data = window.Zero1MatrixData.actionSuggestions;
-    if (!data || !data.length) return "";
-    const filtered = data.filter(a => a.category === categoryId);
-    if (!filtered.length) return "";
-    const item = filtered[Math.floor(Math.random() * filtered.length)];
+  function getActionSuggestion(hexagramId, categoryId) {
+    const item = Z.getActionSuggestion(hexagramId, categoryId);
+    if (!item) return "";
     return `<p style="margin-top:8px"><span class="muted">建議：</span>${item.text}</p>`;
   }
 
-  function getRiskWarning(categoryId) {
-    const data = window.Zero1MatrixData.riskWarnings;
-    if (!data || !data.length) return "";
-    const filtered = data.filter(r => r.category === categoryId);
-    if (!filtered.length) return "";
-    const item = filtered[Math.floor(Math.random() * filtered.length)];
+  function getRiskWarning(hexagramId, categoryId) {
+    const item = Z.getRiskWarning(hexagramId, categoryId);
+    if (!item) return "";
     return `<p style="margin-top:4px"><span class="muted">提醒：</span>${item.text}</p>`;
   }
 
-  function getReflectionQuestion(categoryId) {
+  function getReflectionQuestion(hexagramId, categoryId) {
     const data = window.Zero1MatrixData.reflectionQuestions;
     if (!data || !data.length) return "在「" + getCategoryName(categoryId) + "」這件事上，我現在最需要看清的是時機、風險，還是自己的執念？";
-    const filtered = data.filter(q => q.category === categoryId);
-    if (!filtered.length) return data[0].question || data[0].text;
+    const filtered = Z.getReflectionQuestions(hexagramId, categoryId);
+    if (!filtered.length) return "在「" + getCategoryName(categoryId) + "」這件事上，我現在最需要看清的是時機、風險，還是自己的執念？";
     const q = filtered[Math.floor(Math.random() * filtered.length)];
     return q.question || q.text;
   }
@@ -491,24 +530,16 @@
     const categoryId = categoryEl ? categoryEl.value : "general";
 
     if (cached) {
-      currentReading = Z.buildReading(cached.reading.values, categoryId);
+      currentReading = Z.buildReading(cached.values, categoryId);
       currentReading.method = "daily";
       renderReading(currentReading);
       showToast("今日一卦（已快取）：" + seed);
       return;
     }
 
-    const rand = seededRandom(seed + categoryId);
-    const values = [];
-    for (let i = 0; i < 6; i++) {
-      const r = rand();
-      if (r < 0.0625) values.push(6);
-      else if (r < 0.3125) values.push(7);
-      else if (r < 0.5625) values.push(8);
-      else values.push(9);
-    }
+    const values = getDailyValuesForSeed(seed);
 
-    cacheDailyHexagram(seed, { values, categoryId });
+    cacheDailyHexagram(seed, values);
     currentReading = Z.buildReading(values, categoryId);
     currentReading.method = "daily";
     renderReading(currentReading);
@@ -619,6 +650,7 @@
     exportReadingJSON,
     getHistory,
     renderScores,
-    getCategoryName
+    getCategoryName,
+    getDailyValuesForSeed
   };
 })();

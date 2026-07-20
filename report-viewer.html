@@ -7,6 +7,8 @@
   <meta name="theme-color" content="#080706">
   <title>報告檢視 - 易卦</title>
   <link rel="stylesheet" href="./src/css/app.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./src/assets/icons/icon.svg" type="image/svg+xml">
   <style>
     @media print {
       body { background: white; color: #222; }
@@ -50,12 +52,14 @@
 
   <script src="./src/data/categories.data.js"></script>
   <script src="./src/data/hexagrams.data.js"></script>
-  <script src="./src/js/core.js"></script>
+  <script src="./src/js/history-safety.js"></script>
   <script>
     const STORAGE_KEY = "zero1matrix_history";
+    const HistorySafety = window.Zero1MatrixHistorySafety;
+    const escapeHTML = HistorySafety.escapeHTML;
 
     function getHistory() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      try { return HistorySafety.sanitizeStoredHistory(JSON.parse(localStorage.getItem(STORAGE_KEY)) || []); }
       catch (e) { return []; }
     }
 
@@ -88,18 +92,18 @@
           <h1>易卦 解卦報告</h1>
           <div class="muted">
             <p>起卦時間：${date}</p>
-            <p>問事分類：${record.categoryName || record.category || "一般"}</p>
+            <p>問事分類：${escapeHTML(record.categoryName || record.category || "一般")}</p>
             <p>起卦方式：三枚銅錢</p>
-            <p>報告編號：${record.id}</p>
+            <p>報告編號：${escapeHTML(record.id)}</p>
           </div>
         </section>
 
         <section class="card">
-          <h2>${record.symbol || ""} ${record.originalHexagramName || "?"}</h2>
+          <h2>${escapeHTML(record.symbol)} ${escapeHTML(record.originalHexagramName || "?")}</h2>
           ${record.originalHexagramId !== record.changedHexagramId
-            ? `<p>本卦 → ${record.changedHexagramName || "?"} · ${record.changingLines && record.changingLines.length ? record.changingLines.length + " 爻變動" : "靜卦"}</p>`
+            ? `<p>本卦 → ${escapeHTML(record.changedHexagramName || "?")} · ${record.changingLines && record.changingLines.length ? record.changingLines.length + " 爻變動" : "靜卦"}</p>`
             : `<p>靜卦</p>`}
-          <p style="color:var(--gold);font-family:var(--font-serif);font-size:16px">${record.oneLine || ""}</p>
+          <p style="color:var(--gold);font-family:var(--font-serif);font-size:16px">${escapeHTML(record.oneLine)}</p>
         </section>
 
         <section class="card">
@@ -109,12 +113,12 @@
 
         <section class="card">
           <h3>簡解</h3>
-          <div class="pre-wrap">${(record.simple || "").replaceAll("\n", "<br>")}</div>
+          <div class="pre-wrap">${escapeHTML(record.simple).replaceAll("\n", "<br>")}</div>
         </section>
 
         <section class="card">
           <h3>深解</h3>
-          <pre class="pre-wrap">${record.deep || ""}</pre>
+          <pre class="pre-wrap">${escapeHTML(record.deep)}</pre>
         </section>
 
         <section class="card">
@@ -144,5 +148,6 @@
       });
     });
   </script>
+  <script src="./src/js/pwa.js"></script>
 </body>
 </html>

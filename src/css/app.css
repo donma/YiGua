@@ -245,6 +245,19 @@ pre, .pre-wrap {
   text-align: center;
 }
 
+.moving-line-list { display: grid; gap: 14px; margin-top: 12px; }
+.moving-line-card { border: 1px solid var(--line); background: rgba(8, 7, 6, .38); border-radius: 14px; padding: 16px; }
+.moving-line-card h4 { color: var(--gold); font-family: var(--font-serif); margin-bottom: 8px; }
+.moving-line-section { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 10px; }
+.moving-line-section b { color: var(--gold); }
+.moving-line-section p { margin-top: 5px; }
+.moving-line-section.advice b { color: var(--goldBright); }
+.moving-line-section.warning b { color: var(--redMuted); }
+.moving-line-basis { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+.moving-line-basis > span:first-child { color: var(--muted); font-size: 13px; margin-right: 2px; }
+.line-score-adjust { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.line-score-chip { border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; padding: 2px 8px; }
+
 .hexagram-badges {
   display: flex;
   gap: 8px;

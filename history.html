@@ -7,6 +7,8 @@
   <meta name="theme-color" content="#080706">
   <title>歷史紀錄 - 易卦</title>
   <link rel="stylesheet" href="./src/css/app.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./src/assets/icons/icon.svg" type="image/svg+xml">
 </head>
 <body>
   <header>
@@ -64,18 +66,17 @@
 
   <script src="./src/data/categories.data.js"></script>
   <script src="./src/data/hexagrams.data.js"></script>
-  <script src="./src/data/lines.data.js"></script>
-  <script src="./src/data/categoryInterpretations.data.js"></script>
-  <script src="./src/data/pairInterpretations.data.js"></script>
-  <script src="./src/js/core.js"></script>
+  <script src="./src/js/history-safety.js"></script>
   <script>
     const STORAGE_KEY = "zero1matrix_history";
     const PAGE_SIZE = 10;
+    const HistorySafety = window.Zero1MatrixHistorySafety;
+    const escapeHTML = HistorySafety.escapeHTML;
     let currentPage = 1;
     let currentDetailRecord = null;
 
     function getHistory() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      try { return HistorySafety.sanitizeStoredHistory(JSON.parse(localStorage.getItem(STORAGE_KEY)) || []); }
       catch (e) { return []; }
     }
 
@@ -131,15 +132,15 @@
         const date = new Date(r.createdAt).toLocaleString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
         html += `<div class="history-item" onclick="showDetail('${r.id}')">
           <div style="display:flex;align-items:center;gap:12px">
-            <span class="hex-symbol">${r.symbol || ""}</span>
+            <span class="hex-symbol">${escapeHTML(r.symbol)}</span>
             <div style="flex:1">
-              <div><b style="color:var(--gold)">${r.originalHexagramName || "?"}</b>${r.originalHexagramId !== r.changedHexagramId ? ` → ${r.changedHexagramName || "?"}` : "（靜卦）"}</div>
-              <div style="font-size:14px;color:var(--muted)">${r.oneLine ? r.oneLine.substring(0, 60) + (r.oneLine.length > 60 ? "..." : "") : ""}</div>
+              <div><b style="color:var(--gold)">${escapeHTML(r.originalHexagramName || "?")}</b>${r.originalHexagramId !== r.changedHexagramId ? ` → ${escapeHTML(r.changedHexagramName || "?")}` : "（靜卦）"}</div>
+              <div style="font-size:14px;color:var(--muted)">${escapeHTML(r.oneLine ? r.oneLine.substring(0, 60) + (r.oneLine.length > 60 ? "..." : "") : "")}</div>
             </div>
           </div>
           <div class="meta">
             <span>${date}</span>
-            <span>${r.categoryName || r.category || "一般"}</span>
+            <span>${escapeHTML(r.categoryName || r.category || "一般")}</span>
             <span>${r.changingLines && r.changingLines.length ? r.changingLines.length + " 爻動" : "靜卦"}</span>
           </div>
         </div>`;
@@ -180,11 +181,11 @@
       scoresHtml += '</div>';
 
       document.getElementById("modalContent").innerHTML = `
-        <p class="muted">${date} · ${record.categoryName || record.category} · 三枚銅錢</p>
-        <p style="color:var(--gold);margin:8px 0">${record.oneLine || ""}</p>
+        <p class="muted">${date} · ${escapeHTML(record.categoryName || record.category)} · 三枚銅錢</p>
+        <p style="color:var(--gold);margin:8px 0">${escapeHTML(record.oneLine)}</p>
         ${scoresHtml}
-        <div style="margin-top:12px"><b class="text-gold">簡解</b><div class="pre-wrap">${(record.simple || "").replaceAll("\n", "<br>")}</div></div>
-        <div style="margin-top:12px"><b class="text-gold">深解</b><pre class="pre-wrap">${record.deep || ""}</pre></div>
+        <div style="margin-top:12px"><b class="text-gold">簡解</b><div class="pre-wrap">${escapeHTML(record.simple).replaceAll("\n", "<br>")}</div></div>
+        <div style="margin-top:12px"><b class="text-gold">深解</b><pre class="pre-wrap">${escapeHTML(record.deep)}</pre></div>
       `;
 
       document.getElementById("detailModal").classList.add("open");
@@ -224,17 +225,17 @@
       if (!currentDetailRecord) return;
       const r = currentDetailRecord;
       const html = `<!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><title>易卦 解卦報告 - ${r.originalHexagramName}</title>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>易卦 解卦報告 - ${escapeHTML(r.originalHexagramName)}</title>
 <style>:root{--bg:#080706;--text:#f3ead8;--muted:#b9a98d;--gold:#c9a45c}
 body{background:#0b0908;color:var(--text);font-family:"Microsoft JhengHei",sans-serif;max-width:800px;margin:0 auto;padding:32px 16px;line-height:1.65}
 h1,h2,h3{color:var(--gold)}.card{border:1px solid #3a3028;padding:16px;margin:10px 0;border-radius:12px}pre{white-space:pre-wrap}
 @media print{body{background:white;color:#222}.card{border-color:#ccc}}</style></head>
 <body><h1>易卦 解卦報告</h1>
-<div class="card"><p class="muted">${new Date(r.createdAt).toLocaleString("zh-TW")} · ${r.categoryName || r.category}</p>
-<p>${r.symbol || ""} ${r.originalHexagramName || ""}${r.originalHexagramId !== r.changedHexagramId ? " → " + r.changedHexagramName : ""}</p>
-<p style="color:var(--gold)">${r.oneLine || ""}</p></div>
-<div class="card"><h3>簡解</h3><pre>${r.simple || ""}</pre></div>
-<div class="card"><h3>深解</h3><pre>${r.deep || ""}</pre></div>
+<div class="card"><p class="muted">${new Date(r.createdAt).toLocaleString("zh-TW")} · ${escapeHTML(r.categoryName || r.category)}</p>
+<p>${escapeHTML(r.symbol)} ${escapeHTML(r.originalHexagramName)}${r.originalHexagramId !== r.changedHexagramId ? " → " + escapeHTML(r.changedHexagramName) : ""}</p>
+<p style="color:var(--gold)">${escapeHTML(r.oneLine)}</p></div>
+<div class="card"><h3>簡解</h3><pre>${escapeHTML(r.simple)}</pre></div>
+<div class="card"><h3>深解</h3><pre>${escapeHTML(r.deep)}</pre></div>
 </body></html>`;
       const blob = new Blob([html], { type: "text/html" });
       const a = document.createElement("a");
@@ -250,23 +251,19 @@ h1,h2,h3{color:var(--gold)}.card{border:1px solid #3a3028;padding:16px;margin:10
     function handleImport(e) {
       const file = e.target.files[0];
       if (!file) return;
+      if (file.size > HistorySafety.MAX_IMPORT_BYTES) {
+        alert("匯入失敗：檔案超過 5 MB 上限");
+        e.target.value = "";
+        return;
+      }
       const reader = new FileReader();
       reader.onload = function(ev) {
         try {
-          const data = JSON.parse(ev.target.result);
-          if (!Array.isArray(data)) throw new Error("格式錯誤：需要 JSON 陣列");
           const existing = getHistory();
-          let added = 0;
-          data.forEach(r => {
-            if (!r.id || existing.find(e => e.id === r.id)) {
-              r.id = "imported_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6);
-            }
-            existing.unshift(r);
-            added++;
-          });
-          saveHistory(existing);
+          const imported = HistorySafety.parseImport(ev.target.result, existing.map(record => record.id));
+          saveHistory(imported.concat(existing).slice(0, HistorySafety.MAX_STORED_RECORDS));
           renderHistory();
-          alert(`成功匯入 ${added} 筆紀錄`);
+          alert(`成功匯入 ${imported.length} 筆紀錄`);
         } catch (err) {
           alert("匯入失敗：" + err.message);
         }
@@ -306,5 +303,6 @@ h1,h2,h3{color:var(--gold)}.card{border:1px solid #3a3028;padding:16px;margin:10
       renderHistory();
     });
   </script>
+  <script src="./src/js/pwa.js"></script>
 </body>
 </html>
