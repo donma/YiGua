@@ -243,8 +243,8 @@
       "path": "sw.js",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 2254,
-      "sha256": "18cca8bcdb5734741d46ef02bbc9816843db66cffde01984b243347b52a1461f"
+      "bytes": 2255,
+      "sha256": "c737729d090744ee293b5945cbcb4434ab01079a0c676a152f68c866a53ebea0"
     },
     {
       "name": "app.css",
@@ -267,8 +267,8 @@
       "path": "src/js/core.js",
       "layer": "runtime",
       "recordCount": null,
-      "bytes": 17128,
-      "sha256": "238748aa7dab69c7e3d290ac4e349182e17225c0f709370640f32cda263a1635"
+      "bytes": 17330,
+      "sha256": "d980d6014b94985e4e67d4b051c477dfd1e1a98b463bf4958bd33ceea8473fe5"
     },
     {
       "name": "app.js",

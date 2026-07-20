@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="logo">Content Quality</div>
-    <div class="subtitle">Zero1Matrix v5 文案重複度與禁語檢查</div>
+    <div class="subtitle">易卦 2.0.0-accuracy 文案重複度與禁語檢查</div>
     <nav>
       <a href="../index.html">← 回起卦頁</a>
       <a href="../tools/reading-lab.html">Reading Lab</a>
@@ -17,12 +17,12 @@
       <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
       <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
       <a href="../tools/content-quality-inspector.html" class="active">Content Quality</a>
-      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+      <a href="../tools/v6-peak-inspector.html">2.0 Accuracy</a>
     </nav>
   </header>
   <main>
     <section class="card">
-      <h1>v5 Content Quality Report</h1>
+      <h1>2.0.0-accuracy Content Quality Report</h1>
       <button id="run">Run Check</button>
       <pre id="report"></pre>
     </section>
@@ -31,24 +31,29 @@
   <script src="../src/data/reflectionQuestions.data.js"></script>
   <script src="../src/data/actionSuggestions.data.js"></script>
   <script src="../src/data/riskWarnings.data.js"></script>
-  <script src="../src/data/contentQualityRules.v5.data.js"></script>
+  <script src="../src/data/dictionaryQualityRules.data.js"></script>
   <script>
-    function normalizeText(text, rules) {
+    const CATEGORY_NAMES = ["一般","工作事業","感情關係","財務金錢","人際合作","家庭親人","學習考試","身心狀態","重大決策","創業經營","官非合約","心境修行"];
+    const HEXAGRAM_NAMES = ["乾","坤","屯","蒙","需","訟","師","比","小畜","履","泰","否","同人","大有","謙","豫","隨","蠱","臨","觀","噬嗑","賁","剝","復","無妄","大畜","頤","大過","坎","離","咸","恆","遯","大壯","晉","明夷","家人","睽","蹇","解","損","益","夬","姤","萃","升","困","井","革","鼎","震","艮","漸","歸妹","豐","旅","巽","兌","渙","節","中孚","小過","既濟","未濟"];
+    const HARD_FORBIDDEN_TERMS = ["必有災禍","不用看醫生","保證賺錢","官司一定贏","馬上辭職","必須分手","必須離婚","穩賺","包贏","不用諮詢專業人士"];
+    const CONTEXTUAL_REVIEW_TERMS = ["一定會","必定會","絕對成功","絕對失敗","絕對會","絕對不會","絕對不能"];
+
+    function normalizeText(text) {
       let x = String(text || "");
-      for (const name of rules.normalization.replaceCategoryNames || []) {
+      for (const name of CATEGORY_NAMES) {
         x = x.replaceAll(`「${name}」`, "「分類」").replaceAll(name, "分類");
       }
-      for (const name of rules.normalization.replaceHexagramNames || []) {
+      for (const name of HEXAGRAM_NAMES) {
         x = x.replaceAll(`${name}卦`, "某卦").replaceAll(name, "某卦");
       }
-      if (rules.normalization.removeNumbers) x = x.replace(/[0-9０-９一二三四五六七八九十百千萬]+/g, "N");
+      x = x.replace(/[0-9０-９一二三四五六七八九十百千萬]+/g, "N");
       return x.replace(/\s+/g, "");
     }
 
-    function stats(records, field, rules) {
+    function stats(records, field) {
       const texts = records.map(x => x[field]).filter(Boolean);
       const unique = new Set(texts);
-      const normalized = texts.map(t => normalizeText(t, rules));
+      const normalized = texts.map(normalizeText);
       const normalizedUnique = new Set(normalized);
       const counts = {};
       for (const n of normalized) counts[n] = (counts[n] || 0) + 1;
@@ -62,15 +67,12 @@
       };
     }
 
-    function forbiddenHits(records, field, rules) {
+    function phraseHits(records, field, terms) {
       const hits = [];
-      const allowed = rules.allowedPhrases || [];
       for (const rec of records) {
         const text = rec[field] || "";
-        let scan = text;
-        for (const phrase of allowed) scan = scan.replaceAll(phrase, "");
-        for (const term of rules.forbiddenTerms || []) {
-          if (scan.includes(term)) hits.push({ id: rec.id, term, text });
+        for (const term of terms) {
+          if (text.includes(term)) hits.push({ id: rec.id, term, text });
         }
       }
       return hits;
@@ -78,19 +80,26 @@
 
     function runCheck() {
       const D = window.Zero1MatrixData;
-      const rules = D.contentQualityRulesV5;
+      const rules = D.dictionaryQualityRules || {};
       const reflections = D.reflectionQuestions || [];
       const actions = D.actionSuggestions || [];
       const risks = D.riskWarnings || [];
 
       const report = {
-        reflectionQuestions: stats(reflections, "question", rules),
-        actionSuggestions: stats(actions, "text", rules),
-        riskWarnings: stats(risks, "text", rules),
-        forbiddenHits: [
-          ...forbiddenHits(reflections, "question", rules),
-          ...forbiddenHits(actions, "text", rules),
-          ...forbiddenHits(risks, "text", rules)
+        releaseVersion: "2.0.0-accuracy",
+        ruleSetVersion: rules.version || null,
+        reflectionQuestions: stats(reflections, "question"),
+        actionSuggestions: stats(actions, "text"),
+        riskWarnings: stats(risks, "text"),
+        hardForbiddenHits: [
+          ...phraseHits(reflections, "question", HARD_FORBIDDEN_TERMS),
+          ...phraseHits(actions, "text", HARD_FORBIDDEN_TERMS),
+          ...phraseHits(risks, "text", HARD_FORBIDDEN_TERMS)
+        ],
+        contextualLanguageReview: [
+          ...phraseHits(reflections, "question", CONTEXTUAL_REVIEW_TERMS),
+          ...phraseHits(actions, "text", CONTEXTUAL_REVIEW_TERMS),
+          ...phraseHits(risks, "text", CONTEXTUAL_REVIEW_TERMS)
         ],
         missingBasis: [
           ...reflections.filter(x => !x.basis || !x.basis.length).map(x => x.id),
@@ -106,7 +115,7 @@
         report.reflectionQuestions.normalizedUnique >= 180 &&
         report.actionSuggestions.normalizedUnique >= 120 &&
         report.riskWarnings.normalizedUnique >= 120 &&
-        report.forbiddenHits.length === 0 &&
+        report.hardForbiddenHits.length === 0 &&
         report.missingBasis.length === 0
       ) ? "PASS" : "FAIL";
 

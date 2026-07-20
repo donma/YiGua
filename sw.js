@@ -1,4 +1,4 @@
-const CACHE_NAME = "yigua-core-2026-07-20-v9";
+const CACHE_NAME = "yigua-core-2026-07-20-v10";
 
 const CACHE_URLS = [
   "./",

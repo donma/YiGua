@@ -369,7 +369,10 @@ window.Zero1Matrix = window.Zero1Matrix || {};
         if (d.categoryAdvice) deepLines.push(`    分類建議：${d.categoryAdvice}`);
         if (d.categoryWarning) deepLines.push(`    分類提醒：${d.categoryWarning}`);
         if (d.categoryBasis.length) deepLines.push(`    解讀依據：${d.categoryBasis.join("、")}`);
-        if (d.categoryScoreAdjust) deepLines.push(`    分數修正：${Object.entries(d.categoryScoreAdjust).map(([key, value]) => `${key} ${value >= 0 ? "+" : ""}${value}`).join("、")}`);
+        if (d.categoryScoreAdjust) {
+          const scoreLabels = { clarity: "明朗", action: "行動", risk: "風險", change: "變化", support: "支援", timing: "時機" };
+          deepLines.push(`    評分參考（分類校正）：${Object.entries(d.categoryScoreAdjust).map(([key, value]) => `${scoreLabels[key] || key} ${value >= 0 ? "+" : ""}${value}`).join("、")}`);
+        }
       });
       deepLines.push(`\n▎變卦：${changedHex.symbol} ${changedHex.fullName}`);
       if (pair) {

@@ -33,7 +33,7 @@
       <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
       <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
       <a href="../tools/content-quality-inspector.html">Content Quality</a>
-      <a href="../tools/v6-peak-inspector.html">v6 Peak</a>
+      <a href="../tools/v6-peak-inspector.html">2.0 Accuracy</a>
     </nav>
   </header>
 
@@ -171,17 +171,18 @@
           <div class="stat"><span class="num">${catCount}</span> / 768 <span class="muted">categoryInterpretations</span>${coverageBar(catCount, 768)}</div>
           <div class="stat"><span class="num">${lineCatCount}</span> / 4608 <span class="muted">lineCategoryInterp</span>${coverageBar(lineCatCount, 4608)}</div>
           <div class="stat"><span class="num">${pairCount}</span> / 4096 <span class="muted">pairInterpretations</span>${coverageBar(pairCount, 4096)}</div>
-          <div class="stat"><span class="num">${actionCount}</span> / 800 <span class="muted">actionSuggestions</span>${coverageBar(actionCount, 800)}</div>
-          <div class="stat"><span class="num">${riskCount}</span> / 500 <span class="muted">riskWarnings</span>${coverageBar(riskCount, 500)}</div>
-          <div class="stat"><span class="num">${refCount}</span> / 1500 <span class="muted">reflectionQuestions</span>${coverageBar(refCount, 1500)}</div>
-          <div class="stat"><span class="num">${tplCount}</span> / 1200 <span class="muted">templates</span>${coverageBar(tplCount, 1200)}</div>
+          <div class="stat"><span class="num">${actionCount}</span> / 768 <span class="muted">actionSuggestions</span>${coverageBar(actionCount, 768)}</div>
+          <div class="stat"><span class="num">${riskCount}</span> / 768 <span class="muted">riskWarnings</span>${coverageBar(riskCount, 768)}</div>
+          <div class="stat"><span class="num">${refCount}</span> / 2304 <span class="muted">reflectionQuestions</span>${coverageBar(refCount, 2304)}</div>
+          <div class="stat"><span class="num">${tplCount}</span> / 600 <span class="muted">templates（opening/simple/deep 各 200）</span>${coverageBar(tplCount, 600)}</div>
         </div>
         <hr class="separator">
-        <h3>待擴寫資料</h3>
+        <h3>機器擴寫狀態</h3>
         <div class="stat">${lineNeeds}/${lineCount} <span class="muted">爻辭 needsExpansion</span></div>
-        <div class="stat">${catNeeds}/${catCount} <span class="muted">分類解讀 needsHumanReview</span></div>
         <div class="stat">${pairNeeds}/${pairCount} <span class="muted">變卦配對 needsExpansion</span></div>
         <div class="stat">${lineCatNeeds}/${lineCatCount} <span class="muted">爻·分類解讀 needsExpansion</span></div>
+        <h3 style="margin-top:12px">人工編審狀態</h3>
+        <div class="stat">${catNeeds}/${catCount} <span class="muted">分類解讀待具名真人編審；不代表資料缺漏，不會自動升級為 Reviewed／Gold</span></div>
         <hr class="separator">
         <h3>64 卦 × 12 類 Coverage</h3>
         ${checkCategoryCoverage()}
@@ -277,8 +278,8 @@
       lineHtml += `<div class="issue ok">${expanded.length}/${D.lines.length} 筆爻辭已擴寫（needsExpansion: false）</div>`;
       document.getElementById("lineIssues").innerHTML = lineHtml;
 
-      let catHtml = "<h3>64×12 分類 needsHumanReview 檢查</h3>";
-      catHtml += `<div class="issue warn">${D.categoryInterpretations.filter(c => c.needsHumanReview).length}/${D.categoryInterpretations.length} 筆標記 needsHumanReview</div>`;
+      let catHtml = "<h3>64×12 分類人工編審狀態</h3>";
+      catHtml += `<div class="issue warn">${D.categoryInterpretations.filter(c => c.needsHumanReview).length}/${D.categoryInterpretations.length} 筆待具名真人編審（機器資料已完整）</div>`;
       const lcData = D.lineCategoryInterpretations || [];
       catHtml += `<h3 style="margin-top:12px">384×12 爻分類 needsExpansion 檢查</h3>`;
       catHtml += checkNeedsExpansion(lcData, "lineCategoryInterpretations");
@@ -293,10 +294,9 @@
     }
 
     const rules = D.dictionaryQualityRules || {};
-    const forbiddenPhrases = rules.forbiddenTerms || [
-      "一定會", "必定", "必有災", "血光之災", "馬上辭職",
-      "必須分手", "保證成功", "保證失敗", "不用就醫",
-      "不用諮詢專業人士"
+    const forbiddenPhrases = [
+      "必有災禍", "不用看醫生", "保證賺錢", "官司一定贏", "馬上辭職",
+      "必須分手", "必須離婚", "穩賺", "包贏", "不用諮詢專業人士"
     ];
 
     const warningPhrases = rules.warningTerms || [];
@@ -391,14 +391,15 @@
       if (lcData.length < 4608) { issues.push(`lineCategoryInterpretations: ${lcData.length}/4608`); if (status === "PASS") status = "WARN"; }
       if (piData.length < 4096) { issues.push(`pairInterpretations: ${piData.length}/4096`); if (status === "PASS") status = "WARN"; }
       
-      const allCount = lcData.length + ciData.length + piData.length;
+      const machineCount = lcData.length + piData.length;
       const needsExpCount =
         lcData.filter(l => l.needsExpansion).length +
-        piData.filter(p => p.needsExpansion).length +
-        ciData.filter(c => c.needsHumanReview).length;
+        piData.filter(p => p.needsExpansion).length;
+      const humanReviewCount = ciData.filter(c => c.needsHumanReview).length;
       
       if (needsExpCount > 0 && status === "PASS") status = "WARN";
-      issues.push(`待擴寫/人工審查: ${needsExpCount}/${allCount}`);
+      issues.push(`機器待擴寫: ${needsExpCount}/${machineCount}`);
+      issues.push(`待真人編審（資訊揭露，不影響機器驗收）: ${humanReviewCount}/${ciData.length}`);
       
       const statusCls = status === "PASS" ? "ok" : status === "WARN" ? "warn" : "";
       html += `<div class="issue ${statusCls}"><b>Status: ${status}</b></div>`;

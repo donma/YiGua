@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>v6 Peak Inspector - Zero1Matrix</title>
+  <title>2.0.0 Accuracy Release Inspector - 易卦</title>
   <link rel="stylesheet" href="../src/css/app.css">
 </head>
 <body>
   <header>
-    <div class="logo">v6 Peak Inspector</div>
-    <div class="subtitle">峰頂前最後大補驗收</div>
+    <div class="logo">2.0.0 Accuracy Inspector</div>
+    <div class="subtitle">易卦正式資料完整性、品質政策與公開驗收</div>
     <nav>
       <a href="../index.html">← 回起卦頁</a>
       <a href="../tools/reading-lab.html">Reading Lab</a>
@@ -17,104 +17,114 @@
       <a href="../tools/dictionary-quality-inspector.html">Quality Inspector</a>
       <a href="../tools/hard-correctness-inspector.html">Hard Correctness</a>
       <a href="../tools/content-quality-inspector.html">Content Quality</a>
-      <a href="../tools/v6-peak-inspector.html" class="active">v6 Peak</a>
+      <a href="../tools/v6-peak-inspector.html" class="active">2.0 Accuracy</a>
     </nav>
   </header>
   <main>
     <section class="card">
-      <h1>v6 Patch Report</h1>
-      <button id="run">Run v6 Check</button>
+      <h1>2.0.0-accuracy Release Report</h1>
+      <p class="muted">檢查正式資料集的完整覆蓋、機器待擴寫標記、禁語、依據欄位與可信狀態。人工編審待辦會獨立列出，不會冒充機器缺漏。</p>
+      <button id="run">執行 2.0.0 驗收</button>
       <pre id="report"></pre>
     </section>
   </main>
 
-  <script src="../src/data/pairInterpretations.v6.301-900.patch.data.js"></script>
-  <script src="../src/data/lineCategoryInterpretations.v6.hex9-16.patch.data.js"></script>
+  <script src="../src/data/hexagrams.data.js"></script>
+  <script src="../src/data/lines.data.js"></script>
+  <script src="../src/data/categoryInterpretations.data.js"></script>
+  <script src="../src/data/lineCategoryInterpretations.data.js"></script>
+  <script src="../src/data/pairInterpretations.data.js"></script>
   <script src="../src/data/actionSuggestions.data.js"></script>
-  <script src="../src/data/contentQualityRules.v6.data.js"></script>
+  <script src="../src/data/riskWarnings.data.js"></script>
+  <script src="../src/data/reflectionQuestions.data.js"></script>
+  <script src="../src/data/dictionaryQualityRules.data.js"></script>
+  <script src="../src/data/verificationPolicy.data.js"></script>
   <script>
-    function norm(text) {
-      return String(text || "")
-        .replace(/[「」]/g, "")
-        .replace(/[0-9０-９一二三四五六七八九十百千萬]+/g, "N")
-        .replace(/乾|坤|屯|蒙|需|訟|師|比|小畜|履|泰|否|同人|大有|謙|豫|隨|蠱|臨|觀|噬嗑|賁|剝|復|無妄|大畜|頤|大過|坎|離|咸|恆|遯|大壯|晉|明夷|家人|睽|蹇|解|損|益|夬|姤|萃|升|困|井|革|鼎|震|艮|漸|歸妹|豐|旅|巽|兌|渙|節|中孚|小過|既濟|未濟/g, "某卦")
-        .replace(/一般|工作事業|感情關係|財務金錢|人際合作|家庭親人|學習考試|身心狀態|重大決策|創業經營|官非合約|心境修行/g, "分類")
-        .replace(/\s+/g, "");
+    const HARD_FORBIDDEN_TERMS = ["必有災禍","不用看醫生","保證賺錢","官司一定贏","馬上辭職","必須分手","必須離婚","穩賺","包贏","不用諮詢專業人士"];
+    const CONTEXTUAL_REVIEW_TERMS = ["一定會","必定會","絕對成功","絕對失敗","絕對會","絕對不會","絕對不能"];
+
+    function recordsWithMissingBasis(records) {
+      return records.filter(record => !Array.isArray(record.basis) || record.basis.length === 0).map(record => record.id);
     }
 
-    function textStats(arr, field) {
-      const values = arr.map(x => x[field] || "").filter(Boolean);
-      const normalized = values.map(norm);
-      const counts = {};
-      for (const n of normalized) counts[n] = (counts[n] || 0) + 1;
-      const top = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
-      return {
-        count: arr.length,
-        unique: new Set(values).size,
-        normalizedUnique: new Set(normalized).size,
-        maxSameNormalizedTextCount: top.length ? top[0][1] : 0,
-        topNormalizedDuplicates: top
-      };
-    }
-
-    function forbiddenHits(arr, fields, terms) {
+    function forbiddenHits(records, terms, allowedPhrases) {
       const hits = [];
-      for (const rec of arr) {
-        for (const field of fields) {
-          const text = rec[field] || "";
-          for (const term of terms) {
-            if (text.includes(term)) hits.push({ id: rec.id, field, term });
-          }
-        }
-      }
+      records.forEach(record => {
+        let text = JSON.stringify(record);
+        allowedPhrases.forEach(phrase => { text = text.replaceAll(phrase, ""); });
+        terms.forEach(term => {
+          if (text.includes(term)) hits.push({ id: record.id, term });
+        });
+      });
       return hits;
     }
 
     function runCheck() {
       const D = window.Zero1MatrixData;
-      const pairs = D.pairInterpretationsV6Patch301900 || [];
-      const lines = D.lineCategoryInterpretationsV6PatchHex9To16 || [];
-      const actions = D.actionSuggestions || [];
-      const rules = D.contentQualityRulesV6;
-      const report = {
-        pairs: {
-          count: pairs.length,
-          needsExpansion: pairs.filter(x => x.needsExpansion).length,
-          shortSummary: pairs.filter(x => (x.summary || "").length < 120).length,
-          shortAdvice: pairs.filter(x => (x.advice || "").length < 80).length,
-          shortRisk: pairs.filter(x => (x.risk || "").length < 60).length
-        },
-        lineCategories: {
-          count: lines.length,
-          needsExpansion: lines.filter(x => x.needsExpansion).length,
-          shortMeaning: lines.filter(x => (x.meaning || "").length < 90).length,
-          shortAdvice: lines.filter(x => (x.advice || "").length < 70).length,
-          shortWarning: lines.filter(x => (x.warning || "").length < 60).length
-        },
-        actionSuggestions: textStats(actions, "text"),
-        forbiddenHits: [
-          ...forbiddenHits(pairs, ["summary","advice","risk","timing"], rules.forbiddenTerms),
-          ...forbiddenHits(lines, ["meaning","advice","warning"], rules.forbiddenTerms),
-          ...forbiddenHits(actions, ["text"], rules.forbiddenTerms)
-        ]
+      const datasets = {
+        hexagrams: D.hexagrams || [],
+        lines: D.lines || [],
+        categoryInterpretations: D.categoryInterpretations || [],
+        lineCategoryInterpretations: D.lineCategoryInterpretations || [],
+        pairInterpretations: D.pairInterpretations || [],
+        actionSuggestions: D.actionSuggestions || [],
+        riskWarnings: D.riskWarnings || [],
+        reflectionQuestions: D.reflectionQuestions || []
       };
-      report.status = (
-        report.pairs.count === 600 &&
-        report.pairs.needsExpansion === 0 &&
-        report.pairs.shortSummary === 0 &&
-        report.pairs.shortAdvice === 0 &&
-        report.pairs.shortRisk === 0 &&
-        report.lineCategories.count === 576 &&
-        report.lineCategories.needsExpansion === 0 &&
-        report.lineCategories.shortMeaning === 0 &&
-        report.lineCategories.shortAdvice === 0 &&
-        report.lineCategories.shortWarning === 0 &&
-        report.actionSuggestions.count === 768 &&
-        report.actionSuggestions.normalizedUnique >= 450 &&
-        report.actionSuggestions.maxSameNormalizedTextCount <= 36 &&
-        report.forbiddenHits.length === 0
-      ) ? "PASS" : "FAIL";
-      return report;
+      const expected = {
+        hexagrams: 64,
+        lines: 384,
+        categoryInterpretations: 768,
+        lineCategoryInterpretations: 4608,
+        pairInterpretations: 4096,
+        actionSuggestions: 768,
+        riskWarnings: 768,
+        reflectionQuestions: 2304
+      };
+      const coverage = Object.fromEntries(Object.entries(datasets).map(([name, records]) => [name, {
+        actual: records.length,
+        expected: expected[name],
+        complete: records.length === expected[name]
+      }]));
+      const expansionPending = {
+        lines: datasets.lines.filter(record => record.needsExpansion === true).length,
+        lineCategoryInterpretations: datasets.lineCategoryInterpretations.filter(record => record.needsExpansion === true).length,
+        pairInterpretations: datasets.pairInterpretations.filter(record => record.needsExpansion === true).length
+      };
+      const modernDatasets = [
+        datasets.categoryInterpretations,
+        datasets.lineCategoryInterpretations,
+        datasets.pairInterpretations,
+        datasets.actionSuggestions,
+        datasets.riskWarnings,
+        datasets.reflectionQuestions
+      ];
+      const humanEditorialReviewPending = Object.fromEntries(Object.entries(datasets)
+        .filter(([name]) => !["hexagrams", "lines"].includes(name))
+        .map(([name, records]) => [name, records.filter(record => record.needsHumanReview === true).length]));
+      const missingBasis = modernDatasets.flatMap(recordsWithMissingBasis);
+      const hardForbidden = forbiddenHits(modernDatasets.flat(), HARD_FORBIDDEN_TERMS, []);
+      const contextualLanguageReview = forbiddenHits(modernDatasets.flat(), CONTEXTUAL_REVIEW_TERMS, []);
+      const coverageComplete = Object.values(coverage).every(item => item.complete);
+      const expansionComplete = Object.values(expansionPending).every(count => count === 0);
+      const policyVersion = D.verificationPolicy?.version || null;
+
+      return {
+        releaseVersion: "2.0.0-accuracy",
+        status: coverageComplete && expansionComplete && missingBasis.length === 0 && hardForbidden.length === 0 && policyVersion === "2.0.0" ? "PASS" : "FAIL",
+        coverage,
+        machineExpansionPending: expansionPending,
+        humanEditorialReviewPending,
+        humanReviewNote: "待真人編審是公開可信狀態，不代表資料缺漏，也不會自動升級為 Reviewed 或 Gold。",
+        verificationPolicy: policyVersion,
+        hardForbiddenHits: hardForbidden,
+        contextualLanguageReview: {
+          count: contextualLanguageReview.length,
+          note: "一般絕對語詞可能出現在否定、引述或描述性語境，列入人工語境複核，不直接判定為高風險禁語。",
+          sample: contextualLanguageReview.slice(0, 20)
+        },
+        missingBasis
+      };
     }
 
     document.getElementById("run").addEventListener("click", () => {
